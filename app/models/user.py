@@ -13,7 +13,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    project = db.relationship('Project', back_populates='projOwner')
+    project = db.relationship('Project', back_populates='projectOwner')
     teamMember = db.relationship('Team', back_populates="memberId")
     taskOwner = db.relationship('Task', back_populates='userToDoTask')
 

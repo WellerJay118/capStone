@@ -12,10 +12,16 @@ class Task(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True))
 
-    userToDoTask = db.relationship('User', back_populates='task')
-    project = db.relationship('Project', back_populates='task')
+    userToDoTask = db.relationship('User', back_populates='taskOwner')
+    project = db.relationship('Project', cascade='all, delete', back_populates='projTeam')
 
-    # def task_to_dict():
-    #     return (
-
-    #     )
+    def task_to_dict(self):
+        return {
+            'id' : self.id,
+            'assignedTo' : self.assignedTo,
+            'projId' : self.projId,
+            'taskBody' : self.taskBody,
+            'taskStatus' : self.taskStatus,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
+        }

@@ -11,11 +11,17 @@ class Team(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True))
 
-    memberId = db.relationship('User', back_populates='team')
-    project = db.relationship('Project', back_populates='team')
+    memberId = db.relationship('User', back_populates='teamMember')
+    project = db.relationship('Project', cascade='all, delete', back_populates='projTeam')
 
 
-  # def team_to_dict():
-    #     return (
-
-    #     )
+    def team_to_dict(self):
+      return {
+        'id' : self.id,
+        'teamName' : self.teamName,
+        'teamMemberId' : self.teamMemberId,
+        'role' : self.role,
+        'projId' : self.projId,
+        'created_at': self.created_at,
+        'updated_at': self.updated_at,
+      }

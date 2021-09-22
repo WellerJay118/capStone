@@ -13,12 +13,17 @@ class Project(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True))
 
 
-    projOwner = db.relationship('User', back_populates='project')
-    projTeam = db.relationship('Team', back_populates='project') #looks at table Team 'project'
-    # assignedTask = db.relationship('Task', back_populates='project')
-    # assignedTeam = db.relationship('Team', back_populates='project')
+    projectOwner = db.relationship('User', back_populates='project')
+    projTeam = db.relationship('Team', cascade='all, delete', back_populates='project')
 
-    # def project_to_dict():
-    #     return (
-
-    #     )
+    def project_to_dict(self):
+        return {
+            'id' : self.id,
+            'projOwner' : self.projOwner,
+            'projName' : self.projName,
+            'projDesc' : self.projDesc,
+            'projStatus' : self.projStatus,
+            'teamId' : self.teamId,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
+        }
