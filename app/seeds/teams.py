@@ -2,13 +2,22 @@ from app.models import db, Team
 
 def seed_teams():
     teamOne = Team(
-        teamName="Alpha", teamMemberId=1, role="Scrum Lord", projId=1
+        teamName="Alpha",
+        teamMemberId=1,
+        role="Scrum Lord",
+        projId=1
     )
     teamTwo = Team(
-        teamName="Beta", teamMemberId=2, role="Doer", projId=2
+        teamName="Beta",
+        teamMemberId=2,
+        role="Doer",
+        projId=2
     )
     teamThree = Team(
-        teamName="Charlie", teamMemberId=3, role="Baron", projId=3
+        teamName="Charlie",
+        teamMemberId=3,
+        role="Baron",
+        projId=3
     )
 
     db.session.add(teamOne)

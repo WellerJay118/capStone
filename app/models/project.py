@@ -8,13 +8,14 @@ class Project(db.Model):
     projName = db.Column(db.String(255), nullable=False)
     projDesc = db.Column(db.Text, nullable=False)
     projStatus = db.Column(db.String(50))
-    teamId = db.Column(db.Integer, db.ForeignKey('teams.id'))
+    # teamId = db.Column(db.Integer, db.ForeignKey('teams.id'))
     created_at = db.Column(db.DateTime(timezone=True), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True))
 
 
     projectOwner = db.relationship('User', back_populates='project')
     projTeam = db.relationship('Team', back_populates='project')
+    tasks = db.relationship('Task', back_populates="project")
 
     def project_to_dict(self):
         return {
@@ -23,7 +24,7 @@ class Project(db.Model):
             'projName' : self.projName,
             'projDesc' : self.projDesc,
             'projStatus' : self.projStatus,
-            'teamId' : self.teamId,
+            # 'teamId' : self.teamId,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
         }

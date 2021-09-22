@@ -13,7 +13,7 @@ class Task(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True))
 
     userToDoTask = db.relationship('User', back_populates='taskOwner')
-    project = db.relationship('Project', cascade='all, delete', back_populates='projTeam')
+    project = db.relationship('Project', back_populates='tasks')
 
     def task_to_dict(self):
         return {

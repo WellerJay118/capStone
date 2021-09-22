@@ -7,7 +7,7 @@ class Team(db.Model):
     teamName = db.Column(db.String(255), nullable=False)
     teamMemberId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     role = db.Column(db.String(75), nullable=False)
-    # projId = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable=False)
+    projId = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable=False)
 
     memberId = db.relationship('User', back_populates='teamMember')
     project = db.relationship('Project', back_populates='projTeam')
