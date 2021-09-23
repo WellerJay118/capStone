@@ -56,13 +56,13 @@ def deleteProj(id):
     db.session.commit()
     return "Project deleted"
 
+############# TASKS ###############
+
 #READ ALL tasks
 @project_routes.route('/<int:id>/tasks')
 def getAllTasks(id):
     tasks = Task.query.filter(id == Task.projId).all()
     return {'tasks': [task.task_to_dict() for task in tasks]}
-
-############# TASKS ###############
 
 #Read a single task
 @project_routes.route('/<int:id>/tasks/<int:taskId>')
@@ -110,3 +110,40 @@ def deleteTask(id, taskId):
     db.session.delete(task)
     db.session.commit()
     return "Task deleted"
+
+
+############### Teams #################
+
+#READ a projects team
+@project_routes.route('/<int:id>/team')
+def getTeam(id):
+    team = Team.query.filter(id == Team.projId)
+    return team.team_to_dict()
+
+#CREATE a project team
+#when creating a team, the person creating the team is the first member of the team.
+@project_routes.route('/<int:id>/team/create')
+def createTeam(id):
+    data = request.json
+    newTeam = Team(
+        teamName = data['teamName'],
+        teamMemberId = current_user.id,
+        role = data['role'],
+        projId = id
+    )
+    db.session.add(newTeam)
+    db.session.commit()
+    payload = newTeam.team_to_dict()
+    return payload
+
+#EDIT a projects team
+#Have to add teamMember, remove teamMember, NO EDIT to team name
+# @project_routes.route()
+
+#DELETE a projects team
+@project_routes.route('/<int:id>/team/<int:teamId>')
+def deleteTeam(id, teamId):
+    team = Team.query.get(teamId)
+    db.session.delete(team)
+    db.session.commit()
+    return "Team Deleted"

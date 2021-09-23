@@ -18,6 +18,8 @@ class Project(db.Model):
     tasks = db.relationship('Task', cascade="all, delete-orphan", back_populates="project")
 
     def proj_to_dict(self):
+
+    # implementation of all states starts here? to have access to 
         return {
             'id' : self.id,
             'projOwner' : self.projOwner,
