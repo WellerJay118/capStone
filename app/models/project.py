@@ -14,8 +14,8 @@ class Project(db.Model):
 
 
     projectOwner = db.relationship('User', back_populates='project')
-    projTeam = db.relationship('Team', back_populates='project')
-    tasks = db.relationship('Task', back_populates="project")
+    projTeam = db.relationship('Team', cascade="all, delete-orphan", back_populates='project')
+    tasks = db.relationship('Task', cascade="all, delete-orphan", back_populates="project")
 
     def project_to_dict(self):
         return {
