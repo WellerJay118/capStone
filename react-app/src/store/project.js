@@ -74,7 +74,7 @@ export const updateProj = (projPayload, projId) => async(dispatch) => {
     })
     if (res.ok) {
         const project = await res.json();
-        dispatch(getProj(project));
+        dispatch(getOneProj(project));
         return project
     }
 }
@@ -90,10 +90,10 @@ export const removeProj = (projId) => async(dispatch) => {
 }
 
 // Define an initial state
-initialState = {}
+let initialState = {}
 
 // Define a reducer
-const projectReducer = (state = initiaState, action) => {
+const projectReducer = (state = initialState, action) => {
     let newState = { ...state }
     switch (action.type) {
         case GET_ALL_PROJECTS:
