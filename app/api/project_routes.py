@@ -139,6 +139,7 @@ def createTeam(id):
 #EDIT a projects team
 #Have to add teamMember, remove teamMember, NO EDIT to team name
 # @project_routes.route()
+# MAYBE DO IT LIKE FOLLOWERS
 
 #DELETE a projects team
 @project_routes.route('/<int:id>/team/<int:teamId>')
