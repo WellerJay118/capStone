@@ -88,6 +88,22 @@ def createTask(id):
 #UPDATE a single task
 @project_routes.route('/<int:id>/tasks/<int:taskId>', methods=['PATCH'])
 def editTask(id, taskId):
-    task = Task.query.get(taskId)
     data = request.json
-    
+    task = Task.query.get(taskId)
+    task.assignedTo = data['assignedTo'],
+    task.projId = id,
+    task.taskBody = data['taskBody'],
+    task.taskStatus = data['taskStatus'],
+    task.taskPriority = data['taskPriority'],
+    task.updated_at = datetime.now()
+
+    db.session.add(task)
+    db.session.commit()
+    return 'Task updated'
+
+@project_routes.route('/<int:id>/tasks/<int:taskId>', methods=['DELETE'])
+def deleteTask(id, taskId):
+    task = Task.query.get(taskId)
+    db.session.delete(task)
+    db.session.commit()
+    return "Task deleted"
