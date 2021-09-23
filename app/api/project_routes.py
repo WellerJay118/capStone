@@ -62,6 +62,8 @@ def getAllTasks(id):
     tasks = Task.query.filter(id == Task.projId).all()
     return {'tasks': [task.task_to_dict() for task in tasks]}
 
+############# TASKS ###############
+
 #Read a single task
 @project_routes.route('/<int:id>/tasks/<int:taskId>')
 def getTask(id, taskId):
@@ -101,6 +103,7 @@ def editTask(id, taskId):
     db.session.commit()
     return 'Task updated'
 
+#DELETE a single task
 @project_routes.route('/<int:id>/tasks/<int:taskId>', methods=['DELETE'])
 def deleteTask(id, taskId):
     task = Task.query.get(taskId)
