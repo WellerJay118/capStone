@@ -1,7 +1,7 @@
 // Define Action Types as Constants
 const GET_ALL_PROJECTS = '/projects/GET_ALL_PROJECTS'
 // const GET_PROJECT = '/projects/GET_PROJECT'
-// const ADD_PROJECT = '/projects/ADD_PROJECT'
+const ADD_PROJECT = '/projects/ADD_PROJECT'
 // const EDIT_PROJECT = '/projects/EDIT_PROJECT'
 // const DELETE_PROJECT = '/projects/DELETE_PROJECT'
 
@@ -19,10 +19,10 @@ const getAllProj = (projects) => ({
 // })
 
 //POST PROJECT
-// const addProj = (projPayload) => ({
-//     type : ADD_PROJECT,
-//     projPayload
-// })
+const addProj = (projPayload) => ({
+    type : ADD_PROJECT,
+    projPayload
+})
 
 //PATCH PROJECT
 // const editProj = (editedProj) => ({
@@ -54,16 +54,16 @@ export const fetchAllProj = () => async(dispatch) => {
 // }
 
 // //POST PROJECT
-// export const createProj = (projPayload) => async(dispatch) => {
-//     const res = await fetch('/api/projects/create', {
-//         method : "POST",
-//         headers : {"Content-Type" : "application/json"},
-//         body : JSON.stringify(projPayload)
-//     })
-//     const project = await res.json();
-//     dispatch(addProj(project))
-//     return project
-// }
+export const createProj = (projPayload) => async(dispatch) => {
+    const res = await fetch('/api/projects/create', {
+        method : "POST",
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify(projPayload)
+    })
+    const project = await res.json();
+    dispatch(addProj(project))
+    return project
+}
 
 // //PATCH PROJECT
 // export const updateProj = (projPayload, projId) => async(dispatch) => {

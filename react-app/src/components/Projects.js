@@ -6,7 +6,7 @@ import { fetchAllProj } from "../store/project";
 const ProjectsPage = () => {
     const dispatch = useDispatch();
     const projects = useSelector(state => state.projects)
-    const user = useSelector(state => state.session.user) //can grab id from user.id to see if current user owns project
+    const sessionUser = useSelector(state => state.session.user) //can grab id from user.id to see if current user owns project
 
     useEffect(() => {
         dispatch(fetchAllProj())

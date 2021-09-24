@@ -11,7 +11,7 @@ project_routes = Blueprint('projects', __name__)
 def getAllProj():
     print('##########################################################################')
     print(current_user)
-    projects = Project.query.filter(Project.projOwner == 1).all()
+    projects = Project.query.filter(Project.projOwner == current_user.id).all()
     return {'projects': [project.proj_to_dict() for project in projects]}
 
 #READ a single project by id
