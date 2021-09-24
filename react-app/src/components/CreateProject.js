@@ -54,10 +54,10 @@ const CreateProject = () => {
                     onChange={(e) => setProjDesc(e.target.value)}
                 />
                 <input
-                    placeholder="Project Name"
+                    placeholder="Project Status"
                     type="text"
                     value={projStatus}
-                    onChange={(e) => setProjName(e.target.value)}
+                    onChange={(e) => setProjStatus(e.target.value)}
                 />
             </form>
         </div>
