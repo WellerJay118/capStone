@@ -39,7 +39,7 @@ const addProj = (projPayload) => ({
 // Define Thunks
 //GET ALL PROJECT
 export const fetchAllProj = () => async(dispatch) => {
-    const res = await fetch('/api/projects');
+    const res = await fetch('/api/projects/');
     const projects = await res.json();
     dispatch(getAllProj(projects.projects));
     return projects
