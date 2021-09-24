@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import ProjectsPage from './components/Projects';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -31,21 +32,31 @@ function App() {
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
+
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
+
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+
+        <ProtectedRoute path='/projects' exact={true} >
+          <ProjectsPage />
+        </ProtectedRoute>
+
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
+
         {/* <ProtectedRoute path='/'>
           <h1>404 Page Not Found</h1>
         </ProtectedRoute> */}
+
       </Switch>
     </BrowserRouter>
   );

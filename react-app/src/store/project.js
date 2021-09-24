@@ -7,9 +7,9 @@ const GET_ALL_PROJECTS = '/projects/GET_ALL_PROJECTS'
 
 // Define Action Creators
 //GET ALL PROJECTS
-const getAllProj = (allProjects) => ({
+const getAllProj = (projects) => ({
     type : GET_ALL_PROJECTS,
-    allProjects
+    projects
 })
 
 //GET SINGLE PROJECT
@@ -41,8 +41,7 @@ const getAllProj = (allProjects) => ({
 export const fetchAllProj = () => async(dispatch) => {
     const res = await fetch('/api/projects');
     const projects = await res.json();
-    dispatch(getAllProj(projects));
-    return projects;
+    dispatch(getAllProj(projects.projects));
 }
 
 //GET ONE PROJECT
@@ -53,7 +52,7 @@ export const fetchAllProj = () => async(dispatch) => {
 //     return project
 // }
 
-//POST PROJECT
+// //POST PROJECT
 // export const createProj = (projPayload) => async(dispatch) => {
 //     const res = await fetch('/api/projects/create', {
 //         method : "POST",
@@ -65,7 +64,7 @@ export const fetchAllProj = () => async(dispatch) => {
 //     return project
 // }
 
-//PATCH PROJECT
+// //PATCH PROJECT
 // export const updateProj = (projPayload, projId) => async(dispatch) => {
 //     const res = await fetch(`/api/projects/${projId}`, {
 //         method : "PATCH",
@@ -74,12 +73,12 @@ export const fetchAllProj = () => async(dispatch) => {
 //     })
 //     if (res.ok) {
 //         const project = await res.json();
-//         dispatch(getOneProj(project));
+//         dispatch(editProj(project));
 //         return project
 //     }
 // }
 
-//DELETE PROJECT
+// //DELETE PROJECT
 // export const removeProj = (projId) => async(dispatch) => {
 //     const res = await fetch(`/api/projects/${projId}`, {
 //         method : "DELETE"
@@ -97,10 +96,19 @@ const projectReducer = (state = initialState, action) => {
     let newState = { ...state }
     switch (action.type) {
         case GET_ALL_PROJECTS:
-            action.projects.forEach(project => {
+            Object.values(action.projects).forEach(project => {
                 newState[project.id] = project
             })
             return newState
+        // case ADD_PROJECT:
+        //     newState[action.project.id] = action.project
+        //     return newState
+        // case EDIT_PROJECT:
+        //     newState[action.project] = action.project
+        //     return newState
+        // case DELETE_PROJECT:
+        //     delete newState[action.id]
+        //     return newState
         default:
             return state;
 
