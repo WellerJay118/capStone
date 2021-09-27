@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import ProjectsPage from './components/Projects';
 import CreateProject from './components/CreateProject';
+import IndivProject from './components/IndivProject';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -52,6 +53,10 @@ function App() {
 
         <ProtectedRoute path='/projects/create' exact={true} >
           <CreateProject />
+        </ProtectedRoute>
+
+        <ProtectedRoute path='/projects/:id' exact={true} >
+          <IndivProject />
         </ProtectedRoute>
 
         <ProtectedRoute path='/' exact={true} >

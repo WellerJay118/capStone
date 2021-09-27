@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom";
 import { fetchAllProj } from "../store/project";
@@ -7,7 +7,7 @@ import { fetchAllProj } from "../store/project";
 const ProjectsPage = () => {
     const dispatch = useDispatch();
     const projects = useSelector(state => Object.values(state.projects))
-    const sessionUser = useSelector(state => state.session.user) //can grab id from user.id to see if current user owns project
+    // const sessionUser = useSelector(state => state.session.user) //can grab id from user.id to see if current user owns project
 
     useEffect(() => {
         dispatch(fetchAllProj())
