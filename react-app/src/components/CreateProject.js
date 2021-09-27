@@ -12,7 +12,7 @@ const CreateProject = () => {
     const [projName, setProjName] = useState('')
     const [projDesc, setProjDesc] = useState('')
     const [projStatus, setProjStatus] = useState('')
-    const [validationErrors, setValidationErrors] = useState([])
+    // const [validationErrors, setValidationErrors] = useState([])
 
     //can be for frontend error handling
     // useEffect(() => {
@@ -37,9 +37,9 @@ const CreateProject = () => {
     }
 
     return (
-        <div>
+        <div className="borderBlack">
             <h1>Create a Project</h1>
-            <form onSubmir={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <input
                     placeholder="Project Name"
                     type="text"
@@ -59,6 +59,8 @@ const CreateProject = () => {
                     value={projStatus}
                     onChange={(e) => setProjStatus(e.target.value)}
                 />
+                <button type='submit'>Create</button>
+                <button onClick={handleCancel}>Cancel</button>
             </form>
         </div>
     )

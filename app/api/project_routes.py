@@ -9,8 +9,6 @@ project_routes = Blueprint('projects', __name__)
 #READ all projects
 @project_routes.route('/')
 def getAllProj():
-    print('##########################################################################')
-    print('@@@@@@@@@@@@@@',current_user)
     projects = Project.query.filter(Project.projOwner == current_user.id).all()
     return {'projects': [project.proj_to_dict() for project in projects]}
 
@@ -22,20 +20,20 @@ def getAllProj():
 #     return project.proj_to_dict()
 
 #Create a project
-# @project_routes.route('/create', methods=['POST'])
-# def createProj():
-#     data = request.json
-#     newProject = Project(
-#         projOwner = current_user.id,
-#         projName = data['projName'],
-#         projDesc = data['projDesc'],
-#         projStatus = data['projStatus'],
-#         created_at = datetime.now()
-#     )
-#     db.session.add(newProject)
-#     db.session.commit()
-#     payload = newProject.proj_to_dict()
-#     return payload
+@project_routes.route('/create', methods=['POST'])
+def createProj():
+    data = request.json
+    newProject = Project(
+        projOwner = current_user.id,
+        projName = data['projName'],
+        projDesc = data['projDesc'],
+        projStatus = data['projStatus'],
+        created_at = datetime.now()
+    )
+    db.session.add(newProject)
+    db.session.commit()
+    payload = newProject.proj_to_dict()
+    return payload
 
 #UPDATE a single projects Name, Description, Status, updated at time
 # @project_routes.route('/<int:id>', methods=['PATCH'])

@@ -19,9 +19,9 @@ const getAllProj = (projects) => ({
 // })
 
 //POST PROJECT
-const addProj = (projPayload) => ({
+const addProj = (project) => ({
     type : ADD_PROJECT,
-    projPayload
+    project
 })
 
 //PATCH PROJECT
@@ -101,9 +101,9 @@ const projectReducer = (state = initialState, action) => {
                 newState[project.id] = project
             })
             return newState
-        // case ADD_PROJECT:
-        //     newState[action.project.id] = action.project
-        //     return newState
+        case ADD_PROJECT:
+            newState[action.project.id] = action.project
+            return newState
         // case EDIT_PROJECT:
         //     newState[action.project] = action.project
         //     return newState

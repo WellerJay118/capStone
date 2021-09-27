@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import ProjectsPage from './components/Projects';
+import CreateProject from './components/CreateProject';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,6 +48,10 @@ function App() {
 
         <ProtectedRoute path='/projects' exact={true} >
           <ProjectsPage />
+        </ProtectedRoute>
+
+        <ProtectedRoute path='/projects/create' exact={true} >
+          <CreateProject />
         </ProtectedRoute>
 
         <ProtectedRoute path='/' exact={true} >
