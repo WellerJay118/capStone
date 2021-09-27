@@ -17,7 +17,7 @@ const IndivProject = () => {
     return (
         <div className="blackBorder">
             <h1>From individual project</h1>
-            {console.log('@@@@@@@@@@@@@@@@@@',thisProject.id)}
+            {/* {console.log('@@@@@@@@@@@@@@@@@@',thisProject.id)} */}
             {thisProject.projDesc}
         </div>
     )
