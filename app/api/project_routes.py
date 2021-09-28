@@ -36,18 +36,18 @@ def createProj():
     return payload
 
 #UPDATE a single projects Name, Description, Status, updated at time
-# @project_routes.route('/<int:id>', methods=['PATCH'])
-# def editProj(id):
-#     data = request.json
-#     project = Project.query.get(id)
-#     project.projName = data['projName']
-#     project.projDesc = data['projDesc']
-#     project.projStatus = data['projStatus']
-#     project.updated_at = datetime.now()
+@project_routes.route('/<int:id>', methods=['PATCH'])
+def editProj(id):
+    data = request.json
+    project = Project.query.get(id)
+    project.projName = data['projName']
+    project.projDesc = data['projDesc']
+    project.projStatus = data['projStatus']
+    project.updated_at = datetime.now()
 
-#     db.session.add(project)
-#     db.session.commit()
-#     return "Project updated"
+    db.session.add(project)
+    db.session.commit()
+    return "Project updated"
 
 #DELETE project
 # @project_routes.route('/<int:id>', methods=['DELETE'])
