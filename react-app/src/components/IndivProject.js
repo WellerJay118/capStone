@@ -21,7 +21,7 @@ const IndivProject = () => {
         <div className="borderBlack">
             <h1>From individual project</h1>
             {/* {console.log('@@@@@@@@@@@@@@@@@@',thisProject.id)} */}
-            {thisProject?.projDesc}
+            <h4>{thisProject?.projDesc}</h4>
             {thisProject?.projOwner === sessionUser?.id ? (
                         <button onClick={(e) => history.push(`/projects/${id}/edit`)}>Edit project</button>
                     ): null}

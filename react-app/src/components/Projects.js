@@ -32,6 +32,7 @@ const ProjectsPage = () => {
                     <h4>{project.projName}</h4>
                     <h4>{project.projDesc}</h4>
                     <h5>{project.projStatus}</h5>
+                    <NavLink to={`/projects/${project.id}`} exact={true}>GO TO {project.projName}</NavLink>
                 </div>
             )}
         </div>
