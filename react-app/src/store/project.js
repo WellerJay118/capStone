@@ -3,7 +3,7 @@ const GET_ALL_PROJECTS = '/projects/GET_ALL_PROJECTS'
 // const GET_PROJECT = '/projects/GET_PROJECT'
 const ADD_PROJECT = '/projects/ADD_PROJECT'
 const EDIT_PROJECT = '/projects/EDIT_PROJECT'
-// const DELETE_PROJECT = '/projects/DELETE_PROJECT'
+const DELETE_PROJECT = '/projects/DELETE_PROJECT'
 
 // Define Action Creators
 //GET ALL PROJECTS
@@ -31,10 +31,10 @@ const editProj = (editedProj) => ({
 })
 
 //DELETE PROJECT
-// const deleteProj = (projId) => ({
-//     type : DELETE_PROJECT,
-//     projId
-// })
+const deleteProj = (projId) => ({
+    type : DELETE_PROJECT,
+    projId
+})
 
 // Define Thunks
 //GET ALL PROJECT
@@ -74,20 +74,20 @@ export const updateProj = (projPayload, projId) => async(dispatch) => {
     })
     if (res.ok) {
         const project = await res.json();
-        dispatch(editProj(project)); 
+        dispatch(editProj(project));
         return project
     }
 }
 
 // //DELETE PROJECT
-// export const removeProj = (projId) => async(dispatch) => {
-//     const res = await fetch(`/api/projects/${projId}`, {
-//         method : "DELETE"
-//     })
-//     if (res.ok) {
-//         dispatch(deleteProj(projId))
-//     }
-// }
+export const removeProj = (projId) => async(dispatch) => {
+    const res = await fetch(`/api/projects/${projId}`, {
+        method : "DELETE"
+    })
+    if (res.ok) {
+        dispatch(deleteProj(projId))
+    }
+}
 
 // Define an initial state
 let initialState = {}
@@ -107,9 +107,9 @@ const projectReducer = (state = initialState, action) => {
         case EDIT_PROJECT:
             newState[action.project] = action.project
             return newState
-        // case DELETE_PROJECT:
-        //     delete newState[action.id]
-        //     return newState
+        case DELETE_PROJECT:
+            delete newState[action.id]
+            return newState
         default:
             return state;
 

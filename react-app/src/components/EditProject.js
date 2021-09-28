@@ -11,9 +11,8 @@ const EditProject = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const history = useHistory();
-    // const sessionUser = useSelector(state => state.session.user);
+    const sessionUser = useSelector(state => state.session.user);
     const toEdit = useSelector(state => state?.projects[id])
-    // console.log("@@@@@@@@@@@@@", toEdit)
 
     const [projName, setProjName] = useState(toEdit?.projName)
     const [projDesc, setProjDesc] = useState(toEdit?.projDesc)
@@ -30,7 +29,7 @@ const EditProject = () => {
             projDesc,
             projStatus
         }
-        let editedProject = await dispatch(updateProj(projPayload, id)) 
+        let editedProject = await dispatch(updateProj(projPayload, id))
         if (editedProject) history.push(`/projects/${editedProject.id}`)
     }
 
@@ -39,11 +38,11 @@ const EditProject = () => {
         history.push(`projects/${id}`);
     }
 
-    // const handleDelete = async(e) => {
-    //     e.preventDefault();
-    //     await dispatch(removeProj(id))
-    //     history.push('/projects') //may need the trailing slash
-    // }
+    const handleDelete = async(e) => {
+        e.preventDefault();
+        await dispatch(removeProj(id))
+        history.push('/projects') //may need the trailing slash
+    }
 
     const updateName = (e) => setProjName(e.target.value)
     const updateDesc = (e) => setProjDesc(e.target.value)
@@ -75,6 +74,9 @@ const EditProject = () => {
                 />
                 <button type='submit'>Edit</button>
                 <button onClick={handleCancel}>Cancel</button>
+                {sessionUser.id == toEdit.projOwner ?
+                    <button onClick={handleDelete}>Delete</button>
+                :null}
             </form>
         </div>
     )

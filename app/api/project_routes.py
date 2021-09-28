@@ -52,12 +52,12 @@ def editProj(id):
     return project.proj_to_dict()
 
 #DELETE project
-# @project_routes.route('/<int:id>', methods=['DELETE'])
-# def deleteProj(id):
-#     project = Project.query.get(id)
-#     db.session.delete(project)
-#     db.session.commit()
-#     return "Project deleted"
+@project_routes.route('/<int:id>', methods=['DELETE'])
+def deleteProj(id):
+    project = Project.query.get(id)
+    db.session.delete(project)
+    db.session.commit()
+    return "Project deleted"
 
 ############# TASKS ###############
 
