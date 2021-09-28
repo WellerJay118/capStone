@@ -70,11 +70,11 @@ export const updateProj = (projPayload, projId) => async(dispatch) => {
     const res = await fetch(`/api/projects/${projId}`, {
         method : "PATCH",
         headers : {"Content-Type" : "application/json"},
-        body : JSON.stringify({projPayload})
+        body : JSON.stringify(projPayload)
     })
     if (res.ok) {
         const project = await res.json();
-        dispatch(editProj(project));
+        dispatch(editProj(project)); 
         return project
     }
 }

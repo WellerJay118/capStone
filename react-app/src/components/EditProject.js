@@ -30,7 +30,7 @@ const EditProject = () => {
             projDesc,
             projStatus
         }
-        let editedProject = await dispatch(updateProj(projPayload, id))
+        let editedProject = await dispatch(updateProj(projPayload, id)) 
         if (editedProject) history.push(`/projects/${editedProject.id}`)
     }
 

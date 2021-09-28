@@ -40,6 +40,7 @@ def createProj():
 def editProj(id):
     data = request.json
     project = Project.query.get(id)
+    print("CURRENT PROJECT INFORMATION", project)
     project.projName = data['projName']
     project.projDesc = data['projDesc']
     project.projStatus = data['projStatus']
@@ -47,7 +48,8 @@ def editProj(id):
 
     db.session.add(project)
     db.session.commit()
-    return "Project updated"
+
+    return project.proj_to_dict()
 
 #DELETE project
 # @project_routes.route('/<int:id>', methods=['DELETE'])
