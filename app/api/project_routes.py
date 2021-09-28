@@ -62,10 +62,10 @@ def deleteProj(id):
 ############# TASKS ###############
 
 #READ ALL tasks
-# @project_routes.route('/<int:id>/tasks')
-# def getAllTasks(id):
-#     tasks = Task.query.filter(id == Task.projId).all()
-#     return {'tasks': [task.task_to_dict() for task in tasks]}
+@project_routes.route('/<int:id>/tasks')
+def getAllTasks(id):
+    tasks = Task.query.filter(id == Task.projId).all()
+    return {'tasks': [task.task_to_dict() for task in tasks]}
 
 #Read a single task
 # @project_routes.route('/<int:id>/tasks/<int:taskId>')
@@ -74,45 +74,45 @@ def deleteProj(id):
 #     return task.task_to_dict()
 
 #CREATE a single task
-# @project_routes.route('/<int:id>/tasks/create', methods=["POST"])
-# def createTask(id):
-#     data = request.json
-#     newTask = Task(
-#         assignedTo = current_user.id,
-#         projId = id,
-#         taskBody = data['taskBody'],
-#         taskStatus = data['taskStatus'],
-#         taskPriority = data['taskPriority'],
-#         created_at = datetime.now()
-#     )
-#     db.session.add(newTask)
-#     db.session.commit()
-#     payload = newTask.task_to_dict()
-#     return payload
+@project_routes.route('/<int:id>/tasks/create', methods=["POST"])
+def createTask(id):
+    data = request.json
+    newTask = Task(
+        assignedTo = current_user.id,
+        projId = id,
+        taskBody = data['taskBody'],
+        taskStatus = data['taskStatus'],
+        taskPriority = data['taskPriority'],
+        created_at = datetime.now()
+    )
+    db.session.add(newTask)
+    db.session.commit()
+    payload = newTask.task_to_dict()
+    return payload
 
 #UPDATE a single task
-# @project_routes.route('/<int:id>/tasks/<int:taskId>', methods=['PATCH'])
-# def editTask(id, taskId):
-#     data = request.json
-#     task = Task.query.get(taskId)
-#     task.assignedTo = data['assignedTo'],
-#     task.projId = id,
-#     task.taskBody = data['taskBody'],
-#     task.taskStatus = data['taskStatus'],
-#     task.taskPriority = data['taskPriority'],
-#     task.updated_at = datetime.now()
+@project_routes.route('/<int:id>/tasks/<int:taskId>', methods=['PATCH'])
+def editTask(id, taskId):
+    data = request.json
+    task = Task.query.get(taskId)
+    task.assignedTo = data['assignedTo'],
+    task.projId = id,
+    task.taskBody = data['taskBody'],
+    task.taskStatus = data['taskStatus'],
+    task.taskPriority = data['taskPriority'],
+    task.updated_at = datetime.now()
 
-#     db.session.add(task)
-#     db.session.commit()
-#     return 'Task updated'
+    db.session.add(task)
+    db.session.commit()
+    return 'Task updated'
 
 #DELETE a single task
-# @project_routes.route('/<int:id>/tasks/<int:taskId>', methods=['DELETE'])
-# def deleteTask(id, taskId):
-#     task = Task.query.get(taskId)
-#     db.session.delete(task)
-#     db.session.commit()
-#     return "Task deleted"
+@project_routes.route('/<int:id>/tasks/<int:taskId>', methods=['DELETE'])
+def deleteTask(id, taskId):
+    task = Task.query.get(taskId)
+    db.session.delete(task)
+    db.session.commit()
+    return "Task deleted"
 
 
 ############### Teams #################

@@ -4,8 +4,38 @@ const GET_ALL_PROJECTS = '/projects/GET_ALL_PROJECTS'
 const ADD_PROJECT = '/projects/ADD_PROJECT'
 const EDIT_PROJECT = '/projects/EDIT_PROJECT'
 const DELETE_PROJECT = '/projects/DELETE_PROJECT'
+const GET_TASKS = '/projects/tasks/GET_TASKS'
+const ADD_TASK = '/projects/tasks/ADD_TASK'
+const EDIT_TASK = '/projects/tasks/EDIT_TASK'
+const DELETE_TASK = '/projects/tasks/DELETE_TASK'
+
 
 // Define Action Creators
+
+//GET ALL TASKS
+const getAllTasks = (tasks) => ({
+    type : GET_TASKS,
+    tasks
+})
+
+//POST NEW TASK
+const addTask = (task) => ({
+    type : ADD_TASK,
+    task
+})
+
+//PATCH EDIT TASK
+const editTask = (edittedTask) => ({
+    type : EDIT_TASK,
+    edittedTask
+})
+
+//DELETE TASK
+const deleteTask = (taskId) => ({
+    type : DELETE_TASK,
+    taskId
+})
+
 //GET ALL PROJECTS
 const getAllProj = (projects) => ({
     type : GET_ALL_PROJECTS,
@@ -37,6 +67,49 @@ const deleteProj = (projId) => ({
 })
 
 // Define Thunks
+//GET ALL TASKS
+export const fetchAllTask = () => async(dispatch) => {
+    const res = await fetch ('/api/projects/tasks')
+    const tasks = await res.json();
+    dispatch(getAllTasks(tasks))
+}
+
+//POST NEW TASK
+export const createTask = (taskPayload, id) => async(dispatch) => {
+    const res = await fetch(`/api/projects/${id}/tasks/create`, {
+        method: "POST",
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify(taskPayload)
+    })
+    const task = await res.json();
+    dispatch(addTask(task))
+    return task
+}
+
+//PATCH EDIT TASK
+export const updateTask = (taskPayload, projId, taskId) => async(dispatch) => {
+    const res = await fetch(`/api/projects/${projId}/tasks/${taskId}`, {
+        method : "PATCH",
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify(taskPayload)
+    })
+    if (res.ok) {
+        const task = await res.json();
+        dispatch(editTask(task))
+        return task
+    }
+}
+
+//DELETE SINGLE TASK
+export const removeTask = (projId, taskId) => async(dispatch) => {
+    const res = await fetch(`/api/projects/${projId}/tasks/${taskId}`, {
+        method : "DELETE"
+    })
+    if (res.ok) {
+        dispatch(deleteTask(taskId))
+    }
+}
+
 //GET ALL PROJECT
 export const fetchAllProj = () => async(dispatch) => {
     const res = await fetch('/api/projects/');
@@ -110,9 +183,21 @@ const projectReducer = (state = initialState, action) => {
         case DELETE_PROJECT:
             delete newState[action.id]
             return newState
+        case GET_TASKS:
+            Object.values(action.tasks).forEach(task => {
+                newState[task.id] = task
+            })
+            return newState
+        case ADD_TASK:
+            newState[action.task.id] = action.task
+            return newState
+        case EDIT_TASK:
+            newState[action.task] = action.task
+        case DELETE_TASK:
+            delete newState[action.id]
+            return newState
         default:
             return state;
-
     }
 }
 
