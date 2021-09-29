@@ -74,7 +74,7 @@ const EditProject = () => {
                 />
                 <button type='submit'>Edit</button>
                 <button onClick={handleCancel}>Cancel</button>
-                {sessionUser.id == toEdit.projOwner ?
+                {sessionUser.id === toEdit.projOwner ?
                     <button onClick={handleDelete}>Delete</button>
                 :null}
             </form>

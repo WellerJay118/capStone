@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router";
 import { fetchAllProj } from "../store/project";
 import { useHistory } from "react-router-dom"
+import TaskComponent from "./Tasks";
 
 
 
@@ -19,6 +20,8 @@ const IndivProject = () => {
 
     return (
         <div className="borderBlack">
+            <h1>taskComponent</h1>
+            <TaskComponent />
             <h1>From individual project</h1>
             {/* {console.log('@@@@@@@@@@@@@@@@@@',thisProject.id)} */}
             <h4>{thisProject?.projDesc}</h4>

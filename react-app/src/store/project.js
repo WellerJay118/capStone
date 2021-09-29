@@ -5,10 +5,7 @@ const ADD_PROJECT = '/projects/ADD_PROJECT'
 const EDIT_PROJECT = '/projects/EDIT_PROJECT'
 const DELETE_PROJECT = '/projects/DELETE_PROJECT'
 
-
-
 // Define Action Creators
-
 //GET ALL PROJECTS
 const getAllProj = (projects) => ({
     type : GET_ALL_PROJECTS,
@@ -40,7 +37,6 @@ const deleteProj = (projId) => ({
 })
 
 // Define Thunks
-
 //GET ALL PROJECT
 export const fetchAllProj = () => async(dispatch) => {
     const res = await fetch('/api/projects/');

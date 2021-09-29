@@ -78,7 +78,7 @@ def getAllTasks(id):
 def createTask(id):
     data = request.json
     newTask = Task(
-        assignedTo = current_user.id,
+        assignedTo = data['assignedTo'],
         projId = id,
         taskBody = data['taskBody'],
         taskStatus = data['taskStatus'],

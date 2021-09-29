@@ -30,10 +30,10 @@ const deleteTask = (taskId) => ({
 
 // Define Thunks
 //GET ALL TASKS
-export const fetchAllTask = () => async(dispatch) => {
-    const res = await fetch ('/api/projects/tasks')
+export const fetchAllTask = (projId) => async(dispatch) => {
+    const res = await fetch (`/api/projects/${projId}/tasks`)
     const tasks = await res.json();
-    dispatch(getAllTasks(tasks))
+    dispatch(getAllTasks(tasks.tasks))
 }
 
 //POST NEW TASK
@@ -90,6 +90,7 @@ const taskReducer = (state = initialState, action) => {
             return newState
         case EDIT_TASK:
             newState[action.task] = action.task
+            return newState
         case DELETE_TASK:
             delete newState[action.id]
             return newState
