@@ -22,6 +22,7 @@ class Task(db.Model):
             'projId' : self.projId,
             'taskBody' : self.taskBody,
             'taskStatus' : self.taskStatus,
+            'taskPriority' : self.taskPriority,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
         }

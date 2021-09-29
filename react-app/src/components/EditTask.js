@@ -1,24 +1,26 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router";
-import { createTask, fetchAllTask } from "../store/task";
+import { updateTask, fetchAllTask } from "../store/task";
 
 
 
-const TaskComponent = () => {
-
+const EditTask = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const { id } = useParams();
+    const { id, taskId} = useParams(); //the projects id
+    // const tasks = useSelector(state => Object.values(state.tasks))
+    const task = useSelector(state => state.tasks[taskId])
+    console.log(id)
+    console.log("$#$#$#$#", task)
+    // console.log("111111111111", useParams())
 
-    // const sessionUser = useSelector(state => state.session.user)
-    const tasks = useSelector(state => Object.values(state.tasks))
+    const [assignedTo, setAssignedTo] = useState(task?.assignedTo);
+    const [taskBody, setTaskBody] = useState(task?.taskBody);
+    const [taskStatus, setTaskStatus] = useState(task?.taskStatus);
+    const [taskPriority, setTaskPriority] = useState(task?.taskPriority);
 
-    const [assignedTo, setAssignedTo] = useState('');
-    const [taskBody, setTaskBody] = useState('');
-    const [taskStatus, setTaskStatus] = useState('');
-    const [taskPriority, setTaskPriority] = useState('');
-
+//must go from projects page to the edit task page for the state to be loaded correctly.
     useEffect(() => {
         dispatch(fetchAllTask(id))
     }, [dispatch, id])
@@ -28,7 +30,9 @@ const TaskComponent = () => {
         history.push(`projects/${id}`);
     }
 
-    const handleCreate = async(e) => {
+    const handleEdit = async(e) => {
+        //assignedTo split on space for firstName + lastName
+        //use firstName + lastName to query for specific user model
         e.preventDefault();
         const taskPayload = {
             assignedTo,
@@ -36,29 +40,14 @@ const TaskComponent = () => {
             taskStatus,
             taskPriority
         }
-        let createdTask = await dispatch(createTask(taskPayload, id))
-        if (createdTask) history.push(`/projects/${id}`)
+        let edittedTask = await dispatch(updateTask(taskPayload, id, taskId))
+        if (edittedTask) history.push(`/projects/${id}`)
     }
 
-//need to figure way to associate task.assignedTo and the name of the person itself.
-//may use useSelector and useEffect to bring in the users information.
     return (
-        <div className="borderBlack">
-            <h1>ALL TASKS</h1>
-            {tasks.map((task) => (
-                <div className="borderRed" key={task?.id}>
-                   <h4>{task?.assignedTo}</h4>
-                   {/* <h1>user[task?.assignedTo].firstName</h1> */}
-                   <h4>{task?.taskBody}</h4>
-                   <h4>{task?.taskStatus}</h4>
-                   <h4>{task?.taskPriority}</h4>
-                   <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>EDIT</button>
-                </div>
-            ))}
-
-
-            <h1>CREATE TASK</h1>
-            <form onSubmit={handleCreate}>
+        <div className="borderRed">
+            <h1>EDIT COMPONENT</h1>
+            <form onSubmit={handleEdit}>
                 <input
                     placeholder="Assigned"
                     type="text"
@@ -84,14 +73,11 @@ const TaskComponent = () => {
                     value={taskStatus}
                     onChange={(e) => setTaskStatus(e.target.value)}
                 />
-                <button type='submit'>Create</button>
+                <button type='submit'>Edit</button>
                 <button onClick={handleCancel}>Cancel</button>
             </form>
-
-
         </div>
-
     )
 }
 
-export default TaskComponent
+export default EditTask

@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import Project, db, Team, Task
+from app.models import Project, db, Team, Task, User
 from flask_login import current_user
 from datetime import datetime
 
@@ -65,7 +65,18 @@ def deleteProj(id):
 @project_routes.route('/<int:id>/tasks')
 def getAllTasks(id):
     tasks = Task.query.filter(id == Task.projId).all()
+    # task = Task.query.get(id)
+    # for element in tasks:
+    #     taskUser = User.query.filter(element.assignedTo == User.id).all()
+    # data = {
+    #     'tasks': [task.task_to_dict() for task in tasks],
+    #     "taskUser"
+    # }
+    # for task in tasks:
+    #     user = User.query.get(task.assignedTo)
+
     return {'tasks': [task.task_to_dict() for task in tasks]}
+    # return {task.task_to_dict(), user.to_dict()}
 
 #Read a single task
 # @project_routes.route('/<int:id>/tasks/<int:taskId>')
@@ -104,7 +115,7 @@ def editTask(id, taskId):
 
     db.session.add(task)
     db.session.commit()
-    return 'Task updated'
+    return task.task_to_dict()
 
 #DELETE a single task
 @project_routes.route('/<int:id>/tasks/<int:taskId>', methods=['DELETE'])

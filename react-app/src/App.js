@@ -12,6 +12,7 @@ import ProjectsPage from './components/Projects';
 import CreateProject from './components/CreateProject';
 import IndivProject from './components/IndivProject';
 import EditProject from './components/EditProject';
+import EditTask from './components/EditTask';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -56,13 +57,18 @@ function App() {
           <CreateProject />
         </ProtectedRoute>
 
+        <ProtectedRoute path='/projects/:id/edit' exact={true} >
+          <EditProject />
+        </ProtectedRoute>
+
+        <ProtectedRoute path='/projects/:id/tasks/:taskId' exact={true} >
+          <EditTask />
+        </ProtectedRoute>
+
         <ProtectedRoute path='/projects/:id' exact={true} >
           <IndivProject />
         </ProtectedRoute>
 
-        <ProtectedRoute path='/projects/:id/edit' exact={true} >
-          <EditProject />
-        </ProtectedRoute>
 
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
