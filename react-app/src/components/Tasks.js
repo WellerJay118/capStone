@@ -13,16 +13,17 @@ const TaskComponent = () => {
     const { id } = useParams();
 
     // const sessionUser = useSelector(state => state.session.user)
-    const tasks = useSelector(state => Object.values(state.tasks))
+    const tasks = useSelector(state => Object.values(state.tasks).filter(task => task.projId === Number(id)))
 
     const [assignedTo, setAssignedTo] = useState('');
     const [taskBody, setTaskBody] = useState('');
     const [taskStatus, setTaskStatus] = useState('');
     const [taskPriority, setTaskPriority] = useState('');
 
+
     useEffect(() => {
         dispatch(fetchAllTask(id))
-    }, [dispatch, id])
+    }, [dispatch])
 
     const handleCancel = async(e) => {
         e.preventDefault();
@@ -37,12 +38,16 @@ const TaskComponent = () => {
             taskStatus,
             taskPriority
         }
-        let createdTask = await dispatch(createTask(taskPayload, id))
-        if (createdTask) history.push(`/projects/${id}`)
+        await dispatch(createTask(taskPayload, id))
+        setAssignedTo('')
+        setTaskBody('')
+        setTaskStatus('')
+        setTaskPriority('')
+
     }
     const handleTaskDelete = async(e) => {
         e.preventDefault();
-        console.log("id:", id, "target:", e.target.id)
+        // console.log("id:", id, "target:", e.target.id)
         await dispatch(removeTask(id, e.target.id))
         history.push(`/projects/${id}`)
     }
