@@ -8,6 +8,11 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import ProjectsPage from './components/Projects';
+import CreateProject from './components/CreateProject';
+import IndivProject from './components/IndivProject';
+import EditProject from './components/EditProject';
+import EditTask from './components/EditTask';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -31,18 +36,48 @@ function App() {
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
+
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
+
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+
+        <ProtectedRoute path='/projects' exact={true} >
+          <ProjectsPage />
+        </ProtectedRoute>
+
+        <ProtectedRoute path='/projects/create' exact={true} >
+          <CreateProject />
+        </ProtectedRoute>
+
+        <ProtectedRoute path='/projects/:id/edit' exact={true} >
+          <EditProject />
+        </ProtectedRoute>
+
+        <ProtectedRoute path='/projects/:id/tasks/:taskId' exact={true} >
+          <EditTask />
+        </ProtectedRoute>
+
+        <ProtectedRoute path='/projects/:id' exact={true} >
+          <IndivProject />
+        </ProtectedRoute>
+
+
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
+
+        {/* <ProtectedRoute path='/'>
+          <h1>404 Page Not Found</h1>
+        </ProtectedRoute> */}
+
       </Switch>
     </BrowserRouter>
   );

@@ -1,6 +1,6 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import User
+from app.models import User, db
 
 user_routes = Blueprint('users', __name__)
 
@@ -17,3 +17,17 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+
+
+@user_routes.route('/<int:id>', methods=['PATCH'])
+@login_required
+def editUser(id):
+    user = User.query.get(id)
+    data = request.json
+    user.profilePic = data['profilePic']
+    # user.email = data['email'] #MAY WANT TO IMPLEMENT THIS BUT WILL REQUIRE HANDLING FOR UNIQUE CONSTRAINTS
+    # user.username = data['username'] #MAY WANT TO IMPLEMENT THIS BUT WILL REQUIRE HANDLING FOR UNIQUE CONSTRAINTS
+    db.session.add(user)
+    db.session.commit()
+    return "User information updated"
