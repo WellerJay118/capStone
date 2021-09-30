@@ -23,7 +23,7 @@ const TaskComponent = () => {
 
     useEffect(() => {
         dispatch(fetchAllTask(id))
-    }, [dispatch])
+    }, [dispatch, id])
 
     const handleCancel = async(e) => {
         e.preventDefault();
