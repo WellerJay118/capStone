@@ -18,8 +18,9 @@ const ProjectsPage = () => {
 
     return (
         <div className="borderBlack">
-            <h1>things and stuff.</h1>
-            <NavLink to='/projects/create' exact={true}>Create</NavLink>
+            <h1>ALL PROJ COMP</h1>
+            {/* <NavLink to='/projects/create' exact={true}>Create</NavLink> */}
+            <button onClick={(e) => history.push('/projects/create')}>New Project</button>
             {projects.map((project) =>
                 <div className="borderRed" key={project.id}>
                     {project?.projOwner === sessionUser?.id ? (
@@ -28,7 +29,8 @@ const ProjectsPage = () => {
                     <h4>{project.projName}</h4>
                     <h4>{project.projDesc}</h4>
                     <h5>{project.projStatus}</h5>
-                    <NavLink to={`/projects/${project.id}`} exact={true}>GO TO {project.projName}</NavLink>
+                    <button onClick={(e) => history.push(`/projects/${project.id}`)}>GO TO {project.projName}</button>
+                    {/* <NavLink to={`/projects/${project.id}`} exact={true}>GO TO {project.projName}</NavLink> */}
                 </div>
             )}
         </div>
