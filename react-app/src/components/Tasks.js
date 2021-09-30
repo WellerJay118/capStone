@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router";
 import { createTask, fetchAllTask } from "../store/task";
+import { removeTask } from "../store/task";
 
 
 
@@ -39,6 +40,12 @@ const TaskComponent = () => {
         let createdTask = await dispatch(createTask(taskPayload, id))
         if (createdTask) history.push(`/projects/${id}`)
     }
+    const handleTaskDelete = async(e) => {
+        e.preventDefault();
+        console.log("id:", id, "target:", e.target.id)
+        await dispatch(removeTask(id, e.target.id))
+        history.push(`projects/${id}`)
+    }
 
 //need to figure way to associate task.assignedTo and the name of the person itself.
 //may use useSelector and useEffect to bring in the users information.
@@ -53,6 +60,7 @@ const TaskComponent = () => {
                    <h4>{task?.taskStatus}</h4>
                    <h4>{task?.taskPriority}</h4>
                    <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>EDIT</button>
+                   <button onClick={handleTaskDelete}>Delete Task</button>
                 </div>
             ))}
 

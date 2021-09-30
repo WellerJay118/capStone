@@ -5,7 +5,6 @@ import { fetchAllProj } from "../store/project";
 import { useHistory } from "react-router-dom"
 
 
-
 const ProjectsPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -16,9 +15,6 @@ const ProjectsPage = () => {
         dispatch(fetchAllProj())
     }, [dispatch])
 
-    // const handleCreate = () => {
-
-    // }
 
     return (
         <div className="borderBlack">
@@ -27,7 +23,7 @@ const ProjectsPage = () => {
             {projects.map((project) =>
                 <div className="borderRed" key={project.id}>
                     {project?.projOwner === sessionUser?.id ? (
-                        <button onClick={(e) => history.push(`/projects/${project?.id}/edit`)}>Edit project</button>
+                            <button onClick={(e) => history.push(`/projects/${project?.id}/edit`)}>Edit project</button>
                     ): null}
                     <h4>{project.projName}</h4>
                     <h4>{project.projDesc}</h4>

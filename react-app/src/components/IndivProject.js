@@ -18,6 +18,7 @@ const IndivProject = () => {
         dispatch(fetchAllProj())
     }, [dispatch])
 
+    
     return (
         <div className="borderBlack">
             <h1>taskComponent</h1>
