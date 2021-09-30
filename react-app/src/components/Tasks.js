@@ -44,7 +44,7 @@ const TaskComponent = () => {
         e.preventDefault();
         console.log("id:", id, "target:", e.target.id)
         await dispatch(removeTask(id, e.target.id))
-        history.push(`projects/${id}`)
+        history.push(`/projects/${id}`)
     }
 
 //need to figure way to associate task.assignedTo and the name of the person itself.
@@ -60,7 +60,7 @@ const TaskComponent = () => {
                    <h4>{task?.taskStatus}</h4>
                    <h4>{task?.taskPriority}</h4>
                    <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>EDIT</button>
-                   <button onClick={handleTaskDelete}>Delete Task</button>
+                   <button id={task?.id} onClick={handleTaskDelete}>Delete Task</button>
                 </div>
             ))}
 

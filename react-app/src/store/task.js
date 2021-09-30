@@ -92,7 +92,7 @@ const taskReducer = (state = initialState, action) => {
             newState[action.task] = action.task
             return newState
         case DELETE_TASK:
-            delete newState[action.id]
+            delete newState[action.taskId]
             return newState
         default:
             return state;
