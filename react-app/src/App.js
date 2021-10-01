@@ -70,9 +70,9 @@ function App() {
         </ProtectedRoute>
 
 
-        <Route path='/' exact={true} >
+        <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
-        </Route>
+        </ProtectedRoute>
 
         <Route path='/'>
           <h1>404 Page Not Found</h1>
