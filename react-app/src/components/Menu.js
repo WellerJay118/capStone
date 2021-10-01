@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux"
+// import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import LogoutButton from "./auth/LogoutButton";
 
 const MenuButton = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const history = useHistory();
     const [showMenu, setShowMenu] = useState(false)
     const user = useSelector(state => state.session.user) //use for toggle
@@ -37,7 +38,7 @@ const MenuButton = () => {
     } else {
         topBar = (
             <div className="menu__dropdown">
-                <button className="menu__dropdown--button" onClick={(e) => history.push('/login')}>Login</button>
+                {/* <button className="menu__dropdown--button" onClick={(e) => history.push('/login')}>Login</button> */}
                 <button className="menu__dropdown--button" onClick={(e) => history.push('/sign-up')}>Sign Up</button>
             </div>
       )

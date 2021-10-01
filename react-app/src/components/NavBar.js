@@ -1,14 +1,15 @@
 
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+// import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import MenuButton from './Menu';
 // import LogoutButton from './auth/LogoutButton';
 import logo from "../lnl-logo.png"
 
 const NavBar = () => {
-  const user = useSelector(state => state.session.user) //use for toggle
-  const history = useHistory();
+  // const user = useSelector(state => state.session.user) //use for toggle
+  // const history = useHistory();
 
   const linkedIn = "https://www.linkedin.com/in/jacob-weller-592795161/"
   const github = "https://github.com/WellerJay118"

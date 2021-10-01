@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
-import Footer from '../Footer';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -38,14 +37,15 @@ const LoginForm = () => {
 
   return (
     <div className="login__wrapper">
-      <div>
-        <form onSubmit={onLogin}>
-          <div>
+      <div className="login__container">
+
+          <div className="login__errors">
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
               ))}
           </div>
-          <div>
+
+          <div className="login__input--email">
             <label htmlFor='email'>Email</label>
             <input
               name='email'
@@ -55,7 +55,8 @@ const LoginForm = () => {
               onChange={updateEmail}
               />
           </div>
-          <div>
+
+          <div className="login__input--password">
             <label htmlFor='password'>Password</label>
             <input
               name='password'
@@ -64,10 +65,16 @@ const LoginForm = () => {
               value={password}
               onChange={updatePassword}
               />
-            <button type='submit'>Login</button>
-            <button onClick={demoLogin}>Demo</button>
           </div>
-        </form>
+
+          <div className="login__buttons--container">
+            <button className="login__buttons" onClick={onLogin}>Login</button>
+            <button className="login__buttons" onClick={demoLogin}>Demo</button>
+            <p>
+              Don't have an account?
+              <NavLink className="login__signup-link" to="/sign-up" exact={true}> Sign-Up</NavLink>
+            </p>
+          </div>
       </div>
     </div>
   );
