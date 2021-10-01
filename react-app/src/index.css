@@ -6,3 +6,16 @@
 .borderRed {
     border: 1px solid red;
 }
+
+.navbar__wrapper {
+    border: 1px solid black;
+    display: flex;
+    padding: 7px;
+    justify-content: end;
+}
+
+.navbar__buttons button {
+    margin-left: 5px;
+    border: none;
+    background-color: white;
+}

@@ -1,13 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 // import { NavLink } from "react-router-dom";
-import { fetchAllProj } from "../store/project";
+import { fetchAllProj, removeProj } from "../store/project";
 import { useHistory } from "react-router-dom"
+import { useParams } from "react-router";
+
 
 
 const ProjectsPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const { id } = useParams();
     const projects = useSelector(state => Object.values(state.projects))
     const sessionUser = useSelector(state => state.session.user) //can grab id from user.id to see if current user owns project
 
@@ -15,6 +18,11 @@ const ProjectsPage = () => {
         dispatch(fetchAllProj())
     }, [dispatch])
 
+    const handleDelete = async(e) => {
+        e.preventDefault();
+        await dispatch(removeProj(e.target.id))
+        history.push('/projects') //may need the trailing slash
+    }
 
     return (
         <div className="borderBlack">
@@ -29,8 +37,10 @@ const ProjectsPage = () => {
                     <h4>{project.projName}</h4>
                     <h4>{project.projDesc}</h4>
                     <h5>{project.projStatus}</h5>
-                    <button onClick={(e) => history.push(`/projects/${project.id}`)}>GO TO {project.projName}</button>
-                    {/* <NavLink to={`/projects/${project.id}`} exact={true}>GO TO {project.projName}</NavLink> */}
+                    <button  onClick={(e) => history.push(`/projects/${project.id}`)}>GO TO {project.projName}</button>
+                    {sessionUser.id === project.projOwner ?
+                        <button id={project.id} onClick={handleDelete}>Delete</button>
+                    :null}
                 </div>
             )}
         </div>
