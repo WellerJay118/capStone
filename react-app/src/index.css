@@ -86,3 +86,27 @@ body {
     color: rgb(235,20,20);
     text-decoration: none;
 }
+
+.navbar__aboutme button{
+    background-color: white;
+    border: none;
+    text-decoration: none;
+}
+
+.navbar__linkedin {
+    text-decoration: none;
+    color: blue;
+}
+
+.navbar__github {
+    text-decoration: none;
+    color:black;
+}
+
+.navbar__github:hover,
+.navbar__linkedin:hover,
+.navbar__logo:hover {
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    box-shadow:0px 1px 1px rgba(0,0,0,.3);
+}
