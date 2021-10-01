@@ -37,6 +37,8 @@ const LoginForm = () => {
 
   return (
     <div className="login__wrapper">
+      <p>Simple Project Management</p>
+      <i class="fas fa-crow fa-5x"></i>
       <div className="login__container">
 
           <div className="login__errors">
@@ -70,11 +72,12 @@ const LoginForm = () => {
           <div className="login__buttons--container">
             <button className="login__buttons" onClick={onLogin}>Login</button>
             <button className="login__buttons" onClick={demoLogin}>Demo</button>
-            <p>
-              Don't have an account?
-              <NavLink className="login__signup-link" to="/sign-up" exact={true}> Sign-Up</NavLink>
-            </p>
           </div>
+
+          <p>
+            Don't have an account?
+            <NavLink className="login__signup-link" to="/sign-up" exact={true}> Sign-Up</NavLink>
+          </p>
       </div>
     </div>
   );

@@ -117,7 +117,7 @@ body {
     align-items: center;
     flex-direction: column;
     margin-top: 150px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .login__signup-link {
@@ -127,13 +127,15 @@ body {
 
 .login__signup-link:hover {
     font-weight: bold;
+    box-shadow:0px 1px 1px rgba(0,0,0,.3);
+
 }
 
 .login__container {
     border: 1px solid black;
     margin: 20px 0;
-    padding: 5px;
-    width: 20em;
+    padding: 8px;
+    width: 25em;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -145,18 +147,60 @@ body {
 
 }
 
+.login__input--email input,
+.login__input--password input{
+    border: none;
+    height: 40px;
+    background-color: rgba(255,255,0,0);
+    border-bottom: 1px solid rgba(0,0,0,.3);
+
+}
+
+.login__input--email input:hover,
+.login__input--password input:hover{
+    border: none;
+    height: 40px;
+    background-color: rgba(0,0,0,0.1);
+    border-bottom: 1px solid black;
+    border-radius: 5px;
+
+}
+
 .login__input--email,
-.login__input--password {
-    /* border: 1px solid black; */
+.login__input--password{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 10px;
+    font-size: 22px;
+    height: 40px;
+    border: none;
 }
 
 .login__buttons--container{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .login__buttons {
-    
+    width: 125px;
+    margin: 10px 0px;
+    height: 40px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    color: #FF0;
+    background-color: #F00;
+}
+
+.login__buttons:hover{
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    background-color: rgba(83,83,83,0.35);
 }
