@@ -1,15 +1,14 @@
-
 import React from 'react';
 // import { useSelector } from 'react-redux';
-// import { NavLink, useHistory } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import MenuButton from './Menu';
 // import LogoutButton from './auth/LogoutButton';
 import logo from "../lnl-logo.png"
 
 const NavBar = () => {
   // const user = useSelector(state => state.session.user) //use for toggle
-  // const history = useHistory();
+  const history = useHistory();
 
   const linkedIn = "https://www.linkedin.com/in/jacob-weller-592795161/"
   const github = "https://github.com/WellerJay118"
@@ -17,6 +16,7 @@ const NavBar = () => {
 
   return (
     <div className="navbar__wrapper">
+
       <div className="navbar__aboutme">
         <button className="navbar__github">
             <a target="_blank" rel="noreferrer" href={github} className="navbar__github">
@@ -29,9 +29,15 @@ const NavBar = () => {
             </a>
         </button>
       </div>
+
       <NavLink className="navbar__logo" to="/projects">
         <img alt="" className="navbar__logo" src={logo} />
       </NavLink>
+
+      <button className="navbar__createproj--button" onClick={(e) => history.push('/projects/create')}>
+        <i class="fas fa-plus-circle fa-2x"></i>
+      </button>
+      
       <MenuButton />
     </div>
 

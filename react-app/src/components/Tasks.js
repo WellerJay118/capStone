@@ -27,7 +27,7 @@ const TaskComponent = () => {
 
     const handleCancel = async(e) => {
         e.preventDefault();
-        history.push(`projects/${id}`);
+        history.push(`/projects/${id}`);
     }
 
     const handleCreate = async(e) => {

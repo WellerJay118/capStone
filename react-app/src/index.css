@@ -93,6 +93,11 @@ body {
     text-decoration: none;
 }
 
+.navbar__aboutme {
+    /* margin-left: 50em; */
+    display: flex;
+}
+
 .navbar__linkedin {
     text-decoration: none;
     color: blue;
@@ -101,6 +106,11 @@ body {
 .navbar__github {
     text-decoration: none;
     color:black;
+}
+
+.navbar__createproj--button {
+    border: none;
+    background-color: white;
 }
 
 .navbar__github:hover,
@@ -116,7 +126,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 150px;
+    margin-top: 80px;
     /* border: 1px solid black; */
 }
 
@@ -139,11 +149,15 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 .login__errors {
     /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 
 }
 
@@ -195,7 +209,7 @@ body {
     font-size: 20px;
     border: none;
     border-radius: 5px;
-    color: #FF0;
+    color: #ff0;
     background-color: #F00;
 }
 

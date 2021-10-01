@@ -26,21 +26,27 @@ const ProjectsPage = () => {
 
     return (
         <div className="borderBlack">
-            <h1>ALL PROJ COMP</h1>
-            {/* <NavLink to='/projects/create' exact={true}>Create</NavLink> */}
-            <button onClick={(e) => history.push('/projects/create')}>New Project</button>
+
+            {/* <button onClick={(e) => history.push('/projects/create')}>
+                <i class="fas fa-plus-circle"></i>
+            </button> */}
+
             {projects.map((project) =>
                 <div className="borderRed" key={project.id}>
                     {project?.projOwner === sessionUser?.id ? (
-                            <button onClick={(e) => history.push(`/projects/${project?.id}/edit`)}>Edit project</button>
+                            <button onClick={(e) => history.push(`/projects/${project?.id}/edit`)}>
+                                <i class="fas fa-edit"></i>
+                            </button>
                     ): null}
-                    <h4>{project.projName}</h4>
-                    <h4>{project.projDesc}</h4>
+                    {sessionUser.id === project.projOwner ?
+                        <button id={project.id} onClick={handleDelete}>
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    :null}
+                    <h4>Title{project.projName}</h4>
+                    <h4>Description{project.projDesc}</h4>
                     <h5>{project.projStatus}</h5>
                     <button  onClick={(e) => history.push(`/projects/${project.id}`)}>GO TO {project.projName}</button>
-                    {sessionUser.id === project.projOwner ?
-                        <button id={project.id} onClick={handleDelete}>Delete</button>
-                    :null}
                 </div>
             )}
         </div>

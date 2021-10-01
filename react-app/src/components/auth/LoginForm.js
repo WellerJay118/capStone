@@ -37,7 +37,7 @@ const LoginForm = () => {
 
   return (
     <div className="login__wrapper">
-      <p>Simple Project Management</p>
+      <h1>Simple Project Management</h1>
       <i class="fas fa-crow fa-5x"></i>
       <div className="login__container">
 
