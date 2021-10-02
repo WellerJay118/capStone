@@ -19,15 +19,27 @@ const TaskComponent = () => {
     const [taskBody, setTaskBody] = useState('');
     const [taskStatus, setTaskStatus] = useState('');
     const [taskPriority, setTaskPriority] = useState('');
+    const [showCreateTask, setShowCreateTask] = useState(false)
 
 
     useEffect(() => {
         dispatch(fetchAllTask(id))
-    }, [dispatch, id])
+        if(!showCreateTask) return;
+        const closeCreateTask = () => {
+            setShowCreateTask(false)
+        }
+        document.addEventListener('click', closeCreateTask)
+        return () => document.removeEventListener('click', closeCreateTask)
+    }, [dispatch, id, showCreateTask])
+
+    const openCreateTask = async(e) => {
+        if(showCreateTask) return;
+        setShowCreateTask(true);
+    }
 
     const handleCancel = async(e) => {
         e.preventDefault();
-        history.push(`/projects/${id}`);
+        setShowCreateTask(false);
     }
 
     const handleCreate = async(e) => {
@@ -51,11 +63,52 @@ const TaskComponent = () => {
         await dispatch(removeTask(id, e.target.id))
         history.push(`/projects/${id}`)
     }
+    let createTaskForm = (
+        <div className="task__create">
+        <h1>CREATE TASK</h1>
+        <form onSubmit={handleCreate}>
+            <input
+                placeholder="Assigned"
+                type="text"
+                required
+                value={assignedTo}
+                onChange={(e) => setAssignedTo(e.target.value)}
+            />
+            <textarea
+                placeholder="Task Description"
+                required
+                value={taskBody}
+                onChange={(e) => setTaskBody(e.target.value)}
+            />
+            <input
+                placeholder="Task Priority"
+                type="text"
+                value={taskPriority}
+                onChange={(e) => setTaskPriority(e.target.value)}
+            />
+            <input
+                placeholder="Task Status"
+                type="text"
+                value={taskStatus}
+                onChange={(e) => setTaskStatus(e.target.value)}
+            />
+            <button type='submit'>Create</button>
+            <button onClick={handleCancel}>Cancel</button>
+        </form>
+    </div>
+    )
 
 //need to figure way to associate task.assignedTo and the name of the person itself.
 //may use useSelector and useEffect to bring in the users information.
     return (
         <div className="task__container">
+            <div>
+                {showCreateTask && createTaskForm}
+            </div>
+            <button hidden={showCreateTask} onClick={openCreateTask}>
+                <i className="fas fa-plus-circle fa-2x"></i>
+            </button>
+
             <div className="task__card--container">
                 {tasks.map((task) => (
                     <div className="task__singleTask--card" key={task?.id}>
@@ -79,38 +132,7 @@ const TaskComponent = () => {
             </div>
 
 
-            <div className="task__create">
-                <h1>CREATE TASK</h1>
-                <form onSubmit={handleCreate}>
-                    <input
-                        placeholder="Assigned"
-                        type="text"
-                        required
-                        value={assignedTo}
-                        onChange={(e) => setAssignedTo(e.target.value)}
-                    />
-                    <textarea
-                        placeholder="Task Description"
-                        required
-                        value={taskBody}
-                        onChange={(e) => setTaskBody(e.target.value)}
-                    />
-                    <input
-                        placeholder="Task Priority"
-                        type="text"
-                        value={taskPriority}
-                        onChange={(e) => setTaskPriority(e.target.value)}
-                    />
-                    <input
-                        placeholder="Task Status"
-                        type="text"
-                        value={taskStatus}
-                        onChange={(e) => setTaskStatus(e.target.value)}
-                    />
-                    <button type='submit'>Create</button>
-                    <button onClick={handleCancel}>Cancel</button>
-                </form>
-            </div>
+
 
 
         </div>
