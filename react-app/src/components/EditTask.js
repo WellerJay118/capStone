@@ -13,7 +13,7 @@ const EditTask = () => {
     const task = useSelector(state => state.tasks[taskId])
     console.log(id)
     console.log("$#$#$#$#", task)
-    // console.log("111111111111", useParams())
+
 
     const [assignedTo, setAssignedTo] = useState(task?.assignedTo);
     const [taskBody, setTaskBody] = useState(task?.taskBody);
@@ -27,13 +27,14 @@ const EditTask = () => {
 
     const handleCancel = async(e) => {
         e.preventDefault();
-        history.push(`projects/${id}`);
+        history.push(`/projects/${id}`);
     }
 
     const handleEdit = async(e) => {
         //assignedTo split on space for firstName + lastName
         //use firstName + lastName to query for specific user model
         e.preventDefault();
+        console.log(id)
         const taskPayload = {
             assignedTo,
             taskBody,

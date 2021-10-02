@@ -31,7 +31,6 @@ const IndivProject = () => {
                     ): null}
                 </div>
 
-                <h1>taskComponent</h1>
                 <TaskComponent />
             </div>
         </div>

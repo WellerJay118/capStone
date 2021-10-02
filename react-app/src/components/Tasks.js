@@ -13,7 +13,7 @@ const TaskComponent = () => {
     const { id } = useParams();
 
     // const sessionUser = useSelector(state => state.session.user)
-    const tasks = useSelector(state => Object.values(state.tasks).filter(task => task.projId === Number(id)))
+    const tasks = useSelector(state => Object.values(state.tasks).filter(task => task?.projId === Number(id)))
 
     const [assignedTo, setAssignedTo] = useState('');
     const [taskBody, setTaskBody] = useState('');
@@ -24,12 +24,12 @@ const TaskComponent = () => {
 
     useEffect(() => {
         dispatch(fetchAllTask(id))
-        if(!showCreateTask) return;
-        const closeCreateTask = () => {
-            setShowCreateTask(false)
-        }
-        document.addEventListener('click', closeCreateTask)
-        return () => document.removeEventListener('click', closeCreateTask)
+        // if(!showCreateTask) return;
+        // const closeCreateTask = () => {
+        //     setShowCreateTask(false)
+        // }
+        // document.addEventListener('click', closeCreateTask)
+        // return () => document.removeEventListener('click', closeCreateTask)
     }, [dispatch, id, showCreateTask])
 
     const openCreateTask = async(e) => {
@@ -59,15 +59,15 @@ const TaskComponent = () => {
     }
     const handleTaskDelete = async(e) => {
         e.preventDefault();
-        // console.log("id:", id, "target:", e.target.id)
+        // console.log("id:", id, "target:", e.target, "tasks", tasks)
         await dispatch(removeTask(id, e.target.id))
         history.push(`/projects/${id}`)
     }
 
     let createTaskForm = (
-        <div className="task__create">
+        <div className="task__createform">
             <form>
-                <div>
+                <div className="task__createform--left">
                     <input
                         placeholder="Assigned"
                         type="text"
@@ -96,10 +96,10 @@ const TaskComponent = () => {
                     onChange={(e) => setTaskBody(e.target.value)}
                 />
             </form>
-                <div>
-                    <button onClick={handleCreate}>Submit</button>
-                    <button onClick={handleCancel}>Cancel</button>
-                </div>
+            <div className="task__createform--buttons">
+                <button onClick={handleCreate}>Submit</button>
+                <button onClick={handleCancel}>Cancel</button>
+            </div>
          </div>
     )
 
@@ -110,21 +110,23 @@ const TaskComponent = () => {
             <div>
                 {showCreateTask && createTaskForm}
             </div>
-            <button hidden={showCreateTask} onClick={openCreateTask}>
-                <i className="fas fa-plus-circle fa-2x"></i>
+            <button className="task__container--addTask" hidden={showCreateTask} onClick={openCreateTask}>
+                Add Task
             </button>
 
             <div className="task__card--container">
                 {tasks.map((task) => (
                     <div className="task__singleTask--card" key={task?.id}>
+
                         <div className="task__singleTask--card-buttons">
                             <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
                                 <i className="fas fa-edit"></i>
                             </button>
-                            <button id={task?.id} onClick={handleTaskDelete}>
-                                <i class="far fa-trash-alt"></i>
+                            <button onClick={handleTaskDelete}>
+                                <i id={task?.id} class="far fa-trash-alt"></i>
                             </button>
                         </div>
+
                         <div className="task__singleTask--card-taskinfo">
                             {/* <h1>user[task?.assignedTo].firstName</h1> */}
                             <div>Description: {task?.taskBody}</div>

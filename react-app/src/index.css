@@ -134,7 +134,7 @@ body {
 .navbar__logo:hover {
     cursor: pointer;
     transition: 0.1s ease-in;
-    box-shadow:0px 1px 1px rgba(0,0,0,.3);
+    box-shadow:0px 1px 0px rgba(0,0,0,.3);
 }
 
 .login__wrapper {
@@ -361,6 +361,11 @@ body {
     background-color: #F00;
 }
 
+.indivproj__header--button:hover{
+    transition: 0.1s ease-in;
+    background-color: rgba(83,83,83,0.35);
+}
+
 .task__container{
     border: 1px solid black;
     width: 100%;
@@ -407,4 +412,76 @@ body {
 
 .task__create--textarea{
     resize: none;
+    border: none;
+    /* border-bottom: 1px solid rgba(0,0,0,.3); */
+    background-color:rgba(255,255,255, 0.4);
+
+}
+
+.task__createform {
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+
+}
+
+.task__createform form {
+    display:flex;
+    flex-direction: row;
+}
+
+.task__createform--left {
+    display: flex;
+    flex-direction: column;
+}
+
+.task__createform--left input{
+    margin: .25em;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+    background-color:rgba(255,255,255, 0.4);
+}
+
+.task__createform--buttons {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.task__createform--buttons button:hover {
+    transition: 0.1s ease-in;
+    background-color: rgba(83,83,83,0.35);
+}
+
+.task__createform--buttons button{
+    width: 100px;
+    margin: 10px;
+    height: 25px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    color: #ff0;
+    background-color: #F00;
+}
+
+.task__container--addTask {
+    width: 100px;
+    margin: 10px;
+    height: 25px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    color: #ff0;
+    background-color: #F00;
+}
+
+button:hover, i:hover {
+    cursor: pointer;
+}
+
+.task__container--addTask:hover {
+    transition: 0.1s ease-in;
+    background-color: rgba(83,83,83,0.35);
 }
