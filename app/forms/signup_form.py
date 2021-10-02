@@ -24,6 +24,7 @@ class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired('Please enter a Username'), username_exists])
     email = StringField('email', validators=[DataRequired('Please enter an email address'), user_exists])
+    # for email validation, have to pip install wtforms[email] and import it
     password = StringField('password', validators=[DataRequired('Please enter a password')])
     firstName = StringField('firstName', validators=[DataRequired('Please enter a First Name')])
     lastName = StringField('lastName', validators=[DataRequired('Please enter a Last Name')])
