@@ -7,50 +7,70 @@
     border: 1px solid red;
 } */
 
+body, html, #root {
+    margin:0;
+    padding: 0;
+    height: 100%;
+}
+
 body {
     /* background-color: rgba(0,0,0, 0.08); */
     background-color: rgba(255,255,0,0.2);
-    margin-top: 55px;
+    /* margin-top: 55px; */
     /* border: 1px solid red; */
 }
 
+.navbar__container {
+    width: 100%;
+    /* border: 1px solid red; */
+    height: 50px;
+    background-color: white;
+    box-shadow:0px 1px 0px rgba(0,0,0,.3);
+    display: flex;
+    justify-content: center;
+}
 .navbar__wrapper {
     /* border: 1px solid black; */
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items:center;
-    background-color: white;
-    box-shadow:0px 01px 0px rgba(0,0,0,.3);
-    left: -5px;
-    top: 0;
-    width: 100vw;
-    height: 50px;
-    margin: 0px;
-    position: fixed;
+    /* background-color: white; */
+    /* box-shadow:0px 1px 0px rgba(0,0,0,.3); */
+    /* left: -5px; */
+    /* top: 0; */
+    width: 90%;
+    /* height: 50px; */
+    /* margin: 0px; */
+    /* position: fixed; */
 }
 
 .navbar__logo{
-    height:50px;
-    margin-right: 80%;
+    height:46px;
+    /* margin-right: 80%; */
 }
 
 .menu__dropdown {
+    /* display: flex; */
     border-radius: 6px;
-    position: absolute;
-    top: 55px;
-    right: 50px;
+    position: fixed;
+    margin-top: 5px;
+    /* top: 20px; */
+    /* right: 70px; */
     max-height: 150px;
     background-color: rgba(255,255,0,.3);
     height: auto;
     width: 125px;
-    display: flex;
-    flex-direction: column;
-    z-index: 15;
+    /* flex-direction: column; */
+    /* z-index: 15; */
 }
 
-.menu__wrapper {
+/* .menu__wrapper {
     margin-right: 3.2em;
-}
+} */
+
+/* #menu__button:target {
+    color:black;
+} */
 
 #menu__button:hover {
     cursor: pointer;
@@ -75,6 +95,7 @@ body {
     border: none;
     font-size: 16px;
     height: 40px;
+    width: 125px;
     font-weight: bold;
 }
 
@@ -84,12 +105,6 @@ body {
     flex-direction: column;
     align-items: center;
     color: rgb(235,20,20);
-    text-decoration: none;
-}
-
-.navbar__aboutme button{
-    background-color: white;
-    border: none;
     text-decoration: none;
 }
 
@@ -106,6 +121,16 @@ body {
 .navbar__github {
     text-decoration: none;
     color:black;
+}
+
+.navbar__aboutme button{
+    background-color: white;
+    border: none;
+    text-decoration: none;
+}
+
+.navbar__createproj--button:hover {
+    cursor:pointer;
 }
 
 .navbar__createproj--button {
@@ -149,7 +174,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    border-radius: 2px;
+    border-radius: 5px;
 }
 
 .login__errors {

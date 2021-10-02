@@ -38,7 +38,6 @@ const MenuButton = () => {
     } else {
         topBar = (
             <div className="menu__dropdown">
-                {/* <button className="menu__dropdown--button" onClick={(e) => history.push('/login')}>Login</button> */}
                 <button className="menu__dropdown--button" onClick={(e) => history.push('/sign-up')}>Sign Up</button>
             </div>
       )
@@ -46,9 +45,13 @@ const MenuButton = () => {
 
     return (
         <div className="menu__wrapper">
+            <button className="navbar__createproj--button" onClick={(e) => history.push('/projects/create')}>
+                <i class="fas fa-plus-circle fa-2x"></i>
+            </button>
             <button id="menu__button" onClick={openMenu}>
                 <i className="fas fa-bars fa-2x"></i>
             </button>
+
             <div>
             {showMenu && topBar}
             </div>
