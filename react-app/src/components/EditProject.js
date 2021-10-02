@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router";
-import { updateProj, removeProj } from "../store/project";
+import { updateProj, removeProj, fetchAllProj } from "../store/project";
 import { useHistory } from "react-router-dom"
 
 
@@ -18,9 +18,10 @@ const EditProject = () => {
     const [projDesc, setProjDesc] = useState(toEdit?.projDesc)
     const [projStatus, setProjStatus] = useState(toEdit?.projStatus)
 
-    // useEffect(() => {
-    //     dispatch(updateProj(payload, id))
-    // })
+    //NEEDED ACCESS TO PROJECTS SLICE OF STATE
+    useEffect(() => {
+        dispatch(fetchAllProj())
+    }, [dispatch])
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -50,34 +51,56 @@ const EditProject = () => {
 
 
     return (
-        <div className="borderBlack">
-            <h1>Edit Project</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    placeholder="Project Name"
-                    type="text"
-                    required
-                    value={projName}
-                    onChange={updateName}
-                />
-                <textarea
-                    placeholder="Project Description"
-                    required
-                    value={projDesc}
-                    onChange={updateDesc}
-                />
-                <input
-                    placeholder="Project Status"
-                    type="text"
-                    value={projStatus}
-                    onChange={updateStatus}
-                />
-                <button type='submit'>Edit</button>
-                <button onClick={handleCancel}>Cancel</button>
-                {sessionUser.id === toEdit.projOwner ?
-                    <button onClick={handleDelete}>Delete</button>
-                :null}
-            </form>
+        <div className="editform__wrapper">
+            <div className="editform__container">
+
+                <div className="editform__header">
+                    {/* {toEdit === undefined ? history.push(`/projects/${id}`) : null} --THIS IS WORKAROUND TO USEFFECT. NO IDEA WHY IT WOULD BE A GOOD IDEA */}
+                    <h1>You are editting the project: {toEdit?.projName}</h1>
+                    {sessionUser.id === toEdit?.projOwner ?
+                            <button id="editform__button--delete" onClick={handleDelete}>
+                                Delete this project
+                            </button>
+                         :null}
+                </div>
+
+                <form className="editform__form">
+                    <label>Title:</label>
+                    <input
+                        placeholder="Project Title"
+                        type="text"
+                        required
+                        value={projName}
+                        onChange={updateName}
+                    />
+                    <label>Status</label>
+                    <input
+                        placeholder="Project Status"
+                        type="text"
+                        value={projStatus}
+                        onChange={updateStatus}
+                    />
+                    <label>Description</label>
+                    <textarea
+                        // className="editform__form--desc"
+                        placeholder="Project Description"
+                        required
+                        value={projDesc}
+                        onChange={updateDesc}
+                    />
+
+                </form>
+
+                <div className="editform__buttons">
+                    <button id="editform__button" onClick={handleSubmit}>
+                        Submit
+                    </button>
+
+                    <button id="editform__button" onClick={handleCancel}>
+                        Cancel
+                    </button>
+                </div>
+            </div>
         </div>
     )
 }
