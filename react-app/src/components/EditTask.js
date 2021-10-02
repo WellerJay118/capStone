@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router";
+import { fetchAllProj } from "../store/project";
 import { updateTask, fetchAllTask } from "../store/task";
 
 
@@ -11,8 +12,9 @@ const EditTask = () => {
     const { id, taskId} = useParams(); //the projects id
     // const tasks = useSelector(state => Object.values(state.tasks))
     const task = useSelector(state => state.tasks[taskId])
-    console.log(id)
-    console.log("$#$#$#$#", task)
+    // const projectName = useSelector(state => Object.values(state.projects))
+    // console.log(id)
+    // console.log("$#$#$#$#", projectName)
 
 
     const [assignedTo, setAssignedTo] = useState(task?.assignedTo);
@@ -23,6 +25,7 @@ const EditTask = () => {
 //must go from projects page to the edit task page for the state to be loaded correctly.
     useEffect(() => {
         dispatch(fetchAllTask(id))
+        // dispatch(fetchAllTask())
     }, [dispatch, id])
 
     const handleCancel = async(e) => {
@@ -47,7 +50,7 @@ const EditTask = () => {
 
     return (
         <div className="borderRed">
-            <h1>EDIT COMPONENT</h1>
+            <h1>Editting Task</h1>
             <form onSubmit={handleEdit}>
                 <input
                     placeholder="Assigned"
