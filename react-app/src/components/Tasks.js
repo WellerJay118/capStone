@@ -63,39 +63,44 @@ const TaskComponent = () => {
         await dispatch(removeTask(id, e.target.id))
         history.push(`/projects/${id}`)
     }
+
     let createTaskForm = (
         <div className="task__create">
-        <h1>CREATE TASK</h1>
-        <form onSubmit={handleCreate}>
-            <input
-                placeholder="Assigned"
-                type="text"
-                required
-                value={assignedTo}
-                onChange={(e) => setAssignedTo(e.target.value)}
-            />
-            <textarea
-                placeholder="Task Description"
-                required
-                value={taskBody}
-                onChange={(e) => setTaskBody(e.target.value)}
-            />
-            <input
-                placeholder="Task Priority"
-                type="text"
-                value={taskPriority}
-                onChange={(e) => setTaskPriority(e.target.value)}
-            />
-            <input
-                placeholder="Task Status"
-                type="text"
-                value={taskStatus}
-                onChange={(e) => setTaskStatus(e.target.value)}
-            />
-            <button type='submit'>Create</button>
-            <button onClick={handleCancel}>Cancel</button>
-        </form>
-    </div>
+            <form>
+                <div>
+                    <input
+                        placeholder="Assigned"
+                        type="text"
+                        required
+                        value={assignedTo}
+                        onChange={(e) => setAssignedTo(e.target.value)}
+                    />
+                    <input
+                        placeholder="Task Priority"
+                        type="text"
+                        value={taskPriority}
+                        onChange={(e) => setTaskPriority(e.target.value)}
+                    />
+                    <input
+                        placeholder="Task Status"
+                        type="text"
+                        value={taskStatus}
+                        onChange={(e) => setTaskStatus(e.target.value)}
+                    />
+                </div>
+                <textarea
+                    className="task__create--textarea"
+                    placeholder="Task Description"
+                    required
+                    value={taskBody}
+                    onChange={(e) => setTaskBody(e.target.value)}
+                />
+            </form>
+                <div>
+                    <button onClick={handleCreate}>Submit</button>
+                    <button onClick={handleCancel}>Cancel</button>
+                </div>
+         </div>
     )
 
 //need to figure way to associate task.assignedTo and the name of the person itself.
