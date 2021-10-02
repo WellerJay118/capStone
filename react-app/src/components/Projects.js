@@ -1,13 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { NavLink } from "react-router-dom";
-import { fetchAllProj } from "../store/project";
+// import { NavLink } from "react-router-dom";
+import { fetchAllProj, removeProj } from "../store/project";
 import { useHistory } from "react-router-dom"
+// import { useParams } from "react-router";
+
 
 
 const ProjectsPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    // const { id } = useParams();
     const projects = useSelector(state => Object.values(state.projects))
     const sessionUser = useSelector(state => state.session.user) //can grab id from user.id to see if current user owns project
 
@@ -15,20 +18,35 @@ const ProjectsPage = () => {
         dispatch(fetchAllProj())
     }, [dispatch])
 
+    const handleDelete = async(e) => {
+        e.preventDefault();
+        await dispatch(removeProj(e.target.id))
+        history.push('/projects') //may need the trailing slash
+    }
 
     return (
         <div className="borderBlack">
-            <h1>things and stuff.</h1>
-            <NavLink to='/projects/create' exact={true}>Create</NavLink>
+
+            {/* <button onClick={(e) => history.push('/projects/create')}>
+                <i class="fas fa-plus-circle"></i>
+            </button> */}
+
             {projects.map((project) =>
                 <div className="borderRed" key={project.id}>
                     {project?.projOwner === sessionUser?.id ? (
-                            <button onClick={(e) => history.push(`/projects/${project?.id}/edit`)}>Edit project</button>
+                            <button onClick={(e) => history.push(`/projects/${project?.id}/edit`)}>
+                                <i class="fas fa-edit"></i>
+                            </button>
                     ): null}
-                    <h4>{project.projName}</h4>
-                    <h4>{project.projDesc}</h4>
+                    {sessionUser.id === project.projOwner ?
+                        <button id={project.id} onClick={handleDelete}>
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    :null}
+                    <h4>Title{project.projName}</h4>
+                    <h4>Description{project.projDesc}</h4>
                     <h5>{project.projStatus}</h5>
-                    <NavLink to={`/projects/${project.id}`} exact={true}>GO TO {project.projName}</NavLink>
+                    <button  onClick={(e) => history.push(`/projects/${project.id}`)}>GO TO {project.projName}</button>
                 </div>
             )}
         </div>

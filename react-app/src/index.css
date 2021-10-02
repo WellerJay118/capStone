@@ -1,8 +1,245 @@
 /* TODO Add site wide styles */
-.borderBlack {
+/* .borderBlack {
     border: 1px solid black;
 }
 
 .borderRed {
     border: 1px solid red;
+} */
+
+body, html, #root {
+    margin:0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    /* background-color: rgba(0,0,0, 0.08); */
+    background-color: rgba(255,255,0,0.2);
+    /* margin-top: 55px; */
+    /* border: 1px solid red; */
+}
+
+.navbar__container {
+    width: 100%;
+    /* border: 1px solid red; */
+    height: 50px;
+    background-color: white;
+    box-shadow:0px 1px 0px rgba(0,0,0,.3);
+    display: flex;
+    justify-content: center;
+}
+.navbar__wrapper {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    /* background-color: white; */
+    /* box-shadow:0px 1px 0px rgba(0,0,0,.3); */
+    /* left: -5px; */
+    /* top: 0; */
+    width: 90%;
+    /* height: 50px; */
+    /* margin: 0px; */
+    /* position: fixed; */
+}
+
+.navbar__logo{
+    height:46px;
+    /* margin-right: 80%; */
+}
+
+.menu__dropdown {
+    /* display: flex; */
+    border-radius: 6px;
+    position: fixed;
+    margin-top: 5px;
+    /* top: 20px; */
+    /* right: 70px; */
+    max-height: 150px;
+    background-color: rgba(255,255,0,.3);
+    height: auto;
+    width: 125px;
+    /* flex-direction: column; */
+    /* z-index: 15; */
+}
+
+/* .menu__wrapper {
+    margin-right: 3.2em;
+} */
+
+/* #menu__button:target {
+    color:black;
+} */
+
+#menu__button:hover {
+    cursor: pointer;
+}
+
+#menu__button {
+    background-color: white;
+    border: none;
+}
+
+.menu__dropdown--button:hover {
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    background-color: rgba(83,83,83,0.2);
+}
+
+.menu__dropdown--button {
+    /* background-color: lightgray; */
+    background-color: rgba(255,255,0,.3);
+    color: rgb(235,20,20);
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    height: 40px;
+    width: 125px;
+    font-weight: bold;
+}
+
+.badroute__wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(235,20,20);
+    text-decoration: none;
+}
+
+.navbar__aboutme {
+    /* margin-left: 50em; */
+    display: flex;
+}
+
+.navbar__linkedin {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar__github {
+    text-decoration: none;
+    color:black;
+}
+
+.navbar__aboutme button{
+    background-color: white;
+    border: none;
+    text-decoration: none;
+}
+
+.navbar__createproj--button:hover {
+    cursor:pointer;
+}
+
+.navbar__createproj--button {
+    border: none;
+    background-color: white;
+}
+
+.navbar__github:hover,
+.navbar__linkedin:hover,
+.navbar__logo:hover {
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    box-shadow:0px 1px 1px rgba(0,0,0,.3);
+}
+
+.login__wrapper {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 80px;
+    /* border: 1px solid black; */
+}
+
+.login__signup-link {
+    text-decoration: none;
+    color: rgb(235,20,20);
+}
+
+.login__signup-link:hover {
+    font-weight: bold;
+    box-shadow:0px 1px 1px rgba(0,0,0,.3);
+
+}
+
+.login__container {
+    border: 1px solid black;
+    margin: 20px 0;
+    padding: 8px;
+    width: 25em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.login__errors {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.login__input--email input,
+.login__input--password input{
+    border: none;
+    height: 40px;
+    background-color: rgba(255,255,0,0);
+    border-bottom: 1px solid rgba(0,0,0,.3);
+
+}
+
+.login__input--email input:hover,
+.login__input--password input:hover{
+    border: none;
+    height: 40px;
+    background-color: rgba(0,0,0,0.1);
+    border-bottom: 1px solid black;
+    border-radius: 5px;
+
+}
+
+.login__input--email,
+.login__input--password{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 10px;
+    font-size: 22px;
+    height: 40px;
+    border: none;
+}
+
+.login__buttons--container{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.login__buttons {
+    width: 125px;
+    margin: 10px 0px;
+    height: 40px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    color: #ff0;
+    background-color: #F00;
+}
+
+.login__buttons:hover{
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    background-color: rgba(83,83,83,0.35);
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
@@ -13,6 +13,7 @@ import CreateProject from './components/CreateProject';
 import IndivProject from './components/IndivProject';
 import EditProject from './components/EditProject';
 import EditTask from './components/EditTask';
+import BadRoute from './components/BadRoute';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -71,12 +72,12 @@ function App() {
 
 
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <Redirect to="/projects" />
         </ProtectedRoute>
 
-        {/* <ProtectedRoute path='/'>
-          <h1>404 Page Not Found</h1>
-        </ProtectedRoute> */}
+        <Route path='/'>
+          <BadRoute />
+        </Route>
 
       </Switch>
     </BrowserRouter>
