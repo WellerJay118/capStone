@@ -4,6 +4,7 @@ import { useHistory } from "react-router"
 import { createProj } from "../store/project";
 
 
+
 const CreateProject = () => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -11,7 +12,7 @@ const CreateProject = () => {
 
     const [projName, setProjName] = useState('')
     const [projDesc, setProjDesc] = useState('')
-    const [projStatus, setProjStatus] = useState('')
+    // const [projStatus, setProjStatus] = useState('')
     // const [validationErrors, setValidationErrors] = useState([])
 
     //can be for frontend error handling
@@ -25,10 +26,11 @@ const CreateProject = () => {
         const project = {
             projName,
             projDesc,
-            projStatus
+            projStatus : "Planning"
         }
         let createdProject = await dispatch(createProj(project))
         if (createdProject) history.push(`/projects/${createdProject.id}`)
+
     }
 
     const handleCancel = async(e) => {
@@ -53,12 +55,12 @@ const CreateProject = () => {
                     value={projDesc}
                     onChange={(e) => setProjDesc(e.target.value)}
                 />
-                <input
+                {/* <input
                     placeholder="Project Status"
                     type="text"
                     value={projStatus}
                     onChange={(e) => setProjStatus(e.target.value)}
-                />
+                /> */}
                 <button type='submit'>Create</button>
                 <button onClick={handleCancel}>Cancel</button>
             </form>

@@ -49,7 +49,7 @@ const EditTask = () => {
 
     return (
         <div className="borderRed">
-            <h1>Editting Task</h1>
+            <h1>editing Task</h1>
             <form onSubmit={handleEdit}>
                 <input
                     placeholder="Assigned"

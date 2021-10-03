@@ -33,7 +33,6 @@ const TaskComponent = () => {
     const [showCreateTask, setShowCreateTask] = useState(false)
     const [errors, setErrors] = useState([])
 
-
     useEffect(() => {
         dispatch(fetchAllTask(id))
         // if(!showCreateTask) return;

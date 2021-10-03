@@ -59,7 +59,7 @@ const EditProject = () => {
             <div className="editform__container">
 
                 <div className="editform__header">
-                    <div className="editform__header-div">You are editting the project: {toEdit?.projName}</div>
+                    <div className="editform__header-div">You are editing the project: {toEdit?.projName}</div>
                     {sessionUser.id === toEdit?.projOwner ?
                             <button id="editform__button--delete" onClick={handleDelete}>
                                 Delete this project
