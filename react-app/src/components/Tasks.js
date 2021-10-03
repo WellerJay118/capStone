@@ -12,10 +12,10 @@ const TaskComponent = () => {
     const history = useHistory();
     const { id } = useParams();
 
-    // const sessionUser = useSelector(state => state.session.user)
+    const sessionUser = useSelector(state => state.session.user)
     const tasks = useSelector(state => Object.values(state.tasks).filter(task => task?.projId === Number(id)))
 
-    const [assignedTo, setAssignedTo] = useState('');
+    const [assignedTo, setAssignedTo] = useState(sessionUser.id);
     const [taskBody, setTaskBody] = useState('');
     const [taskStatus, setTaskStatus] = useState('');
     const [taskPriority, setTaskPriority] = useState('');
@@ -53,7 +53,7 @@ const TaskComponent = () => {
         if(assignedTo.length > 0) {
 
             await dispatch(createTask(taskPayload, id))
-            setAssignedTo('')
+            setAssignedTo(sessionUser.id)
             setTaskBody('')
             setTaskStatus('')
             setTaskPriority('')
@@ -69,6 +69,9 @@ const TaskComponent = () => {
         history.push(`/projects/${id}`)
     }
 
+    const selStatus = ["TODO", "Planning", "In Progress", "Waiting Approval", "Approved"]
+    const selPriority = ["Idea", "Want", "Low", "Medium", "High", "Immediate"]
+
     let createTaskForm = (
         <div className="task__createform">
             <form>
@@ -80,18 +83,39 @@ const TaskComponent = () => {
                         value={assignedTo}
                         onChange={(e) => setAssignedTo(e.target.value)}
                     />
-                    <input
+                    <select
+                        value={taskPriority}
+                        onChange={(e) => {
+                            const prioritySelect = e.target.value;
+                            setTaskPriority(prioritySelect)
+                    }}>
+                        {selPriority.map((element, idx) => (
+                            <option key={idx} value={element.id}>{element}</option>
+                        ))}
+                    </select>
+                    {/* <input
                         placeholder="Task Priority"
                         type="text"
                         value={taskPriority}
                         onChange={(e) => setTaskPriority(e.target.value)}
-                    />
-                    <input
+                    /> */}
+                    <select
+                        value={taskStatus}
+                        onChange={(e) => {
+                            const statusSelect = e.target.value;
+                            setTaskStatus(statusSelect)
+                    }}>
+                        {selStatus.map((element, idx) => (
+                            <option key={idx} value={element.id}>{element}</option>
+
+                        ))}
+                    </select>
+                    {/* <input
                         placeholder="Task Status"
                         type="text"
                         value={taskStatus}
                         onChange={(e) => setTaskStatus(e.target.value)}
-                    />
+                    /> */}
                 </div>
                 <textarea
                     className="task__create--textarea"
