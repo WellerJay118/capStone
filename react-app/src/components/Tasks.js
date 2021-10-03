@@ -20,6 +20,7 @@ const TaskComponent = () => {
     const [taskStatus, setTaskStatus] = useState('');
     const [taskPriority, setTaskPriority] = useState('');
     const [showCreateTask, setShowCreateTask] = useState(false)
+    const [errors, setErrors] = useState([])
 
 
     useEffect(() => {
@@ -50,16 +51,16 @@ const TaskComponent = () => {
             taskStatus,
             taskPriority
         }
-        if(assignedTo.length > 0) {
-
+        // if(assignedTo.length > 0) {
+            if(taskBody.length < 1) setErrors(["Please put a description of the task"])
             await dispatch(createTask(taskPayload, id))
             setAssignedTo(sessionUser.id)
             setTaskBody('')
             setTaskStatus('')
             setTaskPriority('')
-        } else {
-            alert('Please assign someone to this task')
-        }
+        // } else {
+        //     alert('Please assign someone to this task')
+        // }
 
     }
     const handleTaskDelete = async(e) => {
@@ -74,7 +75,13 @@ const TaskComponent = () => {
 
     let createTaskForm = (
         <div className="task__createform">
+            <div className="task__createform--errors">
+                {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+                ))}
+            </div>
             <form>
+                {/* Value for the select of users will be = to their id. */}
                 <div className="task__createform--left">
                     <input
                         placeholder="Assigned"
@@ -84,39 +91,33 @@ const TaskComponent = () => {
                         onChange={(e) => setAssignedTo(e.target.value)}
                     />
                     <select
-                        value={taskPriority}
-                        onChange={(e) => {
-                            const prioritySelect = e.target.value;
-                            setTaskPriority(prioritySelect)
+                    className="task__createform--dd-select"
+                    value={taskPriority}
+                    onChange={(e) => {
+                        const prioritySelect = e.target.value;
+                        setTaskPriority(prioritySelect)
                     }}>
                         {selPriority.map((element, idx) => (
-                            <option key={idx} value={element.id}>{element}</option>
+                            <option key={idx} value={element}>
+                                {element}
+                            </option>
                         ))}
                     </select>
-                    {/* <input
-                        placeholder="Task Priority"
-                        type="text"
-                        value={taskPriority}
-                        onChange={(e) => setTaskPriority(e.target.value)}
-                    /> */}
                     <select
+                        className="task__createform--dd-select"
                         value={taskStatus}
                         onChange={(e) => {
                             const statusSelect = e.target.value;
                             setTaskStatus(statusSelect)
                     }}>
                         {selStatus.map((element, idx) => (
-                            <option key={idx} value={element.id}>{element}</option>
-
+                            <option key={idx} value={element}>
+                                {element}
+                            </option>
                         ))}
                     </select>
-                    {/* <input
-                        placeholder="Task Status"
-                        type="text"
-                        value={taskStatus}
-                        onChange={(e) => setTaskStatus(e.target.value)}
-                    /> */}
                 </div>
+
                 <textarea
                     className="task__create--textarea"
                     placeholder="Task Description"
