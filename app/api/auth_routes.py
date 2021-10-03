@@ -28,7 +28,9 @@ def authenticate():
     return {'errors': ['Unauthorized']}
 
 
-
+@auth_routes.route('/login', methods=['POST'])
+def login():
+    """
     Logs a user in
     """
     form = LoginForm()
