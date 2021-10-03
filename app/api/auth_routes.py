@@ -28,9 +28,7 @@ def authenticate():
     return {'errors': ['Unauthorized']}
 
 
-@auth_routes.route('/login', methods=['POST'])
-def login():
-    """
+
     Logs a user in
     """
     form = LoginForm()
@@ -71,7 +69,7 @@ def sign_up():
         )
         # Default user profile picture.
         user.profilePic = "https://jw-capstone-bucket.s3.us-east-2.amazonaws.com/user_default.png"
-        
+
         db.session.add(user)
         db.session.commit()
         login_user(user)
