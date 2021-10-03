@@ -13,12 +13,23 @@ const TaskComponent = () => {
     const { id } = useParams();
 
     const sessionUser = useSelector(state => state.session.user)
-    const tasks = useSelector(state => Object.values(state.tasks).filter(task => task?.projId === Number(id)))
+    // const tasks = useSelector(state => Object.values(state.tasks).filter(task => task?.projId === Number(id)))
+
+    const pTasks = useSelector(state => Object.values(state.tasks).filter(task => task?.taskStatus === "Planning"))
+    const ipTasks = useSelector(state => Object.values(state.tasks).filter(task => task?.taskStatus === "In Progress"))
+    const waTasks = useSelector(state => Object.values(state.tasks).filter(task => task?.taskStatus === "Waiting Approval"))
+    const aTasks = useSelector(state => Object.values(state.tasks).filter(task => task?.taskStatus === "Approved"))
+    const cTasks = useSelector(state => Object.values(state.tasks).filter(task => task?.taskStatus === "Closed"))
+
+    // console.log("p", pTasks, "ip", ipTasks, "wa", waTasks, "a", aTasks, "c", cTasks)
+
+    const selStatus = ["Planning", "In Progress", "Waiting Approval", "Approved", "Closed"]
+    const selPriority = ["Idea", "Want", "Low", "Medium", "High", "Immediate"]
 
     const [assignedTo, setAssignedTo] = useState(sessionUser.id);
     const [taskBody, setTaskBody] = useState('');
-    const [taskStatus, setTaskStatus] = useState('');
-    const [taskPriority, setTaskPriority] = useState('');
+    const [taskStatus, setTaskStatus] = useState(selStatus[0]);
+    const [taskPriority, setTaskPriority] = useState(selPriority[0]);
     const [showCreateTask, setShowCreateTask] = useState(false)
     const [errors, setErrors] = useState([])
 
@@ -56,8 +67,8 @@ const TaskComponent = () => {
             await dispatch(createTask(taskPayload, id))
             setAssignedTo(sessionUser.id)
             setTaskBody('')
-            setTaskStatus('')
-            setTaskPriority('')
+            setTaskStatus(selStatus[0])
+            setTaskPriority(selPriority[0])
         // } else {
         //     alert('Please assign someone to this task')
         // }
@@ -70,8 +81,6 @@ const TaskComponent = () => {
         history.push(`/projects/${id}`)
     }
 
-    const selStatus = ["TODO", "Planning", "In Progress", "Waiting Approval", "Approved"]
-    const selPriority = ["Idea", "Want", "Low", "Medium", "High", "Immediate"]
 
     let createTaskForm = (
         <div className="task__createform">
@@ -90,6 +99,7 @@ const TaskComponent = () => {
                         value={assignedTo}
                         onChange={(e) => setAssignedTo(e.target.value)}
                     />
+                    <label>Priority: </label>
                     <select
                     className="task__createform--dd-select"
                     value={taskPriority}
@@ -103,6 +113,7 @@ const TaskComponent = () => {
                             </option>
                         ))}
                     </select>
+                    <label>Status: </label>
                     <select
                         className="task__createform--dd-select"
                         value={taskStatus}
@@ -145,7 +156,108 @@ const TaskComponent = () => {
             </button>
 
             <div className="task__card--container">
-                {tasks.map((task) => (
+                <h4>Planning</h4>
+                {pTasks.map((task) => (
+                    <div className="task__singleTask--card" key={task?.id}>
+
+                        <div className="task__singleTask--card-buttons">
+                            <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
+                                <i className="fas fa-edit"></i>
+                            </button>
+                            <button id={task?.id} onClick={handleTaskDelete}>
+                                <i id={task?.id} className="far fa-trash-alt"></i>
+                            </button>
+                        </div>
+
+                        <div className="task__singleTask--card-taskinfo">
+                            {/* <h1>user[task?.assignedTo].firstName</h1> */}
+                            <div>Description: {task?.taskBody}</div>
+                            <div>Assigned To: {task?.assignedTo}</div>
+                            <div>Current Status: {task?.taskStatus}</div>
+                            <div>Priority: {task?.taskPriority}</div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div className="task__card--container">
+                <h4>In Progress</h4>
+                {ipTasks.map((task) => (
+                    <div className="task__singleTask--card" key={task?.id}>
+
+                        <div className="task__singleTask--card-buttons">
+                            <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
+                                <i className="fas fa-edit"></i>
+                            </button>
+                            <button id={task?.id} onClick={handleTaskDelete}>
+                                <i id={task?.id} className="far fa-trash-alt"></i>
+                            </button>
+                        </div>
+
+                        <div className="task__singleTask--card-taskinfo">
+                            {/* <h1>user[task?.assignedTo].firstName</h1> */}
+                            <div>Description: {task?.taskBody}</div>
+                            <div>Assigned To: {task?.assignedTo}</div>
+                            <div>Current Status: {task?.taskStatus}</div>
+                            <div>Priority: {task?.taskPriority}</div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div className="task__card--container">
+            <h4>Waiting Approval</h4>
+                {waTasks.map((task) => (
+                    <div className="task__singleTask--card" key={task?.id}>
+
+                        <div className="task__singleTask--card-buttons">
+                            <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
+                                <i className="fas fa-edit"></i>
+                            </button>
+                            <button id={task?.id} onClick={handleTaskDelete}>
+                                <i id={task?.id} className="far fa-trash-alt"></i>
+                            </button>
+                        </div>
+
+                        <div className="task__singleTask--card-taskinfo">
+                            {/* <h1>user[task?.assignedTo].firstName</h1> */}
+                            <div>Description: {task?.taskBody}</div>
+                            <div>Assigned To: {task?.assignedTo}</div>
+                            <div>Current Status: {task?.taskStatus}</div>
+                            <div>Priority: {task?.taskPriority}</div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div className="task__card--container">
+            <h4>Approved</h4>
+                {aTasks.map((task) => (
+                    <div className="task__singleTask--card" key={task?.id}>
+
+                        <div className="task__singleTask--card-buttons">
+                            <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
+                                <i className="fas fa-edit"></i>
+                            </button>
+                            <button id={task?.id} onClick={handleTaskDelete}>
+                                <i id={task?.id} className="far fa-trash-alt"></i>
+                            </button>
+                        </div>
+
+                        <div className="task__singleTask--card-taskinfo">
+                            {/* <h1>user[task?.assignedTo].firstName</h1> */}
+                            <div>Description: {task?.taskBody}</div>
+                            <div>Assigned To: {task?.assignedTo}</div>
+                            <div>Current Status: {task?.taskStatus}</div>
+                            <div>Priority: {task?.taskPriority}</div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div className="task__card--container">
+                <h4>Completed</h4>
+                {cTasks.map((task) => (
                     <div className="task__singleTask--card" key={task?.id}>
 
                         <div className="task__singleTask--card-buttons">
