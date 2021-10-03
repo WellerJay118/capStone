@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router";
-import { fetchAllProj } from "../store/project";
 import { updateTask, fetchAllTask } from "../store/task";
 
 

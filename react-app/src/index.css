@@ -241,6 +241,12 @@ body {
     justify-content: center;
 }
 
+.editform__header-div,
+.indivproj__header--projtitle{
+    overflow-wrap: break-word;
+    max-width: 90%;
+}
+
 .editform__container{
     border: 1px solid black;
     max-width: 50%;
@@ -251,6 +257,7 @@ body {
     padding: 1.5em;
     margin: 1.5em;
     border-radius: 5px;
+
 }
 
 .editform__header {
@@ -494,4 +501,8 @@ button:hover, i:hover {
 .task__container--addTask:hover {
     transition: 0.1s ease-in;
     background-color: rgba(83,83,83,0.35);
+}
+
+form textarea {
+    resize: none;
 }

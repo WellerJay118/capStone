@@ -33,22 +33,22 @@ const ProjectsPage = () => {
             </button> */}
 
             {projects.map((project) =>
-                <div className="borderRed" key={project.id}>
+                <div className="borderRed" key={project?.id}>
                     {project?.projOwner === sessionUser?.id ? (
                             <button onClick={(e) => history.push(`/projects/${project?.id}/edit`)}>
                                 <i className="fas fa-edit"></i>
                             </button>
                     ): null}
                     {/* {sessionUser.id === project.projOwner ? */}
-                    {console.log("id", project.id)}
+                    {/* {console.log("id", project.id)} */}
                         {/* <button id={project.id} onClick={handleDelete}>
                             <i className="far fa-trash-alt"></i>
                         </button> */}
                     {/* // :null} */}
-                    <h4>Title{project.projName}</h4>
-                    <h4>Description{project.projDesc}</h4>
-                    <h5>{project.projStatus}</h5>
-                    <button  onClick={(e) => history.push(`/projects/${project.id}`)}>GO TO {project.projName}</button>
+                    <h4>Title{project?.projName}</h4>
+                    <h4>Description{project?.projDesc}</h4>
+                    <h5>{project?.projStatus}</h5>
+                    <button  onClick={(e) => history.push(`/projects/${project?.id}`)}>GO TO {project?.projName}</button>
                 </div>
             )}
         </div>

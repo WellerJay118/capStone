@@ -50,11 +50,16 @@ const TaskComponent = () => {
             taskStatus,
             taskPriority
         }
-        await dispatch(createTask(taskPayload, id))
-        setAssignedTo('')
-        setTaskBody('')
-        setTaskStatus('')
-        setTaskPriority('')
+        if(assignedTo.length > 0) {
+
+            await dispatch(createTask(taskPayload, id))
+            setAssignedTo('')
+            setTaskBody('')
+            setTaskStatus('')
+            setTaskPriority('')
+        } else {
+            alert('Please assign someone to this task')
+        }
 
     }
     const handleTaskDelete = async(e) => {
@@ -123,7 +128,7 @@ const TaskComponent = () => {
                                 <i className="fas fa-edit"></i>
                             </button>
                             <button onClick={handleTaskDelete}>
-                                <i id={task?.id} class="far fa-trash-alt"></i>
+                                <i id={task?.id} className="far fa-trash-alt"></i>
                             </button>
                         </div>
 

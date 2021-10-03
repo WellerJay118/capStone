@@ -30,8 +30,12 @@ const EditProject = () => {
             projDesc,
             projStatus
         }
-        let editedProject = await dispatch(updateProj(projPayload, id))
-        if (editedProject) history.push(`/projects/${editedProject.id}`)
+        if(projName?.length > 0) {
+            let editedProject = await dispatch(updateProj(projPayload, id))
+            if (editedProject) history.push(`/projects/${editedProject.id}`)
+        } else {
+            alert('Please give the project a title')
+        }
     }
 
     const handleCancel = async(e) => {
@@ -56,7 +60,7 @@ const EditProject = () => {
 
                 <div className="editform__header">
                     {/* {toEdit === undefined ? history.push(`/projects/${id}`) : null} --THIS IS WORKAROUND TO USEFFECT. NO IDEA WHY IT WOULD BE A GOOD IDEA */}
-                    <h1>You are editting the project: {toEdit?.projName}</h1>
+                    <div className="editform__header-div">You are editting the project: {toEdit?.projName}</div>
                     {sessionUser.id === toEdit?.projOwner ?
                             <button id="editform__button--delete" onClick={handleDelete}>
                                 Delete this project
