@@ -21,6 +21,16 @@ const CreateProject = () => {
 
     // })
 
+
+
+
+
+    //limit size of the project name 50 characters?
+
+
+
+
+
     const handleSubmit = async(e) => {
         e.preventDefault();
         const project = {
@@ -39,31 +49,29 @@ const CreateProject = () => {
     }
 
     return (
-        <div className="borderBlack">
-            <h1>Create a Project</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    placeholder="Project Name"
-                    type="text"
-                    required
-                    value={projName}
-                    onChange={(e) => setProjName(e.target.value)}
-                />
-                <textarea
-                    placeholder="Project Description"
-                    required
-                    value={projDesc}
-                    onChange={(e) => setProjDesc(e.target.value)}
-                />
-                {/* <input
-                    placeholder="Project Status"
-                    type="text"
-                    value={projStatus}
-                    onChange={(e) => setProjStatus(e.target.value)}
-                /> */}
-                <button type='submit'>Create</button>
-                <button onClick={handleCancel}>Cancel</button>
-            </form>
+        <div className="createProjPage__wrapper">
+            <div className="createProjPage__container">
+                <div>Create a Project</div>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        placeholder="Project Name"
+                        type="text"
+                        required
+                        value={projName}
+                        onChange={(e) => setProjName(e.target.value)}
+                    />
+                    <textarea
+                        placeholder="Project Description"
+                        required
+                        value={projDesc}
+                        onChange={(e) => setProjDesc(e.target.value)}
+                    />
+                    <div className="createProjPage__form-buttons-div">
+                        <button type='submit'>Create</button>
+                        <button onClick={handleCancel}>Cancel</button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

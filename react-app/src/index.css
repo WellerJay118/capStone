@@ -156,9 +156,12 @@ body {
     box-shadow:0px 1px 1px rgba(0,0,0,.3);
 
 }
+.login__container p {
+    margin-left: 15px;
+}
 
 .login__container {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 20px 0;
     padding: 8px;
     width: 25em;
@@ -242,9 +245,20 @@ body {
 }
 
 .editform__header-div,
-.indivproj__header--projtitle{
+.indivproj__header--projtitle,
+.indivproj__header--projtitle-desc{
     overflow-wrap: break-word;
-    max-width: 90%;
+    max-width: 60%;
+}
+
+.indivproj__header--projtitle {
+    font-size: 30px;
+    margin: .5em;
+}
+
+.indivproj__header--projtitle-desc{
+    width:30%;
+    /* border: 1px solid black; */
 }
 
 .editform__container{
@@ -277,7 +291,7 @@ body {
 }
 
 .editform__form input {
-    width: 50%;
+    width: 175px;
     border: none;
     border-bottom: 1px solid rgba(0,0,0,.3);
     background-color:rgba(255,255,255, 0.4);
@@ -528,6 +542,15 @@ form textarea {
 
 }
 
+.task__createform--dd-select {
+    margin: 1em 0;
+    border: none;
+    width: 175px;
+    height: 30px;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+    background-color:rgba(255,255,255, 0.4);
+}
+
 .task__createform--dd-select:focus {
     border: 1px solid #FF0;
 }
@@ -536,3 +559,123 @@ form textarea {
 .task__createform-dd-select option::after {
 
 } */
+
+.allprojects__wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.allprojects__container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    /* border: 1px solid black; */
+    margin: 1.5em 0;
+    border-radius: 5px;
+}
+
+.allprojects__projcard:hover {
+    box-shadow:2px 1px 1px rgba(0,0,0,.4);
+
+}
+
+.allprojects__projcard--header{
+    width: 80%;
+}
+
+.allprojects__projname{
+    overflow-wrap: break-word;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: .5em
+}
+
+
+.allprojects__projcard {
+    border: 1px solid rgba(0,0,0,.4);
+    border-radius: 5px;
+    margin: 1.5em;
+    width: 15vw;
+    height: 225px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.allprojects__projcard-nav {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    object-fit: contain;
+}
+
+/* .allprojects__projcard-nav:hover {
+    border-bottom: 1px solid rgba(0,0,0,.3);
+
+} */
+
+.allprojects__projcard--buttons-div{
+    margin: 1em 0;
+}
+.allprojects__projcard--buttons-div button{
+    background-color: rgba(0,0,0,0);
+    border: none;
+}
+
+.allprojects__projcard--buttons-div button:hover{
+    border-bottom: 1px solid rgba(0,0,0,.3);
+
+}
+
+.createProjPage__wrapper{
+    /* border: 1px solid black; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+
+.createProjPage__container{
+    width: 30%;
+    border: 1px solid black;
+    padding: 1em;
+    border-radius: 5px;
+    width: 30%;
+    height: 50vh;
+}
+
+.createProjPage__container form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.createProjPage__form-buttons-div {
+    margin: .5em;
+}
+
+.createProjPage__form-buttons-div button{
+    width: 100px;
+    margin: 5px;
+    height: 25px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    color: #ff0;
+    background-color: #F00;
+}

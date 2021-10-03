@@ -13,13 +13,13 @@ const TaskComponent = () => {
     const { id } = useParams();
 
     const sessionUser = useSelector(state => state.session.user)
-    // const tasks = useSelector(state => Object.values(state.tasks).filter(task => task?.projId === Number(id)))
+    const tasks = useSelector(state => Object.values(state.tasks).filter(task => task?.projId === Number(id)))
 
-    const pTasks = useSelector(state => Object.values(state.tasks).filter(task => task?.taskStatus === "Planning"))
-    const ipTasks = useSelector(state => Object.values(state.tasks).filter(task => task?.taskStatus === "In Progress"))
-    const waTasks = useSelector(state => Object.values(state.tasks).filter(task => task?.taskStatus === "Waiting Approval"))
-    const aTasks = useSelector(state => Object.values(state.tasks).filter(task => task?.taskStatus === "Approved"))
-    const cTasks = useSelector(state => Object.values(state.tasks).filter(task => task?.taskStatus === "Closed"))
+    const pTasks = useSelector(state => tasks.filter(task => task?.taskStatus === "Planning"))
+    const ipTasks = useSelector(state =>tasks.filter(task => task?.taskStatus === "In Progress"))
+    const waTasks = useSelector(state =>tasks.filter(task => task?.taskStatus === "Waiting Approval"))
+    const aTasks = useSelector(state => tasks.filter(task => task?.taskStatus === "Approved"))
+    const cTasks = useSelector(state => tasks.filter(task => task?.taskStatus === "Closed"))
 
     // console.log("p", pTasks, "ip", ipTasks, "wa", waTasks, "a", aTasks, "c", cTasks)
 

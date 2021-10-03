@@ -51,7 +51,10 @@ const EditProject = () => {
 
     const updateName = (e) => setProjName(e.target.value)
     const updateDesc = (e) => setProjDesc(e.target.value)
-    const updateStatus = (e) => setProjStatus(e.target.value)
+    // const updateStatus = (e) => setProjStatus(e.target.value)
+
+    const selStatus = ["Planning", "In Progress", "Waiting Approval", "Approved", "Closed"]
+
 
 
     return (
@@ -77,12 +80,25 @@ const EditProject = () => {
                         onChange={updateName}
                     />
                     <label>Status</label>
-                    <input
+                    <select
+                        className="task__createform--dd-select"
+                        value={projStatus}
+                        onChange={(e) => {
+                            const statusSelect = e.target.value;
+                            setProjStatus(statusSelect)
+                    }}>
+                        {selStatus.map((element, idx) => (
+                            <option key={idx} value={element}>
+                                {element}
+                            </option>
+                        ))}
+                    </select>
+                    {/* <input
                         placeholder="Project Status"
                         type="text"
                         value={projStatus}
                         onChange={updateStatus}
-                    />
+                    /> */}
                     <label>Description</label>
                     <textarea
                         // className="editform__form--desc"

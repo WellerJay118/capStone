@@ -24,7 +24,8 @@ const IndivProject = () => {
             <div className="indivproj__container">
                 <div className="indivproj__header">
 
-                <div className="indivproj__header--projtitle">Project: {thisProject?.projName}</div>
+                <div className="indivproj__header--projtitle">{thisProject?.projName}</div>
+                <div className="indivproj__header--projtitle-desc"><strong>Project Description: </strong>{thisProject?.projDesc}</div>
 
                 {thisProject?.projOwner === sessionUser?.id ? (
                     <button className="indivproj__header--button" onClick={(e) => history.push(`/projects/${id}/edit`)}>Project Properties</button>
