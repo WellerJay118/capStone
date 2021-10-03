@@ -329,16 +329,17 @@ body {
 
 .indivproj__wrapper{
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     justify-content: center;
+    /* padding: 2em; */
 }
 
 .indivproj__container{
-    /* border: 1px solid black; */
-    width: 90%;
+    border: 1px solid black;
+    width: 80%;
     border-radius: 5px;
-    /* margin: 1.5em; */
+    margin: 1.5em;
 
 }
 
@@ -410,6 +411,8 @@ body {
 }
 .task__singleTask--card-taskinfo div{
     margin: 5px;
+    width: 20%;
+    overflow-wrap: break-word;
 
 }
 .task__card--container {
