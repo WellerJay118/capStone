@@ -127,7 +127,7 @@ const TaskComponent = () => {
                             <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
                                 <i className="fas fa-edit"></i>
                             </button>
-                            <button onClick={handleTaskDelete}>
+                            <button id={task?.id} onClick={handleTaskDelete}>
                                 <i id={task?.id} className="far fa-trash-alt"></i>
                             </button>
                         </div>

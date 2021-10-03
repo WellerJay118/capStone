@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 // import { NavLink } from "react-router-dom";
-import { fetchAllProj } from "../store/project";
+import { fetchAllProj, removeProj } from "../store/project";
 import { useHistory } from "react-router-dom"
 // import { useParams } from "react-router";
 
@@ -18,12 +18,13 @@ const ProjectsPage = () => {
         dispatch(fetchAllProj())
     }, [dispatch])
 
-    // const handleDelete = async(e) => {
-    //     e.preventDefault();
-    //     console.log("tar", e.target.id)
-    //     await dispatch(removeProj(e.target.id))
-    //     history.push('/projects') //may need the trailing slash
-    // }
+
+    const handleDelete = async(e) => {
+        e.preventDefault();
+        console.log("tar", e.target.id)
+        await dispatch(removeProj(e.target.id))
+        history.push('/projects') //may need the trailing slash
+    }
 
     return (
         <div className="borderBlack">
@@ -39,6 +40,9 @@ const ProjectsPage = () => {
                                 <i className="fas fa-edit"></i>
                             </button>
                     ): null}
+                        <button id={project?.id} onClick={handleDelete}>
+                            Delete this project
+                        </button>
                     {/* {sessionUser.id === project.projOwner ? */}
                     {/* {console.log("id", project.id)} */}
                         {/* <button id={project.id} onClick={handleDelete}>
