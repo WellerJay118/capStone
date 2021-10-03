@@ -335,10 +335,10 @@ body {
 }
 
 .indivproj__container{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 90%;
     border-radius: 5px;
-    margin: 1.5em;
+    /* margin: 1.5em; */
 
 }
 
@@ -346,7 +346,7 @@ body {
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
 }
 
@@ -367,12 +367,13 @@ body {
 }
 
 .task__container{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 100%;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* margin: 1.5em; */
 
 }
 
@@ -381,12 +382,16 @@ body {
     display: flex;
     flex-direction: row;
     /* justify-content: space-between; */
+    border-bottom: 1px solid rgba(0,0,0,.3);
+
 }
 
 .task__singleTask--card-buttons{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+
 }
 
 .task__singleTask--card-buttons button{
@@ -395,19 +400,20 @@ body {
 }
 
 .task__singleTask--card-taskinfo{
+    /* border: 1px solid black; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
     padding: .5em;
     width: 100%;
 }
 .task__singleTask--card-taskinfo div{
     margin: 5px;
+
 }
 .task__card--container {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 90%;
 }
 

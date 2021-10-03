@@ -36,7 +36,7 @@ const EditProject = () => {
 
     const handleCancel = async(e) => {
         e.preventDefault();
-        history.push(`projects/${id}`);
+        history.push(`/projects/${id}`);
     }
 
     const handleDelete = async(e) => {
