@@ -29,17 +29,13 @@ const ProjectsPage = () => {
     return (
         <div className="allprojects__wrapper">
             <div className="allprojects__container">
-            {/* <button onClick={(e) => history.push('/projects/create')}>
-                <i className="fas fa-plus-circle"></i>
-            </button> */}
-            {console.log("AAAAAAAAAAA", projects)}
             {projects.length < 1 ?
                 <div className="allprojects__noproj">
                     Looks like you have no projects, <button onClick={(e) => history.push('/projects/create')}>Create one here!</button>
                 </div>
                 : projects.map((project) =>
-                <div>
-                <div className="allprojects__projcard" key={project?.id}>
+                <div key={project?.id}>
+                    <div className="allprojects__projcard" key={project?.id}>
                     <NavLink className="allprojects__projcard-nav"to={`/projects/${project?.id}`} exact={true}>
                     <div className="allprojects__projcard--header">
                         <div className="allprojects__projname">{project?.projName}</div>

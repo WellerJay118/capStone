@@ -63,14 +63,14 @@ const TaskComponent = () => {
         }
         // if(assignedTo.length > 0) {
             if(taskBody.length < 1) setErrors(["Please put a description of the task"])
-            await dispatch(createTask(taskPayload, id))
-            setAssignedTo(sessionUser.id)
-            setTaskBody('')
-            setTaskStatus(selStatus[0])
-            setTaskPriority(selPriority[0])
-        // } else {
-        //     alert('Please assign someone to this task')
-        // }
+            if(taskBody.length > 500) setErrors(["Please use no more than 500 characters for the task description"])
+            if (!errors.length) {
+                await dispatch(createTask(taskPayload, id))
+                setAssignedTo(sessionUser.id)
+                setTaskBody('')
+                setTaskStatus(selStatus[0])
+                setTaskPriority(selPriority[0])
+            }
 
     }
     const handleTaskDelete = async(e) => {

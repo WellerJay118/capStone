@@ -417,7 +417,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-bottom: 1px solid rgba(0,0,0,.3);
+    /* border-bottom: 1px solid rgba(0,0,0,.3); */
 
 }
 
@@ -724,4 +724,16 @@ form textarea {
 
 .createProjPage__form-textarea{
     height: 80px;
+}
+
+.signup__wrapper {
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+.signup__container{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
 }

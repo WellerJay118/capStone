@@ -85,7 +85,7 @@ const EditProject = () => {
                 </div>
 
                 <form className="editform__form">
-                    <label>Project Name:</label>
+                    <label>New Name/Title:</label>
                     <input
                         placeholder="Project Name"
                         type="text"
