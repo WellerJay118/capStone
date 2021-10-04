@@ -21,7 +21,7 @@ const ProjectsPage = () => {
 
     const handleDelete = async(e) => {
         e.preventDefault();
-        console.log("tar", e.target.id)
+        // console.log("tar", e.target.id)
         await dispatch(removeProj(e.target.id))
         history.push('/projects') //may need the trailing slash
     }
@@ -32,8 +32,12 @@ const ProjectsPage = () => {
             {/* <button onClick={(e) => history.push('/projects/create')}>
                 <i className="fas fa-plus-circle"></i>
             </button> */}
-
-            {projects.map((project) =>
+            {console.log("AAAAAAAAAAA", projects)}
+            {projects.length < 1 ?
+                <div className="allprojects__noproj">
+                    Looks like you have no projects, <button onClick={(e) => history.push('/projects/create')}>Create one here!</button>
+                </div>
+                : projects.map((project) =>
                 <div className="allprojects__projcard" key={project?.id}>
                     <NavLink className="allprojects__projcard-nav"to={`/projects/${project?.id}`} exact={true}>
                     <div className="allprojects__projcard--header">
