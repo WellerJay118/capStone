@@ -5,8 +5,6 @@ import { updateProj, removeProj, fetchAllProj } from "../store/project";
 import { useHistory } from "react-router-dom"
 
 
-
-
 const EditProject = () => {
     const dispatch = useDispatch();
     const { id } = useParams();

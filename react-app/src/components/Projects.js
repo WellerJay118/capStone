@@ -27,7 +27,7 @@ const ProjectsPage = () => {
         await dispatch(removeProj(e.target.id))
         history.push('/projects') //may need the trailing slash
     }
-
+    console.log(projects)
     return (
         <div className="allprojects__wrapper">
             <h1>{sessionUser.firstName} {sessionUser.lastName}'s Projects</h1>
@@ -36,17 +36,15 @@ const ProjectsPage = () => {
                 <div className="allprojects__noproj">
                     Looks like you have no projects, <button onClick={(e) => history.push('/projects/create')}>Create one here!</button>
                 </div>
-                : projects.map((project) =>
+                : projects?.map((project) =>
                 <div key={project?.id}>
                     <NavLink className="allprojects__projcard-nav"to={`/projects/${project?.id}`} exact={true}>
-                    <div className="allprojects__projcard" key={project?.id}>
-                    <div className="allprojects__projcard--header">
-                        <div className="allprojects__projname">{project?.projName}</div>
-                        <h4>Current Status: {project?.projStatus}</h4>
-                        {/* <label>Description:</label> */}
-                        {/* <div className="allprojects__projdesc">{project?.projDesc}</div> */}
-                    </div>
-                </div>
+                        <div className="allprojects__projcard" key={project?.id}>
+                            <div className="allprojects__projcard--header">
+                                <div className="allprojects__projname">{project?.projName}</div>
+                                <h4>Current Status: {project?.projStatus}</h4>
+                              </div>
+                        </div>
                     </NavLink>
                     <div className="allprojects__projcard--buttons-div">
                         <button onClick={(e) => history.push(`/projects/${project?.id}/edit`)}>
