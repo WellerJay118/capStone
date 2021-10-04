@@ -15,8 +15,8 @@ const TaskComponent = () => {
 
     const allUsers = useSelector(state => Object.values(state.users))
     // const allUserss = allUsers.map(user => user.filter(4 === user.id))
-    const test = {...allUsers}
-    console.log(test)
+    // const test = allUsers
+    // console.log(test)
 
     const sessionUser = useSelector(state => state.session.user)
     const tasks = useSelector(state => Object.values(state.tasks).filter(task => task?.projId === Number(id)))
@@ -98,13 +98,24 @@ const TaskComponent = () => {
             <form>
                 {/* Value for the select of users will be = to their id. */}
                 <div className="task__createform--left">
-                    <input
+                    {/* <input
                         placeholder="Assigned"
                         type="text"
                         required
                         value={assignedTo}
                         onChange={(e) => setAssignedTo(e.target.value)}
-                    />
+                    /> */}
+                    <select
+                    className="task__createform--dd-select"
+                    value={assignedTo}
+                    onChange={(e) => {
+                        const userSelect = e.target.value
+                        setAssignedTo(userSelect)
+                    }}>
+                        {allUsers.map(user => (
+                            <option key={user.id} value={user.id}>{user.firstName} {user.lastName}</option>
+                        ))}
+                    </select>
                     <label>Priority: </label>
                     <select
                     className="task__createform--dd-select"
