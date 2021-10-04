@@ -23,6 +23,7 @@ const IndivProject = () => {
         <div className="indivproj__wrapper">
             <div className="indivproj__container">
                 <div className="indivproj__header">
+                    <h1>Tasks</h1>
 
                 <div className="indivproj__header--projtitle">{thisProject?.projName}</div>
                 <div className="indivproj__header--projtitle-desc"><strong>Project Description: </strong>{thisProject?.projDesc}</div>

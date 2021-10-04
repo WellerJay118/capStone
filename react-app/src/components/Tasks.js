@@ -29,6 +29,7 @@ const TaskComponent = () => {
 
     // console.log("p", pTasks, "ip", ipTasks, "wa", waTasks, "a", aTasks, "c", cTasks)
 
+
     const selStatus = ["Planning", "In Progress", "Waiting Approval", "Approved", "Completed"]
     const selPriority = ["Idea", "Want", "Low", "Medium", "High", "Immediate"]
 
@@ -62,6 +63,7 @@ const TaskComponent = () => {
 
     const handleCreate = async(e) => {
         e.preventDefault();
+        const errors = []
         const taskPayload = {
             assignedTo,
             taskBody,
@@ -69,15 +71,18 @@ const TaskComponent = () => {
             taskPriority
         }
         // if(assignedTo.length > 0) {
-            if(taskBody.length < 1) setErrors(["Please put a description of the task"])
-            if(taskBody.length > 500) setErrors(["Please use no more than 500 characters for the task description"])
-            if (!errors.length) {
+            if(taskBody.length < 1) errors.push("Please put a description of the task")
+            if(taskBody.length > 500) errors.push("Please use no more than 500 characters for the task description")
+            if (errors.length) {
+                setErrors(errors)
+            } else {
                 await dispatch(createTask(taskPayload, id))
                 setAssignedTo(sessionUser.id)
                 setTaskBody('')
                 setTaskStatus(selStatus[0])
                 setTaskPriority(selPriority[0])
             }
+
 
     }
     const handleTaskDelete = async(e) => {
@@ -173,7 +178,7 @@ const TaskComponent = () => {
             </button>
 
             <div className="task__card--container">
-                <h4>Planning</h4>
+                {pTasks.length === 0 ? null : <h4 >Planning</h4>}
                 {pTasks.map((task) => (
                     <div className="task__singleTask--card" key={task?.id}>
 

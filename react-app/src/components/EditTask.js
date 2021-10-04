@@ -38,7 +38,7 @@ const EditTask = () => {
         //assignedTo split on space for firstName + lastName
         //use firstName + lastName to query for specific user model
         e.preventDefault();
-        console.log(id)
+        // console.log(id)
         const taskPayload = {
             assignedTo,
             taskBody,

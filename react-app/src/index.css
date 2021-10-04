@@ -185,8 +185,12 @@ body {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    align-items: center;
 
+
+}
+
+.login__errors div {
+    text-align: left;
 }
 
 .login__input--email input,
@@ -789,8 +793,7 @@ form textarea {
     width: 60%;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    /* border: 1px solid red; */
+
 }
 
 .signupPage__container form {

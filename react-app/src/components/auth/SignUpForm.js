@@ -23,6 +23,12 @@ const SignUpForm = () => {
       const data = await dispatch(signUp(username, email, password, firstName, lastName,));
       if (data) {
         setErrors(data)
+        setEmail('')
+        setUsername('')
+        setPassword('')
+        setRepeatPassword('')
+        setFirstName('')
+        setLastName('')
       }
     }
   };
