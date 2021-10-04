@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router";
 import { createTask, fetchAllTask } from "../store/task";
 import { removeTask } from "../store/task";
+import { fetchAllUsers } from "../store/user"
 
 
 
@@ -11,6 +12,11 @@ const TaskComponent = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
+
+    const allUsers = useSelector(state => Object.values(state.users))
+    // const allUserss = allUsers.map(user => user.filter(4 === user.id))
+    const test = {...allUsers}
+    console.log(test)
 
     const sessionUser = useSelector(state => state.session.user)
     const tasks = useSelector(state => Object.values(state.tasks).filter(task => task?.projId === Number(id)))
@@ -35,6 +41,7 @@ const TaskComponent = () => {
 
     useEffect(() => {
         dispatch(fetchAllTask(id))
+        dispatch(fetchAllUsers())
         // if(!showCreateTask) return;
         // const closeCreateTask = () => {
         //     setShowCreateTask(false)

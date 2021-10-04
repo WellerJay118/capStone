@@ -568,7 +568,7 @@ form textarea {
 
 .allprojects__wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -798,7 +798,7 @@ form textarea {
     width: 100%;
     display: flex;
     justify-content: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .editTaskForm__container{

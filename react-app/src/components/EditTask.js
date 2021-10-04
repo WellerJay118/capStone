@@ -9,6 +9,7 @@ const EditTask = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id, taskId} = useParams(); //the projects id
+    const allUsers = useSelector(state => Object.values(state.users))
     // const tasks = useSelector(state => Object.values(state.tasks))
     const task = useSelector(state => state.tasks[taskId])
     // const projectName = useSelector(state => Object.values(state.projects))
@@ -26,7 +27,6 @@ const EditTask = () => {
 //must go from projects page to the edit task page for the state to be loaded correctly.
     useEffect(() => {
         dispatch(fetchAllTask(id))
-        // dispatch(fetchAllTask())
     }, [dispatch, id])
 
     const handleCancel = async(e) => {
@@ -58,14 +58,25 @@ const EditTask = () => {
             <div className="editTaskForm__container">
                 <h1>Task Edit</h1>
                 <form onSubmit={handleEdit}>
-                    <input
+                    {/* <input
                         className="editTaskForm__inputs"
                         placeholder="Assigned"
                         type="text"
                         required
                         value={assignedTo}
                         onChange={(e) => setAssignedTo(e.target.value)}
-                    />
+                    /> */}
+                    <select
+                        className="editTaskForm__inputs"
+                        value={assignedTo}
+                        onChange={(e) => {
+                            const userSelect = e.target.value
+                            setAssignedTo(userSelect)
+                        }}>
+                            {allUsers.map(user => (
+                                <option key={user.id} value={user.id}>{user.firstName} {user.lastName}</option>
+                            ))}
+                        </select>
                     <textarea
                         className="editTaskForm__textarea"
                         placeholder="Task Description"

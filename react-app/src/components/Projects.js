@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 // import { NavLink } from "react-router-dom";
 import { fetchAllProj, removeProj } from "../store/project";
 import { NavLink, useHistory } from "react-router-dom"
+import { fetchAllUsers } from "../store/user";
 // import { useParams } from "react-router";
 
 
@@ -16,6 +17,7 @@ const ProjectsPage = () => {
 
     useEffect(() => {
         dispatch(fetchAllProj())
+        dispatch(fetchAllUsers())
     }, [dispatch])
 
 
@@ -28,6 +30,7 @@ const ProjectsPage = () => {
 
     return (
         <div className="allprojects__wrapper">
+            <h1>My Projects</h1>
             <div className="allprojects__container">
             {projects.length < 1 ?
                 <div className="allprojects__noproj">
