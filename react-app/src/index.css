@@ -2,7 +2,7 @@ body, html, #root {
     margin:0;
     padding: 0;
     height: 100%;
-    font-family:monospace;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 body {
@@ -71,6 +71,8 @@ body {
 #menu__button {
     background-color: white;
     border: none;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .menu__dropdown--button:hover {
@@ -89,6 +91,8 @@ body {
     height: 40px;
     width: 125px;
     font-weight: bold;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .badroute__wrapper {
@@ -119,6 +123,8 @@ body {
     background-color: white;
     border: none;
     text-decoration: none;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .navbar__createproj--button:hover {
@@ -128,6 +134,8 @@ body {
 .navbar__createproj--button {
     border: none;
     background-color: white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .navbar__github:hover,
@@ -220,6 +228,8 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .login__buttons {
@@ -231,6 +241,8 @@ body {
     border-radius: 5px;
     color: #ff0;
     background-color: #F00;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .login__buttons:hover{
@@ -328,6 +340,8 @@ body {
     border-radius: 5px;
     color: #ff0;
     background-color: #F00;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 #editform__button--delete {
@@ -340,6 +354,8 @@ body {
     /* color: #ff0; */
     background-color: rgba(255,255,0,0);
     color: #F00;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 #editform__button--delete:hover {
@@ -388,6 +404,8 @@ body {
     border-radius: 5px;
     color: #ff0;
     background-color: #F00;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .indivproj__header--button:hover{
@@ -420,11 +438,14 @@ body {
     flex-direction: column;
     justify-content: center;
     /* border-bottom: 1px solid rgba(0,0,0,.3); */
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 
 }
 
 .task__singleTask--card-buttons button{
     background-color: rgba(0,0,0,0);
+    font-family:Georgia, 'Times New Roman', Times, serif;
     border: none;
 }
 
@@ -496,6 +517,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .task__createform--buttons button:hover {
@@ -512,6 +535,8 @@ body {
     border-radius: 5px;
     color: #ff0;
     background-color: #F00;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .task__container--addTask {
@@ -628,7 +653,7 @@ form textarea {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 95%;
+    width: 100%;
     height: 100%;
     object-fit: contain;
 }
@@ -644,10 +669,15 @@ form textarea {
     justify-content: center;
     padding-bottom: 8px;
     border-bottom: thick double rgba(0,0,0,.1);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 .allprojects__projcard--buttons-div button{
     background-color: rgba(0,0,0,0);
     border: none;
+    /* margin-right: 15px; */
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .allprojects__projcard--buttons-div button:hover{
@@ -684,6 +714,8 @@ form textarea {
 
 .createProjPage__form-buttons-div {
     margin: .5em;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .createProjPage__form-buttons-div button{
@@ -695,6 +727,8 @@ form textarea {
     border-radius: 5px;
     color: #ff0;
     background-color: #F00;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .allprojects__noproj button {
@@ -706,6 +740,8 @@ form textarea {
     border-radius: 5px;
     color: #ff0;
     background-color: #F00;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .createProjPage__header{
@@ -783,6 +819,8 @@ form textarea {
     border-radius: 5px;
     color: #ff0;
     background-color: #F00;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .editTaskForm__button{
@@ -794,6 +832,8 @@ form textarea {
     border-radius: 5px;
     color: #ff0;
     background-color: #F00;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .editTaskForm__wrapper{
