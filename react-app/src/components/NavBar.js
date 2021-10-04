@@ -2,13 +2,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import MenuButton from './Menu';
 import logo from "../lnl-logo.png"
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 const NavBar = () => {
 
   const linkedIn = "https://www.linkedin.com/in/jacob-weller-592795161/"
   const github = "https://github.com/WellerJay118"
-  const sessionUser = useSelector(state => state.session.user)
+  // const sessionUser = useSelector(state => state.session.user)
 
   return (
     <div className="navbar__container">

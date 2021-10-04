@@ -14,9 +14,9 @@ const TaskComponent = () => {
     const { id } = useParams();
 
     const allUsers = useSelector(state => Object.values(state.users))
-    // const allUserss = allUsers.map(user => user.filter(4 === user.id))
-    // const test = allUsers
-    // console.log(test)
+    // const allUserss = allUsers.filter(user => task?.assignedTo === user.id)
+    // console.log(allUsers)
+    // console.log(allUserss)
 
     const sessionUser = useSelector(state => state.session.user)
     const tasks = useSelector(state => Object.values(state.tasks).filter(task => task?.projId === Number(id)))
