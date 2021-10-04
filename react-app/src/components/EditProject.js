@@ -62,7 +62,7 @@ const EditProject = () => {
     const updateDesc = (e) => setProjDesc(e.target.value)
     // const updateStatus = (e) => setProjStatus(e.target.value)
 
-    const selStatus = ["Planning", "In Progress", "Waiting Approval", "Approved", "Closed"]
+    const selStatus = ["Planning", "In Progress", "Waiting Approval", "Approved", "Completed"]
 
 
 

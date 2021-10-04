@@ -15,6 +15,8 @@ const EditTask = () => {
     // console.log(id)
     // console.log("$#$#$#$#", projectName)
 
+    const selStatus = ["Planning", "In Progress", "Waiting Approval", "Approved", "Completed"]
+    const selPriority = ["Idea", "Want", "Low", "Medium", "High", "Immediate"]
 
     const [assignedTo, setAssignedTo] = useState(task?.assignedTo);
     const [taskBody, setTaskBody] = useState(task?.taskBody);
@@ -47,38 +49,72 @@ const EditTask = () => {
         if (edittedTask) history.push(`/projects/${id}`)
     }
 
+
+
+
+
     return (
-        <div className="borderRed">
-            <h1>editing Task</h1>
-            <form onSubmit={handleEdit}>
-                <input
-                    placeholder="Assigned"
-                    type="text"
-                    required
-                    value={assignedTo}
-                    onChange={(e) => setAssignedTo(e.target.value)}
-                />
-                <textarea
-                    placeholder="Task Description"
-                    required
-                    value={taskBody}
-                    onChange={(e) => setTaskBody(e.target.value)}
-                />
-                <input
-                    placeholder="Task Priority"
-                    type="text"
-                    value={taskPriority}
-                    onChange={(e) => setTaskPriority(e.target.value)}
-                />
-                <input
-                    placeholder="Task Status"
-                    type="text"
-                    value={taskStatus}
-                    onChange={(e) => setTaskStatus(e.target.value)}
-                />
-                <button type='submit'>Edit</button>
-                <button onClick={handleCancel}>Cancel</button>
-            </form>
+        <div className="editTaskForm__wrapper">
+            <div className="editTaskForm__container">
+                <h1>Task Edit</h1>
+                <form onSubmit={handleEdit}>
+                    <input
+                        className="editTaskForm__inputs"
+                        placeholder="Assigned"
+                        type="text"
+                        required
+                        value={assignedTo}
+                        onChange={(e) => setAssignedTo(e.target.value)}
+                    />
+                    <textarea
+                        className="editTaskForm__textarea"
+                        placeholder="Task Description"
+                        required
+                        value={taskBody}
+                        onChange={(e) => setTaskBody(e.target.value)}
+                    />
+                    <select
+                        className="editTaskForm__inputs"
+                        value={taskPriority}
+                        onChange={(e) => {
+                            const prioritySel = e.target.value
+                            setTaskPriority(prioritySel)
+                        }}>
+                            {selPriority.map((element, idx) => (
+                                <option key={idx} value={element}>{element}</option>
+                            ))}
+                    </select>
+                    {/* <input
+                        className="editTaskForm__inputs"
+                        placeholder="Task Priority"
+                        type="text"
+                        value={taskPriority}
+                        onChange={(e) => setTaskPriority(e.target.value)}
+                    /> */}
+                    <select
+                        className="editTaskForm__inputs"
+                        value={taskStatus}
+                        onChange={(e) => {
+                            const statusSel = e.target.value
+                            setTaskStatus(statusSel)
+                        }}>
+                            {selStatus.map((element, idx) => (
+                                <option key={idx} value={element}>{element}</option>
+                            ))}
+                    </select>
+                    {/* <input
+                        className="editTaskForm__inputs"
+                        placeholder="Task Status"
+                        type="text"
+                        value={taskStatus}
+                        onChange={(e) => setTaskStatus(e.target.value)}
+                    /> */}
+                    <div>
+                        <button className="editTaskForm__button" type='submit'>Submit Changes</button>
+                        <button className="editTaskForm__button" onClick={handleCancel}>Cancel</button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

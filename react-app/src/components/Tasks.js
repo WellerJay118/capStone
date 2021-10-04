@@ -19,11 +19,11 @@ const TaskComponent = () => {
     const ipTasks = useSelector(state => tasks.filter(task => task?.taskStatus === "In Progress"))
     const waTasks = useSelector(state => tasks.filter(task => task?.taskStatus === "Waiting Approval"))
     const aTasks = useSelector(state => tasks.filter(task => task?.taskStatus === "Approved"))
-    const cTasks = useSelector(state => tasks.filter(task => task?.taskStatus === "Closed"))
+    const cTasks = useSelector(state => tasks.filter(task => task?.taskStatus === "Completed"))
 
     // console.log("p", pTasks, "ip", ipTasks, "wa", waTasks, "a", aTasks, "c", cTasks)
 
-    const selStatus = ["Planning", "In Progress", "Waiting Approval", "Approved", "Closed"]
+    const selStatus = ["Planning", "In Progress", "Waiting Approval", "Approved", "Completed"]
     const selPriority = ["Idea", "Want", "Low", "Medium", "High", "Immediate"]
 
     const [assignedTo, setAssignedTo] = useState(sessionUser.id);
