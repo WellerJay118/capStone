@@ -43,12 +43,6 @@ const TaskComponent = () => {
     useEffect(() => {
         dispatch(fetchAllTask(id))
         dispatch(fetchAllUsers())
-        // if(!showCreateTask) return;
-        // const closeCreateTask = () => {
-        //     setShowCreateTask(false)
-        // }
-        // document.addEventListener('click', closeCreateTask)
-        // return () => document.removeEventListener('click', closeCreateTask)
     }, [dispatch, id, showCreateTask])
 
     const openCreateTask = async(e) => {
@@ -101,15 +95,7 @@ const TaskComponent = () => {
                 ))}
             </div>
             <form>
-                {/* Value for the select of users will be = to their id. */}
                 <div className="task__createform--left">
-                    {/* <input
-                        placeholder="Assigned"
-                        type="text"
-                        required
-                        value={assignedTo}
-                        onChange={(e) => setAssignedTo(e.target.value)}
-                    /> */}
                     <select
                     className="task__createform--dd-select"
                     value={assignedTo}
@@ -178,7 +164,7 @@ const TaskComponent = () => {
             </button>
 
             <div className="task__card--container">
-                {pTasks.length === 0 ? null : <h4 >Planning</h4>}
+                <h4 >Planning</h4>
                 {pTasks.map((task) => (
                     <div className="task__singleTask--card" key={task?.id}>
 

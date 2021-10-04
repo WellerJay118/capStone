@@ -38,7 +38,7 @@ const MenuButton = () => {
     } else {
         topBar = (
             <div className="menu__dropdown">
-                <button className="menu__dropdown--button" onClick={(e) => history.push('/sign-up')}>Sign Up</button>
+                <button className="menu__dropdown--button" onClick={(e) => history.push('/login')}>Login or Sign Up</button>
             </div>
       )
     }
