@@ -13,7 +13,7 @@ const ProjectsPage = () => {
     const history = useHistory();
     // const { id } = useParams();
     const projects = useSelector(state => Object.values(state.projects))
-    // const sessionUser = useSelector(state => state.session.user) //can grab id from user.id to see if current user owns project
+    const sessionUser = useSelector(state => state.session.user) //can grab id from user.id to see if current user owns project
 
     useEffect(() => {
         dispatch(fetchAllProj())
@@ -30,7 +30,7 @@ const ProjectsPage = () => {
 
     return (
         <div className="allprojects__wrapper">
-            <h1>My Projects</h1>
+            <h1>{sessionUser.firstName} {sessionUser.lastName}'s Projects</h1>
             <div className="allprojects__container">
             {projects.length < 1 ?
                 <div className="allprojects__noproj">

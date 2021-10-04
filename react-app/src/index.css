@@ -76,6 +76,10 @@ body {
 
 }
 
+/* .test {
+    display: flex;
+    align-items: center;
+} */
 .menu__dropdown--button:hover {
     cursor: pointer;
     transition: 0.1s ease-in;
