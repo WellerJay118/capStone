@@ -16,8 +16,8 @@ const TaskComponent = () => {
     const tasks = useSelector(state => Object.values(state.tasks).filter(task => task?.projId === Number(id)))
 
     const pTasks = useSelector(state => tasks.filter(task => task?.taskStatus === "Planning"))
-    const ipTasks = useSelector(state =>tasks.filter(task => task?.taskStatus === "In Progress"))
-    const waTasks = useSelector(state =>tasks.filter(task => task?.taskStatus === "Waiting Approval"))
+    const ipTasks = useSelector(state => tasks.filter(task => task?.taskStatus === "In Progress"))
+    const waTasks = useSelector(state => tasks.filter(task => task?.taskStatus === "Waiting Approval"))
     const aTasks = useSelector(state => tasks.filter(task => task?.taskStatus === "Approved"))
     const cTasks = useSelector(state => tasks.filter(task => task?.taskStatus === "Closed"))
 

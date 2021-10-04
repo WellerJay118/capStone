@@ -4,6 +4,7 @@ const GET_ALL_PROJECTS = '/projects/GET_ALL_PROJECTS'
 const ADD_PROJECT = '/projects/ADD_PROJECT'
 const EDIT_PROJECT = '/projects/EDIT_PROJECT'
 const DELETE_PROJECT = '/projects/DELETE_PROJECT'
+const PROJ_LOGOUT = '/projects/PROJ_LOGOUT'
 
 // Define Action Creators
 //GET ALL PROJECTS
@@ -89,6 +90,12 @@ export const removeProj = (projId) => async(dispatch) => {
     }
 }
 
+export const projLogout = () => {
+    return {
+        type: PROJ_LOGOUT
+    }
+}
+
 // Define an initial state
 let initialState = {}
 
@@ -110,6 +117,8 @@ const projectReducer = (state = initialState, action) => {
         case DELETE_PROJECT:
             delete newState[action.projId]
             return newState
+        case PROJ_LOGOUT:
+            return initialState
         default:
             return state;
     }

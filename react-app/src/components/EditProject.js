@@ -17,6 +17,8 @@ const EditProject = () => {
     const [projName, setProjName] = useState(toEdit?.projName)
     const [projDesc, setProjDesc] = useState(toEdit?.projDesc)
     const [projStatus, setProjStatus] = useState(toEdit?.projStatus)
+    const [validationErrors, setValidationErrors] = useState([])
+
 
     //NEEDED ACCESS TO PROJECTS SLICE OF STATE
     useEffect(() => {
@@ -25,17 +27,24 @@ const EditProject = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
+        const validationErrors = []
         const projPayload = {
             projName,
             projDesc,
             projStatus
         }
-        if(projName?.length > 0) {
-            let editedProject = await dispatch(updateProj(projPayload, id))
-            if (editedProject) history.push(`/projects/${editedProject.id}`)
+        if(projName.length > 50 || projName.length < 1) validationErrors.push('Please limit your project name to between 1 and 50 characters')
+        if(projDesc.length > 255 || projDesc.length < 1) validationErrors.push('Please limit your project description to between 1 and 255 characters')
+        if (validationErrors.length) {
+            setValidationErrors(validationErrors)
         } else {
-            alert('Please give the project a title')
+            let editedProject = await dispatch(updateProj(projPayload, id))
+            if (editedProject) {
+                history.push(`/projects/${editedProject.id}`)
+            }
+
         }
+
     }
 
     const handleCancel = async(e) => {
@@ -60,9 +69,14 @@ const EditProject = () => {
     return (
         <div className="editform__wrapper">
             <div className="editform__container">
+                <div>
+                    {validationErrors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                </div>
 
                 <div className="editform__header">
-                    <div className="editform__header-div">You are editing the project: {toEdit?.projName}</div>
+                    <div className="editform__header-div"><p>You are editing the project: </p>{toEdit?.projName}</div>
                     {sessionUser.id === toEdit?.projOwner ?
                             <button id="editform__button--delete" onClick={handleDelete}>
                                 Delete this project

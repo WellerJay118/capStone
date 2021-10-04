@@ -38,6 +38,7 @@ const ProjectsPage = () => {
                     Looks like you have no projects, <button onClick={(e) => history.push('/projects/create')}>Create one here!</button>
                 </div>
                 : projects.map((project) =>
+                <div>
                 <div className="allprojects__projcard" key={project?.id}>
                     <NavLink className="allprojects__projcard-nav"to={`/projects/${project?.id}`} exact={true}>
                     <div className="allprojects__projcard--header">
@@ -47,6 +48,7 @@ const ProjectsPage = () => {
                         {/* <div className="allprojects__projdesc">{project?.projDesc}</div> */}
                     </div>
                     </NavLink>
+                </div>
                     <div className="allprojects__projcard--buttons-div">
                         <button onClick={(e) => history.push(`/projects/${project?.id}/edit`)}>
                             <i className="fas fa-edit fa-2x"></i>
@@ -56,7 +58,6 @@ const ProjectsPage = () => {
                             <i id={project?.id} className="far fa-trash-alt fa-2x"></i>
                         </button>
                     </div>
-                    {/* <button  onClick={(e) => history.push(`/projects/${project?.id}`)}>GO TO {project?.projName}</button> */}
                 </div>
             )}
             </div>
