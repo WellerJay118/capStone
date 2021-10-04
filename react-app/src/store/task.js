@@ -2,7 +2,11 @@ const GET_TASKS = '/projects/tasks/GET_TASKS'
 const ADD_TASK = '/projects/tasks/ADD_TASK'
 const EDIT_TASK = '/projects/tasks/EDIT_TASK'
 const DELETE_TASK = '/projects/tasks/DELETE_TASK'
+const TASK_LOGOUT = '/projects/tasks/TASK_LOGOUT'
 
+// const taskLogout = () => ({
+//     type: TASK_LOGOUT,
+// })
 
 //GET ALL TASKS
 const getAllTasks = (tasks) => ({
@@ -30,6 +34,12 @@ const deleteTask = (taskId) => ({
 
 // Define Thunks
 //GET ALL TASKS
+
+export const taskLogout = () => {
+    return {
+        type: TASK_LOGOUT
+    }
+}
 export const fetchAllTask = (projId) => async(dispatch) => {
     const res = await fetch (`/api/projects/${projId}/tasks`)
     const tasks = await res.json();
@@ -94,6 +104,8 @@ const taskReducer = (state = initialState, action) => {
         case DELETE_TASK:
             delete newState[action.taskId]
             return newState
+        case TASK_LOGOUT:
+            return initialState
         default:
             return state;
     }

@@ -9,11 +9,15 @@ const EditTask = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id, taskId} = useParams(); //the projects id
+    const allUsers = useSelector(state => Object.values(state.users))
     // const tasks = useSelector(state => Object.values(state.tasks))
     const task = useSelector(state => state.tasks[taskId])
-    console.log(id)
-    console.log("$#$#$#$#", task)
-    // console.log("111111111111", useParams())
+    // const projectName = useSelector(state => Object.values(state.projects))
+    // console.log(id)
+    // console.log("$#$#$#$#", projectName)
+
+    const selStatus = ["Planning", "In Progress", "Waiting Approval", "Approved", "Completed"]
+    const selPriority = ["Idea", "Want", "Low", "Medium", "High", "Immediate"]
 
     const [assignedTo, setAssignedTo] = useState(task?.assignedTo);
     const [taskBody, setTaskBody] = useState(task?.taskBody);
@@ -27,13 +31,14 @@ const EditTask = () => {
 
     const handleCancel = async(e) => {
         e.preventDefault();
-        history.push(`projects/${id}`);
+        history.push(`/projects/${id}`);
     }
 
     const handleEdit = async(e) => {
         //assignedTo split on space for firstName + lastName
         //use firstName + lastName to query for specific user model
         e.preventDefault();
+        // console.log(id)
         const taskPayload = {
             assignedTo,
             taskBody,
@@ -44,38 +49,83 @@ const EditTask = () => {
         if (edittedTask) history.push(`/projects/${id}`)
     }
 
+
+
+
+
     return (
-        <div className="borderRed">
-            <h1>EDIT COMPONENT</h1>
-            <form onSubmit={handleEdit}>
-                <input
-                    placeholder="Assigned"
-                    type="text"
-                    required
-                    value={assignedTo}
-                    onChange={(e) => setAssignedTo(e.target.value)}
-                />
-                <textarea
-                    placeholder="Task Description"
-                    required
-                    value={taskBody}
-                    onChange={(e) => setTaskBody(e.target.value)}
-                />
-                <input
-                    placeholder="Task Priority"
-                    type="text"
-                    value={taskPriority}
-                    onChange={(e) => setTaskPriority(e.target.value)}
-                />
-                <input
-                    placeholder="Task Status"
-                    type="text"
-                    value={taskStatus}
-                    onChange={(e) => setTaskStatus(e.target.value)}
-                />
-                <button type='submit'>Edit</button>
-                <button onClick={handleCancel}>Cancel</button>
-            </form>
+        <div className="editTaskForm__wrapper">
+            <div className="editTaskForm__container">
+                <h1>Task Edit</h1>
+                <form onSubmit={handleEdit}>
+                    {/* <input
+                        className="editTaskForm__inputs"
+                        placeholder="Assigned"
+                        type="text"
+                        required
+                        value={assignedTo}
+                        onChange={(e) => setAssignedTo(e.target.value)}
+                    /> */}
+                    <select
+                        className="editTaskForm__inputs"
+                        value={assignedTo}
+                        onChange={(e) => {
+                            const userSelect = e.target.value
+                            setAssignedTo(userSelect)
+                        }}>
+                            {allUsers.map(user => (
+                                <option key={user.id} value={user.id}>{user.firstName} {user.lastName}</option>
+                            ))}
+                        </select>
+                    <textarea
+                        className="editTaskForm__textarea"
+                        placeholder="Task Description"
+                        required
+                        value={taskBody}
+                        onChange={(e) => setTaskBody(e.target.value)}
+                    />
+                    <select
+                        className="editTaskForm__inputs"
+                        value={taskPriority}
+                        onChange={(e) => {
+                            const prioritySel = e.target.value
+                            setTaskPriority(prioritySel)
+                        }}>
+                            {selPriority.map((element, idx) => (
+                                <option key={idx} value={element}>{element}</option>
+                            ))}
+                    </select>
+                    {/* <input
+                        className="editTaskForm__inputs"
+                        placeholder="Task Priority"
+                        type="text"
+                        value={taskPriority}
+                        onChange={(e) => setTaskPriority(e.target.value)}
+                    /> */}
+                    <select
+                        className="editTaskForm__inputs"
+                        value={taskStatus}
+                        onChange={(e) => {
+                            const statusSel = e.target.value
+                            setTaskStatus(statusSel)
+                        }}>
+                            {selStatus.map((element, idx) => (
+                                <option key={idx} value={element}>{element}</option>
+                            ))}
+                    </select>
+                    {/* <input
+                        className="editTaskForm__inputs"
+                        placeholder="Task Status"
+                        type="text"
+                        value={taskStatus}
+                        onChange={(e) => setTaskStatus(e.target.value)}
+                    /> */}
+                    <div>
+                        <button className="editTaskForm__button" type='submit'>Submit Changes</button>
+                        <button className="editTaskForm__button" onClick={handleCancel}>Cancel</button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

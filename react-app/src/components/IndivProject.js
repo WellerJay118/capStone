@@ -20,15 +20,21 @@ const IndivProject = () => {
 
 
     return (
-        <div className="borderBlack">
-            <h1>taskComponent</h1>
-            <TaskComponent />
-            <h1>From individual project</h1>
-            {/* {console.log('@@@@@@@@@@@@@@@@@@',thisProject.id)} */}
-            <h4>{thisProject?.projDesc}</h4>
-            {thisProject?.projOwner === sessionUser?.id ? (
-                        <button onClick={(e) => history.push(`/projects/${id}/edit`)}>Edit project</button>
+        <div className="indivproj__wrapper">
+            <div className="indivproj__container">
+                <div className="indivproj__header">
+                    <h1>Tasks</h1>
+
+                <div className="indivproj__header--projtitle">{thisProject?.projName}</div>
+                <div className="indivproj__header--projtitle-desc"><strong>Project Description: </strong>{thisProject?.projDesc}</div>
+
+                {thisProject?.projOwner === sessionUser?.id ? (
+                    <button className="indivproj__header--button" onClick={(e) => history.push(`/projects/${id}/edit`)}>Project Properties</button>
                     ): null}
+                </div>
+
+                <TaskComponent />
+            </div>
         </div>
     )
 
