@@ -38,16 +38,16 @@ const ProjectsPage = () => {
                 </div>
                 : projects.map((project) =>
                 <div key={project?.id}>
-                    <div className="allprojects__projcard" key={project?.id}>
                     <NavLink className="allprojects__projcard-nav"to={`/projects/${project?.id}`} exact={true}>
+                    <div className="allprojects__projcard" key={project?.id}>
                     <div className="allprojects__projcard--header">
                         <div className="allprojects__projname">{project?.projName}</div>
                         <h4>Current Status: {project?.projStatus}</h4>
                         {/* <label>Description:</label> */}
                         {/* <div className="allprojects__projdesc">{project?.projDesc}</div> */}
                     </div>
-                    </NavLink>
                 </div>
+                    </NavLink>
                     <div className="allprojects__projcard--buttons-div">
                         <button onClick={(e) => history.push(`/projects/${project?.id}/edit`)}>
                             <i className="fas fa-edit fa-2x"></i>
