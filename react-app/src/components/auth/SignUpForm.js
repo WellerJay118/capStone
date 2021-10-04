@@ -25,10 +25,9 @@ const SignUpForm = () => {
         setErrors(data)
         setEmail('')
         setUsername('')
-        setPassword('')
-        setRepeatPassword('')
-        setFirstName('')
-        setLastName('')
+        // setPassword('')
+        // setRepeatPassword('')
+
       }
     }
   };
