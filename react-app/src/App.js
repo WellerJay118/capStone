@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
@@ -14,6 +14,7 @@ import IndivProject from './components/IndivProject';
 import EditProject from './components/EditProject';
 import EditTask from './components/EditTask';
 import BadRoute from './components/BadRoute';
+import SplashPage from './components/Splash';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -71,9 +72,10 @@ function App() {
         </ProtectedRoute>
 
 
-        <ProtectedRoute path='/' exact={true} >
-          <Redirect to="/projects" />
-        </ProtectedRoute>
+        <Route path='/' exact={true} >
+          {/* <Redirect to="/projects" /> */}
+          <SplashPage />
+        </Route>
 
         <Route path='/'>
           <BadRoute />
