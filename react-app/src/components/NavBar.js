@@ -7,7 +7,7 @@ import logo from "../lnl-logo.png"
 const NavBar = () => {
 
   const linkedIn = "https://www.linkedin.com/in/jacob-weller-592795161/"
-  const github = "https://github.com/WellerJay118"
+  const github = "https://github.com/WellerJay118/capStone"
   // const sessionUser = useSelector(state => state.session.user)
 
   return (
