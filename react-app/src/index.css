@@ -885,3 +885,30 @@ form textarea {
 .editTaskForm__textarea {
     height: 75px;
 }
+
+.splash-container {
+    
+}
+
+.splash-wrapper {
+    margin-top: 1.5em;
+    border: 1px solid black;
+    display: grid;
+    grid-template-rows: repeat(1fr, 4);
+    width: 80%;
+}
+
+.splash-gridrow{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.splash-gridrow__image {
+    height: 25vh;
+}
+.splash-gridrow__image img {
+    object-fit: contain;
+    height: 100%;
+}

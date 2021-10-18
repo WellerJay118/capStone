@@ -8,7 +8,7 @@ import { updateTask, fetchAllTask } from "../store/task";
 const EditTask = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const { id, taskId} = useParams(); //the projects id
+    const { id, taskId } = useParams(); //the projects id
     const allUsers = useSelector(state => Object.values(state.users))
     // const tasks = useSelector(state => Object.values(state.tasks))
     const task = useSelector(state => state.tasks[taskId])
