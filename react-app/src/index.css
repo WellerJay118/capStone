@@ -786,8 +786,8 @@ form textarea {
 }
 
 .signupPage__container{
-    border: 1px solid black;
-    width: 30%;
+    border: 1px solid rgba(0,0,0,.3);
+    width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -985,4 +985,6 @@ form textarea {
   #modal-content {
     position: absolute;
     background-color:white;
+    width: 30vw;
+    border-radius: 15px;
   }
