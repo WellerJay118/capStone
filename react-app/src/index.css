@@ -892,10 +892,10 @@ form textarea {
 }
 
 .splash-wrapper {
-    margin-top: 1.5em;
+    /* margin-top: 1.5em; */
     /* border: 1px solid black; */
     display: grid;
-    grid-template-rows: repeat(1fr, 8);
+    grid-template-rows: repeat(1fr, 11);
     width: 55%;
     padding: 1em 0;
 }
@@ -930,4 +930,31 @@ form textarea {
 .splash-gridrow__text {
     width: 30%;
     font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.splash-gridrow__auth {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 3em 0 3em 0;
+}
+
+.splash-gridrow__auth button {
+    width: 125px;
+    margin: 0 5px;
+    height: 35px;
+    font-size: 22px;
+    border: none;
+    border-radius: 5px;
+    color: #ff0;
+    background-color: #F00;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.splash-gridrow__auth button:hover {
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    background-color: rgba(83,83,83,0.2);
+    color: #F00;
 }

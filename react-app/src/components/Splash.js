@@ -9,7 +9,13 @@ const SplashPage = () => {
     return(
         <div className="splash-container">
             <div className="splash-wrapper">
-                
+
+                <div className="splash-gridrow__auth">
+                    <button onClick={() => history.push('/login')}>Login</button>
+                    <button onClick={() => history.push('/sign-up')}>Sign Up</button>
+                </div>
+
+                <div className="splash-gridrow__border"></div>
 
                 <div className="splash-gridrow">
                     <div className="splash-gridrow__image">
@@ -58,6 +64,11 @@ const SplashPage = () => {
                 </div>
 
                 <div className="splash-gridrow__border"></div>
+
+                <div className="splash-gridrow__auth">
+                    <button onClick={() => history.push('/login')}>Login</button>
+                    <button onClick={() => history.push('/sign-up')}>Sign Up</button>
+                </div>
 
 
             </div>
