@@ -887,28 +887,46 @@ form textarea {
 }
 
 .splash-container {
-    
+    display: flex;
+    justify-content: center;
 }
 
 .splash-wrapper {
     margin-top: 1.5em;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: grid;
-    grid-template-rows: repeat(1fr, 4);
-    width: 80%;
+    grid-template-rows: repeat(1fr, 8);
+    width: 45%;
 }
 
 .splash-gridrow{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    /* margin: .5em 0; */
+    padding: 1em 0;
+    /* border-bottom: thick double rgba(0,0,0,.1); */
 }
+
+.splash-gridrow__border {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    border-bottom: thick double rgba(0,0,0,.1);
+
+}
+
 .splash-gridrow__image {
     height: 25vh;
 }
 .splash-gridrow__image img {
     object-fit: contain;
     height: 100%;
+}
+
+.splash-gridrow__text {
+    width: 30%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
