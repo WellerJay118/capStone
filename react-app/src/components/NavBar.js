@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import MenuButton from './Menu';
-import logo from "../lnl-logo.png"
+import logo from "../components/images/lnl-logo.png"
 // import { useSelector } from 'react-redux';
 
 const NavBar = () => {
