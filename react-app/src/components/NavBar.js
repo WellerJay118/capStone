@@ -31,7 +31,7 @@ const NavBar = () => {
 
         </div>
 
-        <NavLink className="navbar__logo" to="/projects">
+        <NavLink className="navbar__logo" to="/">
           <img alt="" className="navbar__logo" src={logo} />
         </NavLink>
 
