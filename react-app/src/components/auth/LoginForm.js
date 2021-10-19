@@ -70,8 +70,8 @@ const LoginForm = () => {
           </div>
 
           <div className="login__buttons--container">
-            <button className="login__buttons" onClick={onLogin}>Login</button>
             <button className="login__buttons" onClick={demoLogin}>Demo</button>
+            <button className="login__buttons" onClick={onLogin}>Login</button>
           </div>
 
           <p>
