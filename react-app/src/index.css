@@ -896,7 +896,8 @@ form textarea {
     /* border: 1px solid black; */
     display: grid;
     grid-template-rows: repeat(1fr, 8);
-    width: 45%;
+    width: 55%;
+    padding: 1em 0;
 }
 
 .splash-gridrow{
@@ -913,7 +914,7 @@ form textarea {
 .splash-gridrow__border {
     display: block;
     margin: 0 auto;
-    width: 80%;
+    width: 75%;
     border-bottom: thick double rgba(0,0,0,.1);
 
 }
