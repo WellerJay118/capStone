@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import LogoutButton from "./auth/LogoutButton";
+// import SignUpForm from "./auth/SignUpForm";
+// import { Modal } from "./context/Modal";
 
 const MenuButton = () => {
     // const dispatch = useDispatch();
+    // const [showModal, setShowModal] = useState(false)
     const history = useHistory();
     const [showMenu, setShowMenu] = useState(false)
     const user = useSelector(state => state.session.user) //use for toggle

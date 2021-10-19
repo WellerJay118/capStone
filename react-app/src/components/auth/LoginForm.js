@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import { Modal } from '../context/Modal';
+import SignUpForm from './SignUpForm';
 
 const LoginForm = () => {
+  const [showModal, setShowModal] = useState(false)
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -76,7 +79,12 @@ const LoginForm = () => {
 
           <p>
             Don't have an account?
-            <NavLink className="login__signup-link" to="/sign-up" exact={true}> Sign-Up</NavLink>
+            <button className="login-signup__modal-button" onClick={() => setShowModal(true)}>Sign Up</button>
+                    {showModal && (
+                        <Modal onClose={() => setShowModal(false)}>
+                        <SignUpForm />
+                        </Modal>
+                    )}
           </p>
       </div>
     </div>

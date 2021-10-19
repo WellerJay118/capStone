@@ -1,9 +1,13 @@
+import { useState } from "react";
 import {useSelector} from "react-redux"
 import { useHistory } from "react-router"
+import SignUpForm from "./auth/SignUpForm";
+import { Modal } from "./context/Modal";
 
 const SplashPage = () => {
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user)
+    const [showModal, setShowModal] = useState(false)
     if (sessionUser) history.push('/projects')
 
     return(
@@ -12,7 +16,13 @@ const SplashPage = () => {
 
                 <div className="splash-gridrow__auth">
                     <button onClick={() => history.push('/login')}>Login</button>
-                    <button onClick={() => history.push('/sign-up')}>Sign Up</button>
+
+                    <button onClick={() => setShowModal(true)}>Sign Up</button>
+                    {showModal && (
+                        <Modal onClose={() => setShowModal(false)}>
+                        <SignUpForm />
+                        </Modal>
+                    )}
                 </div>
 
                 <div className="splash-gridrow__border"></div>
@@ -67,7 +77,12 @@ const SplashPage = () => {
 
                 <div className="splash-gridrow__auth">
                     <button onClick={() => history.push('/login')}>Login</button>
-                    <button onClick={() => history.push('/sign-up')}>Sign Up</button>
+                    <button onClick={() => setShowModal(true)}>Sign Up</button>
+                    {showModal && (
+                        <Modal onClose={() => setShowModal(false)}>
+                        <SignUpForm />
+                        </Modal>
+                    )}
                 </div>
 
 
