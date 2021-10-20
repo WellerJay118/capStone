@@ -19,8 +19,8 @@ const SplashPage = () => {
 
                     <button onClick={() => setShowModal(true)}>Sign Up</button>
                     {showModal && (
-                        <Modal onClose={() => setShowModal(false)}>
-                        <SignUpForm />
+                        <Modal className="modal__signup" onClose={() => setShowModal(false)}>
+                            <SignUpForm />
                         </Modal>
                     )}
                 </div>
@@ -79,8 +79,8 @@ const SplashPage = () => {
                     <button onClick={() => history.push('/login')}>Login</button>
                     <button onClick={() => setShowModal(true)}>Sign Up</button>
                     {showModal && (
-                        <Modal onClose={() => setShowModal(false)}>
-                        <SignUpForm />
+                        <Modal className="modal__signup" onClose={() => setShowModal(false)}>
+                            <SignUpForm />
                         </Modal>
                     )}
                 </div>

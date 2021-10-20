@@ -81,8 +81,8 @@ const LoginForm = () => {
             Don't have an account?
             <button className="login-signup__modal-button" onClick={() => setShowModal(true)}>Sign Up</button>
                     {showModal && (
-                        <Modal onClose={() => setShowModal(false)}>
-                        <SignUpForm />
+                        <Modal className="modal__signup" onClose={() => setShowModal(false)}>
+                          <SignUpForm />
                         </Modal>
                     )}
           </p>
