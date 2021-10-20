@@ -292,14 +292,15 @@ body {
 
 .editform__container{
     border: 1px solid black;
-    width: 35%;
+    width: 98%;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    padding: 1.5em;
-    margin: 1.5em;
+    /* padding: 1.5em; */
+    margin: .5em;
     border-radius: 5px;
+    background-color: #ffffc6;
 
 }
 
@@ -1000,12 +1001,13 @@ form textarea {
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.1);
   }
 
   #modal-content {
     position: absolute;
     background-color:white;
+    border-radius: 5px;
   }
 
   /* #modal-content {
@@ -1017,4 +1019,8 @@ form textarea {
 
   .modal__signup{
       width: 25vw;
+  }
+
+  .modal__editProject {
+      width: 40vw;
   }

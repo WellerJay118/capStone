@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 // import { NavLink } from "react-router-dom";
 import { fetchAllProj, removeProj } from "../store/project";
 import { NavLink, useHistory } from "react-router-dom"
 import { fetchAllUsers } from "../store/user";
 // import { useParams } from "react-router";
+import { Modal } from "./context/Modal";
+import EditProject from "./EditProject"
 
 
 
@@ -15,6 +17,7 @@ const ProjectsPage = () => {
     const projects = useSelector(state => Object.values(state.projects))
     const sessionUser = useSelector(state => state.session.user) //can grab id from user.id to see if current user owns project
 
+    const [showModal, setShowModal] = useState(false)
     useEffect(() => {
         dispatch(fetchAllProj())
         dispatch(fetchAllUsers())
@@ -47,9 +50,15 @@ const ProjectsPage = () => {
                         </div>
                     </NavLink>
                     <div className="allprojects__projcard--buttons-div">
-                        <button onClick={(e) => history.push(`/projects/${project?.id}/edit`)}>
+                        <button onClick={() => setShowModal(true)}>
                             <i className="fas fa-edit fa-2x"></i>
                         </button>
+                        {showModal && (
+                            <Modal className="modal__editProject" onClose={() => setShowModal(false)}>
+                                <EditProject />
+                            </Modal>
+                        )}
+
 
                         <button id={project?.id} onClick={handleDelete}>
                             <i id={project?.id} className="far fa-trash-alt fa-2x"></i>

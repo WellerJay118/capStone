@@ -59,9 +59,9 @@ function App() {
           <CreateProject />
         </ProtectedRoute>
 
-        <ProtectedRoute path='/projects/:id/edit' exact={true} >
+        {/* <ProtectedRoute path='/projects/:id/edit' exact={true} >
           <EditProject />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
 
         <ProtectedRoute path='/projects/:id/tasks/:taskId' exact={true} >
           <EditTask />

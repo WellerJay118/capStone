@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router";
 import { fetchAllProj } from "../store/project";
 import { useHistory } from "react-router-dom"
 import TaskComponent from "./Tasks";
-
+import { Modal } from "./context/Modal";
+import EditProject from "./EditProject"
 
 
 const IndivProject = () => {
@@ -13,6 +14,7 @@ const IndivProject = () => {
     const {id} = useParams();
     const sessionUser = useSelector(state => state.session.user)
     const thisProject = useSelector(state => (state.projects[id]))
+    const [showModal, setShowModal] = useState(false)
 
     useEffect(() => {
         dispatch(fetchAllProj())
@@ -28,9 +30,14 @@ const IndivProject = () => {
                 <div className="indivproj__header--projtitle">{thisProject?.projName}</div>
                 <div className="indivproj__header--projtitle-desc"><strong>Project Description: </strong>{thisProject?.projDesc}</div>
 
-                {thisProject?.projOwner === sessionUser?.id ? (
-                    <button className="indivproj__header--button" onClick={(e) => history.push(`/projects/${id}/edit`)}>Project Properties</button>
-                    ): null}
+                {/* {thisProject?.projOwner === sessionUser?.id ? ( */}
+                    <button className="indivproj__header--button" onClick={() => setShowModal(true)}>Project Properties</button>
+                    {showModal && (
+                        <Modal className="modal__editProject" onClose={() => setShowModal(false)}>
+                          <EditProject />
+                        </Modal>
+                    )}
+                    {/* : null} */}
                 </div>
 
                 <TaskComponent />
