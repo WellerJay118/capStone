@@ -5,9 +5,9 @@ import { updateProj, removeProj, fetchAllProj } from "../store/project";
 import { useHistory } from "react-router-dom"
 
 
-const EditProject = () => {
+const EditProject = ({ id, setShowModal }) => {
     const dispatch = useDispatch();
-    const { id } = useParams();
+    // const { id } = useParams();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const toEdit = useSelector(state => state?.projects[id])
@@ -38,7 +38,8 @@ const EditProject = () => {
         } else {
             let editedProject = await dispatch(updateProj(projPayload, id))
             if (editedProject) {
-                history.push(`/projects/${editedProject.id}`)
+                // history.push(`/projects/${editedProject.id}`)
+                setShowModal(false)
             }
 
         }
@@ -47,7 +48,8 @@ const EditProject = () => {
 
     const handleCancel = async(e) => {
         e.preventDefault();
-        history.push(`/projects/${id}`);
+        // history.push(`/projects/${id}`);
+        setShowModal(false)
     }
 
     const handleDelete = async(e) => {
@@ -83,7 +85,7 @@ const EditProject = () => {
                 </div>
 
                 <form className="editform__form">
-                    <label>New Name/Title:</label>
+                    <label>Name/Title:</label>
                     <input
                         placeholder="Project Name"
                         type="text"

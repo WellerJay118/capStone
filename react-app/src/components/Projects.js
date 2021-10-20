@@ -7,6 +7,7 @@ import { fetchAllUsers } from "../store/user";
 // import { useParams } from "react-router";
 import { Modal } from "./context/Modal";
 import EditProject from "./EditProject"
+import EditProjectModal from "./modals/EditProjectModal";
 
 
 
@@ -50,15 +51,16 @@ const ProjectsPage = () => {
                         </div>
                     </NavLink>
                     <div className="allprojects__projcard--buttons-div">
-                        <button onClick={() => setShowModal(true)}>
+                        <EditProjectModal id={project?.id}/>
+                        {/* <button onClick={() => setShowModal(true)}>
                             <i className="fas fa-edit fa-2x"></i>
                         </button>
-                        {showModal && (
-                            <Modal className="modal__editProject" onClose={() => setShowModal(false)}>
-                                <EditProject />
-                            </Modal>
-                        )}
 
+                    {showModal && (
+                        <Modal className="modal__editProject" onClose={() => setShowModal(false)}>
+                            <EditProject setShowModal={setShowModal}/>
+                        </Modal>
+                    )} */}
 
                         <button id={project?.id} onClick={handleDelete}>
                             <i id={project?.id} className="far fa-trash-alt fa-2x"></i>
