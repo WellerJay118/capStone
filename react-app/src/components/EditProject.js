@@ -109,15 +109,8 @@ const EditProject = ({ id, setShowModal }) => {
                             </option>
                         ))}
                     </select>
-                    {/* <input
-                        placeholder="Project Status"
-                        type="text"
-                        value={projStatus}
-                        onChange={updateStatus}
-                    /> */}
                     <label>Description</label>
                     <textarea
-                        // className="editform__form--desc"
                         placeholder="Project Description"
                         required
                         value={projDesc}
