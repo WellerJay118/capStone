@@ -11,7 +11,7 @@ import { authenticate } from './store/session';
 import ProjectsPage from './components/Projects';
 import CreateProject from './components/CreateProject';
 import IndivProject from './components/IndivProject';
-import EditProject from './components/EditProject';
+// import EditProject from './components/EditProject';
 import EditTask from './components/EditTask';
 import BadRoute from './components/BadRoute';
 import SplashPage from './components/Splash';

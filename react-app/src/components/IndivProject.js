@@ -1,11 +1,11 @@
-import { useEffect, useState} from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router";
 import { fetchAllProj } from "../store/project";
 // import { useHistory } from "react-router-dom"
 import TaskComponent from "./Tasks";
-import { Modal } from "./context/Modal";
-import EditProject from "./EditProject"
+// import { Modal } from "./context/Modal";
+// import EditProject from "./EditProject"
 import EditProjectModal from "./modals/EditProjectModal";
 
 
@@ -15,7 +15,7 @@ const IndivProject = () => {
     const {id} = useParams();
     // const sessionUser = useSelector(state => state.session.user)
     const thisProject = useSelector(state => (state.projects[id]))
-    const [showModal, setShowModal] = useState(false)
+    // const [showModal, setShowModal] = useState(false)
 
     useEffect(() => {
         dispatch(fetchAllProj())
