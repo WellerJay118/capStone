@@ -356,6 +356,27 @@ body {
 
 }
 
+/* .editform__button--confirmDelete {
+    display: flex;
+} */
+.editform__button--delete {
+    width: 175px;
+    margin: 10px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: #ff0;
+    background-color: #F00;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.editform__button--delete:hover {
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    background-color: rgba(83,83,83,0.35);
+}
+
 #editform__button--delete {
     width: 150px;
     margin: 10px;
@@ -1037,4 +1058,13 @@ form textarea {
   .modal__addTask {
       width: 30vw;
       display: flex;
+  }
+
+  .modal__deleteProject {
+      width: 20vw;
+      /* height: 12vh; */
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      padding: .5em;
   }

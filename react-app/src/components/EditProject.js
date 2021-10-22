@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 // import { useParams } from "react-router";
 import { updateProj, removeProj, fetchAllProj } from "../store/project";
 import { useHistory } from "react-router-dom"
+import ConfirmDeleteProjectModal from "./modals/ConfirmDeleteProjectModal";
 
 
 const EditProject = ({ id, setShowModal }) => {
@@ -78,9 +79,10 @@ const EditProject = ({ id, setShowModal }) => {
                 <div className="editform__header">
                     <div className="editform__header-div"><p>You are editing the project: </p>{toEdit?.projName}</div>
                     {sessionUser.id === toEdit?.projOwner ?
-                            <button id="editform__button--delete" onClick={handleDelete}>
-                                Delete this project
-                            </button>
+                            // <button id="editform__button--delete" onClick={handleDelete}>
+                            //     Delete this project
+                            // </button>
+                            <ConfirmDeleteProjectModal id={id} />
                          :null}
                 </div>
 
