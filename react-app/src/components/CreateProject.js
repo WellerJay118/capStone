@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux"
-import { useHistory } from "react-router"
 import { createProj } from "../store/project";
 
 
 
-const CreateProject = () => {
+const CreateProject = ({ setShowModal }) => {
     const dispatch = useDispatch();
-    const history = useHistory();
     // const sessionUser = useSelector(state => state.session.user)
 
     const [projName, setProjName] = useState('')
@@ -36,7 +34,7 @@ const CreateProject = () => {
         } else {
             let createdProject = await dispatch(createProj(project))
             if(createdProject) (
-                history.push(`/projects/${createdProject.id}`)
+                setShowModal(false)
             )
         }
 
@@ -44,7 +42,7 @@ const CreateProject = () => {
 
     const handleCancel = async(e) => {
         e.preventDefault();
-        history.push('/projects')
+        setShowModal(false)
     }
 
     return (

@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Modal } from "../context/Modal";
 import CreateProject from '../CreateProject';
 
-function AddProjectModal() {
+function AddProjectModal({ user }) {
     const [showModal, setShowModal] = useState(false);
 
     return(
 
         <>
-            <button className="navbar__createproj--button" onClick={() => setShowModal(true)}>
+            <button hidden={!user} className="navbar__createproj--button" onClick={() => setShowModal(true)}>
                 <i className="fas fa-plus-circle fa-2x"></i>
             </button>
             {showModal && (

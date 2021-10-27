@@ -718,9 +718,7 @@ form textarea {
 .allprojects__projcard--buttons-div button{
     background-color: rgba(0,0,0,0);
     border: none;
-    /* margin-right: 15px; */
     font-family:Georgia, 'Times New Roman', Times, serif;
-    /* margin-bottom: 1em; */
 
 }
 
@@ -734,21 +732,19 @@ form textarea {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 1em;
-    
+    padding: .5em;
+    border-radius: 5px;
 }
 
 .createProjPage__container{
-    /* width: 30%; */
     border: 1px solid black;
-    /* padding: 1em; */
     border-radius: 5px;
-    width: 300px;
+    width: 98%;
     height: 50vh;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
+    background-color:#ffffc6;
 }
 
 .createProjPage__container form{
@@ -759,7 +755,6 @@ form textarea {
 }
 
 .createProjPage__form-buttons-div {
-    /* margin: .5em; */
     font-family:Georgia, 'Times New Roman', Times, serif;
 
 }
@@ -1073,5 +1068,5 @@ form textarea {
 
   .modal__addProject {
       width: 20vw;
-      /* object-fit: contain; */
+      display: flex;
   }
