@@ -29,7 +29,6 @@ const SplashPage = () => {
 
                 <div className="splash-gridrow">
                     <div className="splash-gridrow__image">
-                        {/* <h2>Image here</h2> */}
                         <img alt="" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"></img>
                     </div>
                     <div className="splash-gridrow__text">
@@ -44,7 +43,6 @@ const SplashPage = () => {
                         <p>this is where alot of our text will go for the things and stuff we want to showcase from our second image</p>
                     </div>
                     <div className="splash-gridrow__image">
-                        {/* <h2>Image here</h2> */}
                         <img alt="" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"></img>
                     </div>
                 </div>
@@ -53,7 +51,6 @@ const SplashPage = () => {
 
                 <div className="splash-gridrow">
                     <div className="splash-gridrow__image">
-                        {/* <h2>Image here</h2> */}
                         <img alt="" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"></img>
                     </div>
                     <div className="splash-gridrow__text">
@@ -68,7 +65,6 @@ const SplashPage = () => {
                         <p>this is where alot of our text will go for the things and stuff we want to showcase from our fourth image</p>
                     </div>
                     <div className="splash-gridrow__image">
-                        {/* <h2>Image here</h2> */}
                         <img alt="" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"></img>
                     </div>
                 </div>

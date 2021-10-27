@@ -1,12 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-// import { NavLink } from "react-router-dom";
 import { fetchAllProj, removeProj } from "../store/project";
 import { NavLink, useHistory } from "react-router-dom"
 import { fetchAllUsers } from "../store/user";
-// import { useParams } from "react-router";
-// import { Modal } from "./context/Modal";
-// import EditProject from "./EditProject"
 import EditProjectModal from "./modals/EditProjectModal";
 
 
@@ -14,11 +10,9 @@ import EditProjectModal from "./modals/EditProjectModal";
 const ProjectsPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    // const { id } = useParams();
     const projects = useSelector(state => Object.values(state.projects))
     const sessionUser = useSelector(state => state.session.user) //can grab id from user.id to see if current user owns project
 
-    // const [showModal, setShowModal] = useState(false)
     useEffect(() => {
         dispatch(fetchAllProj())
         dispatch(fetchAllUsers())
@@ -27,7 +21,6 @@ const ProjectsPage = () => {
 
     const handleDelete = async(e) => {
         e.preventDefault();
-        // console.log("tar", e.target.id)
         await dispatch(removeProj(e.target.id))
         history.push('/projects') //may need the trailing slash
     }

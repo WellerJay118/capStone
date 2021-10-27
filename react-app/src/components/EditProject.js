@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-// import { useParams } from "react-router";
 import { updateProj, fetchAllProj } from "../store/project";
-// import { useHistory } from "react-router-dom"
 import ConfirmDeleteProjectModal from "./modals/ConfirmDeleteProjectModal";
 
 
 const EditProject = ({ id, setShowModal }) => {
     const dispatch = useDispatch();
-    // const { id } = useParams();
-    // const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const toEdit = useSelector(state => state?.projects[id])
 
@@ -39,7 +35,6 @@ const EditProject = ({ id, setShowModal }) => {
         } else {
             let editedProject = await dispatch(updateProj(projPayload, id))
             if (editedProject) {
-                // history.push(`/projects/${editedProject.id}`)
                 setShowModal(false)
             }
 
@@ -49,19 +44,11 @@ const EditProject = ({ id, setShowModal }) => {
 
     const handleCancel = async(e) => {
         e.preventDefault();
-        // history.push(`/projects/${id}`);
         setShowModal(false)
     }
 
-    // const handleDelete = async(e) => {
-    //     e.preventDefault();
-    //     await dispatch(removeProj(id))
-    //     history.push('/projects') //may need the trailing slash
-    // }
-
     const updateName = (e) => setProjName(e.target.value)
     const updateDesc = (e) => setProjDesc(e.target.value)
-    // const updateStatus = (e) => setProjStatus(e.target.value)
 
     const selStatus = ["Planning", "In Progress", "Waiting Approval", "Approved", "Completed"]
 
@@ -79,10 +66,7 @@ const EditProject = ({ id, setShowModal }) => {
                 <div className="editform__header">
                     <div className="editform__header-div"><p>You are editing the project: </p>{toEdit?.projName}</div>
                     {sessionUser.id === toEdit?.projOwner ?
-                            // <button id="editform__button--delete" onClick={handleDelete}>
-                            //     Delete this project
-                            // </button>
-                            <ConfirmDeleteProjectModal id={id} />
+                        <ConfirmDeleteProjectModal id={id} />
                          :null}
                 </div>
 

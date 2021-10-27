@@ -14,11 +14,6 @@ const TaskComponent = () => {
     const history = useHistory();
     const { id } = useParams();
 
-    // const allUsers = useSelector(state => Object.values(state.users))
-
-    // const [showModal, setShowModal] = useState(false)
-
-    // const sessionUser = useSelector(state => state.session.user)
     const tasks = useSelector(state => Object.values(state.tasks).filter(task => task?.projId === Number(id)))
 
     const pTasks = useSelector(state => tasks.filter(task => task?.taskStatus === "Planning"))

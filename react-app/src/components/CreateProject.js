@@ -6,11 +6,9 @@ import { createProj } from "../store/project";
 
 const CreateProject = ({ setShowModal }) => {
     const dispatch = useDispatch();
-    // const sessionUser = useSelector(state => state.session.user)
 
     const [projName, setProjName] = useState('')
     const [projDesc, setProjDesc] = useState('')
-    // const [projStatus, setProjStatus] = useState('')
     const [validationErrors, setValidationErrors] = useState([])
 
 

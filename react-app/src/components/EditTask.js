@@ -10,11 +10,8 @@ const EditTask = () => {
     const history = useHistory();
     const { id, taskId } = useParams(); //the projects id
     const allUsers = useSelector(state => Object.values(state.users))
-    // const tasks = useSelector(state => Object.values(state.tasks))
     const task = useSelector(state => state.tasks[taskId])
-    // const projectName = useSelector(state => Object.values(state.projects))
-    // console.log(id)
-    // console.log("$#$#$#$#", projectName)
+
 
     const selStatus = ["Planning", "In Progress", "Waiting Approval", "Approved", "Completed"]
     const selPriority = ["Idea", "Want", "Low", "Medium", "High", "Immediate"]
@@ -38,7 +35,6 @@ const EditTask = () => {
         //assignedTo split on space for firstName + lastName
         //use firstName + lastName to query for specific user model
         e.preventDefault();
-        // console.log(id)
         const taskPayload = {
             assignedTo,
             taskBody,
@@ -58,14 +54,6 @@ const EditTask = () => {
             <div className="editTaskForm__container">
                 <h1>Task Edit</h1>
                 <form onSubmit={handleEdit}>
-                    {/* <input
-                        className="editTaskForm__inputs"
-                        placeholder="Assigned"
-                        type="text"
-                        required
-                        value={assignedTo}
-                        onChange={(e) => setAssignedTo(e.target.value)}
-                    /> */}
                     <select
                         className="editTaskForm__inputs"
                         value={assignedTo}
@@ -95,13 +83,6 @@ const EditTask = () => {
                                 <option key={idx} value={element}>{element}</option>
                             ))}
                     </select>
-                    {/* <input
-                        className="editTaskForm__inputs"
-                        placeholder="Task Priority"
-                        type="text"
-                        value={taskPriority}
-                        onChange={(e) => setTaskPriority(e.target.value)}
-                    /> */}
                     <select
                         className="editTaskForm__inputs"
                         value={taskStatus}
@@ -113,13 +94,6 @@ const EditTask = () => {
                                 <option key={idx} value={element}>{element}</option>
                             ))}
                     </select>
-                    {/* <input
-                        className="editTaskForm__inputs"
-                        placeholder="Task Status"
-                        type="text"
-                        value={taskStatus}
-                        onChange={(e) => setTaskStatus(e.target.value)}
-                    /> */}
                     <div>
                         <button className="editTaskForm__button" type='submit'>Submit Changes</button>
                         <button className="editTaskForm__button" onClick={handleCancel}>Cancel</button>

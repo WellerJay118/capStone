@@ -15,10 +15,8 @@ function ConfirmDeleteProject({ id, setShowModal }) {
 
     return(
         <>
-        {/* <div className="editform__button--confirmDelete"> */}
             <button className="editform__button--delete" onClick={handleDelete}>Definitely Delete this project</button>
             <button className="editform__button--delete" onClick={(e) => setShowModal(false)}>Cancel Delete</button>
-            {/* </div> */}
         </>
     )
 }
