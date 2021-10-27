@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 // import { useParams } from "react-router";
-import { updateProj, removeProj, fetchAllProj } from "../store/project";
-import { useHistory } from "react-router-dom"
+import { updateProj, fetchAllProj } from "../store/project";
+// import { useHistory } from "react-router-dom"
 import ConfirmDeleteProjectModal from "./modals/ConfirmDeleteProjectModal";
 
 
 const EditProject = ({ id, setShowModal }) => {
     const dispatch = useDispatch();
     // const { id } = useParams();
-    const history = useHistory();
+    // const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const toEdit = useSelector(state => state?.projects[id])
 
@@ -53,11 +53,11 @@ const EditProject = ({ id, setShowModal }) => {
         setShowModal(false)
     }
 
-    const handleDelete = async(e) => {
-        e.preventDefault();
-        await dispatch(removeProj(id))
-        history.push('/projects') //may need the trailing slash
-    }
+    // const handleDelete = async(e) => {
+    //     e.preventDefault();
+    //     await dispatch(removeProj(id))
+    //     history.push('/projects') //may need the trailing slash
+    // }
 
     const updateName = (e) => setProjName(e.target.value)
     const updateDesc = (e) => setProjDesc(e.target.value)

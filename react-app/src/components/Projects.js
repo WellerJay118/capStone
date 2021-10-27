@@ -52,15 +52,6 @@ const ProjectsPage = () => {
                     </NavLink>
                     <div className="allprojects__projcard--buttons-div">
                         <EditProjectModal id={project?.id}/>
-                        {/* <button onClick={() => setShowModal(true)}>
-                            <i className="fas fa-edit fa-2x"></i>
-                        </button>
-
-                    {showModal && (
-                        <Modal className="modal__editProject" onClose={() => setShowModal(false)}>
-                            <EditProject setShowModal={setShowModal}/>
-                        </Modal>
-                    )} */}
 
                         <button id={project?.id} onClick={handleDelete}>
                             <i id={project?.id} className="far fa-trash-alt fa-2x"></i>

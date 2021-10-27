@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import LogoutButton from "./auth/LogoutButton";
+import AddProjectModal from "./modals/AddProjectModal";
 // import SignUpForm from "./auth/SignUpForm";
 // import { Modal } from "./context/Modal";
 
@@ -48,9 +49,10 @@ const MenuButton = () => {
 
     return (
         <div className="menu__wrapper">
-            <button hidden={!user}className="navbar__createproj--button" onClick={(e) => history.push('/projects/create')}>
+            {/* <button hidden={!user}className="navbar__createproj--button" onClick={(e) => history.push('/projects/create')}>
                 <i className="fas fa-plus-circle fa-2x"></i>
-            </button>
+            </button> */}
+            <AddProjectModal />
             <button id="menu__button" onClick={openMenu}>
                 <i className="fas fa-bars fa-2x"></i>
             </button>

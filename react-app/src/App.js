@@ -9,7 +9,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 // import User from './components/User';
 import { authenticate } from './store/session';
 import ProjectsPage from './components/Projects';
-import CreateProject from './components/CreateProject';
+// import CreateProject from './components/CreateProject';
 import IndivProject from './components/IndivProject';
 // import EditProject from './components/EditProject';
 import EditTask from './components/EditTask';
@@ -55,9 +55,9 @@ function App() {
           <ProjectsPage />
         </ProtectedRoute>
 
-        <ProtectedRoute path='/projects/create' exact={true} >
+        {/* <ProtectedRoute path='/projects/create' exact={true} >
           <CreateProject />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
 
         {/* <ProtectedRoute path='/projects/:id/edit' exact={true} >
           <EditProject />
