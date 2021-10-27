@@ -6,15 +6,10 @@ body, html, #root {
 }
 
 body {
-    /* background-color: rgba(0,0,0, 0.08); */
     background-color: rgba(255,255,0,0.2);
-    /* margin-top: 55px; */
-    /* border: 1px solid red; */
 }
-
 .navbar__container {
     width: 100%;
-    /* border: 1px solid red; */
     height: 50px;
     background-color: white;
     box-shadow:0px 1px 0px rgba(0,0,0,.3);
@@ -22,47 +17,25 @@ body {
     justify-content: center;
 }
 .navbar__wrapper {
-    /* border: 1px solid black; */
     display: flex;
     justify-content: space-between;
     align-items:center;
-    /* background-color: white; */
-    /* box-shadow:0px 1px 0px rgba(0,0,0,.3); */
-    /* left: -5px; */
-    /* top: 0; */
     width: 90%;
-    /* height: 50px; */
-    /* margin: 0px; */
-    /* position: fixed; */
 }
 
 .navbar__logo{
     height:46px;
-    /* margin-right: 80%; */
 }
 
 .menu__dropdown {
-    /* display: flex; */
     border-radius: 6px;
     position: fixed;
     margin-top: 5px;
-    /* top: 20px; */
-    /* right: 70px; */
     max-height: 150px;
     background-color: rgba(255,255,0,.2);
     height: auto;
     width: 125px;
-    /* flex-direction: column; */
-    /* z-index: 15; */
 }
-
-/* .menu__wrapper {
-    margin-right: 3.2em;
-} */
-
-/* #menu__button:target {
-    color:black;
-} */
 
 #menu__button:hover {
     cursor: pointer;
@@ -76,10 +49,6 @@ body {
 
 }
 
-/* .test {
-    display: flex;
-    align-items: center;
-} */
 .menu__dropdown--button:hover {
     cursor: pointer;
     transition: 0.1s ease-in;
@@ -87,7 +56,6 @@ body {
 }
 
 .menu__dropdown--button {
-    /* background-color: lightgray; */
     background-color: rgba(255,255,0,.2);
     color: rgb(235,20,20);
     border-radius: 6px;
@@ -111,7 +79,6 @@ body {
 }
 
 .navbar__aboutme {
-    /* margin-left: 50em; */
     display: flex;
 }
 
@@ -158,7 +125,6 @@ body {
     align-items: center;
     flex-direction: column;
     margin-top: 80px;
-    /* border: 1px solid black; */
 }
 
 .login__signup-link {
@@ -176,7 +142,6 @@ body {
 }
 
 .login__container {
-    /* border: 1px solid black; */
     margin: 20px 0;
     padding: 8px;
     width: 25em;
@@ -187,7 +152,6 @@ body {
 }
 
 .login__errors {
-    /* border: 1px solid black; */
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -233,7 +197,6 @@ body {
 }
 
 .login__buttons--container{
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -287,7 +250,6 @@ body {
 
 .indivproj__header--projtitle-desc{
     width:30%;
-    /* border: 1px solid black; */
 }
 
 .editform__container{
@@ -295,9 +257,7 @@ body {
     width: 98%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
-    /* padding: 1.5em; */
     margin: .5em;
     border-radius: 5px;
     background-color: #ffffc6;
@@ -305,7 +265,6 @@ body {
 }
 
 .editform__header {
-    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -314,7 +273,6 @@ body {
 }
 
 .editform__container form{
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     width: 70%;
@@ -356,9 +314,6 @@ body {
 
 }
 
-/* .editform__button--confirmDelete {
-    display: flex;
-} */
 .editform__button--delete {
     width: 175px;
     margin: 10px;
@@ -384,7 +339,6 @@ body {
     font-size: 14px;
     border: none;
     border-radius: 5px;
-    /* color: #ff0; */
     background-color: rgba(255,255,0,0);
     color: #F00;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -406,10 +360,8 @@ body {
 
 .indivproj__wrapper{
     width: 100%;
-    /* border: 1px solid black; */
     display: flex;
     justify-content: center;
-    /* padding: 2em; */
 }
 
 .indivproj__container{
@@ -421,7 +373,6 @@ body {
 }
 
 .indivproj__header{
-    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -447,7 +398,6 @@ body {
 }
 
 .task__container{
-    /* border: 1px solid black; */
     width: 100%;
     border-radius: 5px;
     display: flex;
@@ -458,10 +408,8 @@ body {
 }
 
 .task__singleTask--card {
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
     border-bottom: 1px solid rgba(0,0,0,.3);
 
 }
@@ -470,7 +418,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* border-bottom: 1px solid rgba(0,0,0,.3); */
     font-family:Georgia, 'Times New Roman', Times, serif;
 
 
@@ -483,7 +430,6 @@ body {
 }
 
 .task__singleTask--card-taskinfo{
-    /* border: 1px solid black; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -498,14 +444,12 @@ body {
 
 }
 .task__card--container {
-    /* border: 1px solid black; */
     width: 90%;
 }
 
 .task__create--textarea{
     resize: none;
     border: none;
-    /* border-bottom: 1px solid rgba(0,0,0,.3); */
     background-color:rgba(255,255,0, 0.2);
     border-bottom: 1px solid rgba(0,0,0,.3);
     width: 300px;
@@ -531,7 +475,6 @@ body {
 .task__createform form {
     display:flex;
     flex-direction: row;
-    /* border: 1px solid black; */
 
 }
 
@@ -541,12 +484,10 @@ body {
     justify-content: center;
     align-content: center;
     margin: 0 auto;
-    /* border: 1px solid black; */
 
 }
 
 .task__createform--left select{
-    /* margin: 1em 0; */
     border: none;
     width: 175px;
     height: 30px;
@@ -605,11 +546,6 @@ form textarea {
     resize: none;
 }
 
-
-.task__createform--errors{
-    /* border: 1px solid black; */
-}
-
 .task__createform--dd-select:hover {
     cursor: pointer;
 
@@ -625,14 +561,6 @@ form textarea {
     background-color:rgba(255,255,0, 0.4);
 }
 
-.task__createform--dd-select:focus {
-    /* border: 1px solid #FF0; */
-}
-
-/* .task__createform-dd-select option::before,
-.task__createform-dd-select option::after {
-
-} */
 
 .allprojects__wrapper {
     display: flex;
@@ -649,7 +577,6 @@ form textarea {
     /* justify-content: center; */ /*This changes the projects to align to center, but new ones come up center again*/
     align-items: center;
     width: 90%;
-    /* border: 1px solid black; */
     margin: 1.5em 0;
     border-radius: 5px;
 }
@@ -700,13 +627,8 @@ form textarea {
     object-fit: contain;
 }
 
-/* .allprojects__projcard-nav:hover {
-    border-bottom: 1px solid rgba(0,0,0,.3);
-
-} */
 
 .allprojects__projcard--buttons-div{
-    /* margin: 1em 0; */
     margin-bottom: 1em;
     display: flex;
     justify-content: center;
@@ -814,13 +736,11 @@ form textarea {
     width:100%;
     display: flex;
     justify-content: center;
-    /* border: 1px solid black; */
     background-color: white;
 }
 
 .signupPage__container{
     background-color: #ffffc6;
-    /* border: 1px solid rgba(0,0,0,.3); */
     width: 98%;
     display: flex;
     flex-direction: column;
@@ -887,7 +807,6 @@ form textarea {
     width: 100%;
     display: flex;
     justify-content: center;
-    /* border: 1px solid black; */
 }
 
 .editTaskForm__container{
@@ -930,8 +849,6 @@ form textarea {
 }
 
 .splash-wrapper {
-    /* margin-top: 1.5em; */
-    /* border: 1px solid black; */
     display: grid;
     grid-template-rows: repeat(1fr, 11);
     width: 55%;
@@ -939,14 +856,12 @@ form textarea {
 }
 
 .splash-gridrow{
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    /* margin: .5em 0; */
     padding: 1em 0;
-    /* border-bottom: thick double rgba(0,0,0,.1); */
+
 }
 
 .splash-gridrow__border {
@@ -1000,7 +915,6 @@ form textarea {
 .login-signup__modal-button{
     font-size: 18px;
     border: none;
-    /* border-radius: 5px; */
     color: #F00;
     background-color: rgba(0,0,0,0);
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -1037,12 +951,6 @@ form textarea {
     border-radius: 5px;
   }
 
-  /* #modal-content {
-    position: absolute;
-    background-color: white;
-    width: 30vw;
-    border-radius: 15px;
-  } */
 
   .modal__signup{
       width: 25vw;
@@ -1059,7 +967,6 @@ form textarea {
 
   .modal__deleteProject {
       width: 20vw;
-      /* height: 12vh; */
       display: flex;
       justify-content: space-between;
       align-content: center;
