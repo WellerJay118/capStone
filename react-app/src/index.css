@@ -8,6 +8,7 @@ body, html, #root {
 body {
     background-color: rgba(255,255,0,0.2);
 }
+
 .navbar__container {
     width: 100%;
     height: 50px;
@@ -16,6 +17,7 @@ body {
     display: flex;
     justify-content: center;
 }
+
 .navbar__wrapper {
     display: flex;
     justify-content: space-between;
@@ -46,7 +48,6 @@ body {
     border: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
     margin-right: 50px;
-
 }
 
 .menu__dropdown--button:hover {
@@ -66,7 +67,6 @@ body {
     margin-top: 10px;
     font-weight: bold;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .badroute__wrapper {
@@ -97,7 +97,6 @@ body {
     border: none;
     text-decoration: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .navbar__createproj--button:hover {
@@ -108,7 +107,6 @@ body {
     border: none;
     background-color: white;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .navbar__github:hover,
@@ -155,8 +153,6 @@ body {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-
-
 }
 
 .login__errors div {
@@ -169,7 +165,6 @@ body {
     height: 40px;
     background-color: rgba(255,255,0,0.2);
     border-bottom: 1px solid rgba(0,0,0,.3);
-
 }
 
 .login__input--email input:hover,
@@ -179,7 +174,6 @@ body {
     background-color: rgba(0,0,0,0.1);
     border-bottom: 1px solid black;
     border-radius: 5px;
-
 }
 
 .login__input--email,
@@ -202,7 +196,6 @@ body {
     justify-content: space-around;
     align-items: center;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .login__buttons {
@@ -215,7 +208,6 @@ body {
     color: #ff0;
     background-color: #F00;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .login__buttons:hover{
@@ -261,7 +253,6 @@ body {
     margin: .5em;
     border-radius: 5px;
     background-color: #ffffc6;
-
 }
 
 .editform__header {
@@ -284,7 +275,6 @@ body {
     border: none;
     border-bottom: 1px solid rgba(0,0,0,.3);
     background-color:rgba(255,255,0, 0.4);
-
 }
 
 .editform__form textarea{
@@ -293,7 +283,6 @@ body {
     border: none;
     border-bottom: 1px solid rgba(0,0,0,.3);
     background-color:rgba(255,255,0, 0.4);
-
 }
 .editform__form label{
     margin: 10px 0px;
@@ -311,7 +300,6 @@ body {
     color: #ff0;
     background-color: #F00;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .editform__button--delete {
@@ -342,7 +330,6 @@ body {
     background-color: rgba(255,255,0,0);
     color: #F00;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 #editform__button--delete:hover {
@@ -369,7 +356,6 @@ body {
     width: 80%;
     border-radius: 5px;
     margin: 1.5em;
-
 }
 
 .indivproj__header{
@@ -389,7 +375,6 @@ body {
     color: #ff0;
     background-color: #F00;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .indivproj__header--button:hover{
@@ -404,14 +389,12 @@ body {
     flex-direction: column;
     align-items: center;
     margin-bottom: 1.5em;
-
 }
 
 .task__singleTask--card {
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid rgba(0,0,0,.3);
-
 }
 
 .task__singleTask--card-buttons{
@@ -419,8 +402,6 @@ body {
     flex-direction: column;
     justify-content: center;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
-
 }
 
 .task__singleTask--card-buttons button{
@@ -437,12 +418,13 @@ body {
     padding: .5em;
     width: 100%;
 }
+
 .task__singleTask--card-taskinfo div{
     margin: 5px;
     width: 20%;
     overflow-wrap: break-word;
-
 }
+
 .task__card--container {
     width: 90%;
 }
@@ -454,7 +436,6 @@ body {
     border-bottom: 1px solid rgba(0,0,0,.3);
     width: 300px;
     height: 15.5em;
-
 }
 
 .task__createform {
@@ -468,14 +449,11 @@ body {
     padding: 1.5em;
     border-radius: 5px;
     background-color:rgba(255,255,0, 0.2);
-
-
 }
 
 .task__createform form {
     display:flex;
     flex-direction: row;
-
 }
 
 .task__createform--left {
@@ -484,7 +462,6 @@ body {
     justify-content: center;
     align-content: center;
     margin: 0 auto;
-
 }
 
 .task__createform--left select{
@@ -501,7 +478,6 @@ body {
     align-items: center;
     flex-direction: column;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .task__createform--buttons button:hover {
@@ -519,7 +495,6 @@ body {
     color: #ff0;
     background-color: #F00;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .task__container--addTask {
@@ -548,8 +523,6 @@ form textarea {
 
 .task__createform--dd-select:hover {
     cursor: pointer;
-
-
 }
 
 .task__createform--dd-select {
@@ -583,7 +556,6 @@ form textarea {
 
 .allprojects__projcard:hover {
     box-shadow:2px 1px 1px rgba(0,0,0,.4);
-
 }
 
 .allprojects__projcard--header{
@@ -635,18 +607,16 @@ form textarea {
     padding-bottom: 8px;
     border-bottom: thick double rgba(0,0,0,.1);
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
+
 .allprojects__projcard--buttons-div button{
     background-color: rgba(0,0,0,0);
     border: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .allprojects__projcard--buttons-div button:hover{
     border-bottom: 1px solid rgba(0,0,0,.3);
-
 }
 
 .createProjPage__wrapper{
@@ -678,7 +648,6 @@ form textarea {
 
 .createProjPage__form-buttons-div {
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .createProjPage__form-buttons-div button{
@@ -691,7 +660,6 @@ form textarea {
     color: #ff0;
     background-color: #F00;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .allprojects__noproj {
@@ -708,7 +676,6 @@ form textarea {
     color: #ff0;
     background-color: #F00;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .createProjPage__header{
@@ -756,7 +723,6 @@ form textarea {
     width: 60%;
     flex-direction: column;
     justify-content: center;
-
 }
 
 .signupPage__container form {
@@ -787,7 +753,6 @@ form textarea {
     color: #ff0;
     background-color: #F00;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .editTaskForm__button{
@@ -800,7 +765,6 @@ form textarea {
     color: #ff0;
     background-color: #F00;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .editTaskForm__wrapper{
@@ -826,7 +790,6 @@ form textarea {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 .editTaskForm__inputs,
@@ -861,7 +824,6 @@ form textarea {
     justify-content: space-around;
     align-items: center;
     padding: 1em 0;
-
 }
 
 .splash-gridrow__border {
@@ -869,7 +831,6 @@ form textarea {
     margin: 0 auto;
     width: 75%;
     border-bottom: thick double rgba(0,0,0,.1);
-
 }
 
 .splash-gridrow__image {
@@ -951,7 +912,6 @@ form textarea {
     border-radius: 5px;
   }
 
-
   .modal__signup{
       width: 25vw;
   }
@@ -965,10 +925,18 @@ form textarea {
       display: flex;
   }
 
-  .modal__deleteProject {
+  .modal__deleteProject{
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: .5em;
+}
+
+  .modal__deleteTask {
       width: 20vw;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-content: center;
       padding: .5em;
   }
@@ -976,4 +944,17 @@ form textarea {
   .modal__addProject {
       width: 20vw;
       display: flex;
+  }
+
+  .modal__deleteTask-container {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+
+    .modal__deleteProject-container {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+
   }

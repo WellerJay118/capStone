@@ -66,7 +66,7 @@ const EditProject = ({ id, setShowModal }) => {
                 <div className="editform__header">
                     <div className="editform__header-div"><p>You are editing the project: </p>{toEdit?.projName}</div>
                     {sessionUser.id === toEdit?.projOwner ?
-                        <ConfirmDeleteProjectModal id={id} />
+                        <ConfirmDeleteProjectModal id={id} className="modal__indivProject-delete" />
                          :null}
                 </div>
 

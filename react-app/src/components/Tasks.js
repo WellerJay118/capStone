@@ -5,6 +5,7 @@ import { fetchAllTask } from "../store/task";
 import { removeTask } from "../store/task";
 import { fetchAllUsers } from "../store/user"
 import AddTaskModal from "./modals/AddTaskModal"
+import ConfirmDeleteTaskModal from "./modals/ConfirmDeleteTaskModal";
 
 
 
@@ -53,9 +54,8 @@ const TaskComponent = () => {
                             <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
                                 <i className="fas fa-edit"></i>
                             </button>
-                            <button id={task?.id} onClick={handleTaskDelete}>
-                                <i id={task?.id} className="far fa-trash-alt"></i>
-                            </button>
+
+                            <ConfirmDeleteTaskModal taskId={task?.id} projId={id}/>
                         </div>
 
                         <div className="task__singleTask--card-taskinfo">
@@ -77,9 +77,8 @@ const TaskComponent = () => {
                             <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
                                 <i className="fas fa-edit"></i>
                             </button>
-                            <button id={task?.id} onClick={handleTaskDelete}>
-                                <i id={task?.id} className="far fa-trash-alt"></i>
-                            </button>
+
+                            <ConfirmDeleteTaskModal taskId={task?.id} projId={id}/>
                         </div>
 
                         <div className="task__singleTask--card-taskinfo">
@@ -101,9 +100,8 @@ const TaskComponent = () => {
                             <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
                                 <i className="fas fa-edit"></i>
                             </button>
-                            <button id={task?.id} onClick={handleTaskDelete}>
-                                <i id={task?.id} className="far fa-trash-alt"></i>
-                            </button>
+
+                            <ConfirmDeleteTaskModal taskId={task?.id} projId={id}/>
                         </div>
 
                         <div className="task__singleTask--card-taskinfo">
@@ -125,9 +123,8 @@ const TaskComponent = () => {
                             <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
                                 <i className="fas fa-edit"></i>
                             </button>
-                            <button id={task?.id} onClick={handleTaskDelete}>
-                                <i id={task?.id} className="far fa-trash-alt"></i>
-                            </button>
+
+                            <ConfirmDeleteTaskModal taskId={task?.id} projId={id}/>
                         </div>
 
                         <div className="task__singleTask--card-taskinfo">
@@ -149,9 +146,8 @@ const TaskComponent = () => {
                             <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
                                 <i className="fas fa-edit"></i>
                             </button>
-                            <button id={task?.id} onClick={handleTaskDelete}>
-                                <i id={task?.id} className="far fa-trash-alt"></i>
-                            </button>
+
+                            <ConfirmDeleteTaskModal taskId={task?.id} projId={id}/>
                         </div>
 
                         <div className="task__singleTask--card-taskinfo">

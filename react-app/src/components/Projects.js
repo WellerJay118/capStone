@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { fetchAllProj, removeProj } from "../store/project";
+import { fetchAllProj } from "../store/project";
 import { NavLink, useHistory } from "react-router-dom"
 import { fetchAllUsers } from "../store/user";
 import EditProjectModal from "./modals/EditProjectModal";
+import ConfirmDeleteProjectModal from "./modals/ConfirmDeleteProjectModal";
 
 
 
@@ -19,12 +20,6 @@ const ProjectsPage = () => {
     }, [dispatch])
 
 
-    const handleDelete = async(e) => {
-        e.preventDefault();
-        await dispatch(removeProj(e.target.id))
-        history.push('/projects') //may need the trailing slash
-    }
-    console.log(projects)
     return (
         <div className="allprojects__wrapper">
             <h1>{sessionUser.firstName} {sessionUser.lastName}'s Projects</h1>
@@ -34,23 +29,24 @@ const ProjectsPage = () => {
                     Looks like you have no projects, <button onClick={(e) => history.push('/projects/create')}>Create one here!</button>
                 </div>
                 : projects?.map((project) =>
-                <div key={project?.id}>
-                    <NavLink className="allprojects__projcard-nav"to={`/projects/${project?.id}`} exact={true}>
-                        <div className="allprojects__projcard" key={project?.id}>
-                            <div className="allprojects__projcard--header">
-                                <div className="allprojects__projname">{project?.projName}</div>
-                                <h4>Current Status: {project?.projStatus}</h4>
-                              </div>
-                        </div>
-                    </NavLink>
-                    <div className="allprojects__projcard--buttons-div">
-                        <EditProjectModal id={project?.id}/>
 
-                        <button id={project?.id} onClick={handleDelete}>
-                            <i id={project?.id} className="far fa-trash-alt fa-2x"></i>
-                        </button>
+                    <div key={project?.id}>
+                        <NavLink className="allprojects__projcard-nav"to={`/projects/${project?.id}`} exact={true}>
+                            <div className="allprojects__projcard" key={project?.id}>
+                                <div className="allprojects__projcard--header">
+                                    <div className="allprojects__projname">{project?.projName}</div>
+                                    <h4>Current Status: {project?.projStatus}</h4>
+                                </div>
+                            </div>
+                        </NavLink>
+
+                        <div className="allprojects__projcard--buttons-div">
+
+                            <EditProjectModal id={project?.id}/>
+                            <ConfirmDeleteProjectModal id={project?.id} className="modal__allProjects-delete"/>
+
+                        </div>
                     </div>
-                </div>
             )}
             </div>
         </div>
