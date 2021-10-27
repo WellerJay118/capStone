@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { useHistory, useParams } from "react-router";
+import { useHistory } from "react-router";
 import { updateTask, fetchAllTask } from "../store/task";
 
 
 
-const EditTask = () => {
+const EditTask = ({ taskId, projId, setShowModal }) => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const { id, taskId } = useParams(); //the projects id
     const allUsers = useSelector(state => Object.values(state.users))
     const task = useSelector(state => state.tasks[taskId])
 
@@ -23,26 +22,26 @@ const EditTask = () => {
 
 //must go from projects page to the edit task page for the state to be loaded correctly.
     useEffect(() => {
-        dispatch(fetchAllTask(id))
-    }, [dispatch, id])
+        dispatch(fetchAllTask(projId))
+    }, [dispatch, projId])
 
     const handleCancel = async(e) => {
         e.preventDefault();
-        history.push(`/projects/${id}`);
+        setShowModal(false);
     }
 
     const handleEdit = async(e) => {
-        //assignedTo split on space for firstName + lastName
-        //use firstName + lastName to query for specific user model
-        e.preventDefault();
+        // e.preventDefault(); //taking this out was a workaround to the state not updating on the close of a modal for submission.
         const taskPayload = {
             assignedTo,
             taskBody,
             taskStatus,
             taskPriority
         }
-        let edittedTask = await dispatch(updateTask(taskPayload, id, taskId))
-        if (edittedTask) history.push(`/projects/${id}`)
+        let edittedTask = await dispatch(updateTask(taskPayload, projId, taskId))
+        if (edittedTask) {
+            setShowModal(false)
+        }
     }
 
 

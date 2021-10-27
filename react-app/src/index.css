@@ -662,6 +662,12 @@ form textarea {
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
+.createProjPage__form-buttons-div button:hover{
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    background-color: rgba(83,83,83,0.2);
+}
+
 .allprojects__noproj {
     margin-left: 33vw;
 }
@@ -773,16 +779,23 @@ form textarea {
     justify-content: center;
 }
 
+.editTaskForm__button:hover {
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    background-color: rgba(83,83,83,0.2);
+}
+
 .editTaskForm__container{
     border: 1px solid black;
-    margin: 1em;
-    padding: 1em;
+    margin: .5em;
+    padding: .5em;
     border-radius: 5px;
-    width: 40%;
+    width: 98%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #ffffc6;
 }
 
 .editTaskForm__container form{
@@ -956,5 +969,8 @@ form textarea {
       display: flex;
       justify-content: center;
       align-content: center;
+  }
 
+  .modal__editTask{
+      width: 25vw;
   }

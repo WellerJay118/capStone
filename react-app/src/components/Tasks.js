@@ -6,6 +6,7 @@ import { removeTask } from "../store/task";
 import { fetchAllUsers } from "../store/user"
 import AddTaskModal from "./modals/AddTaskModal"
 import ConfirmDeleteTaskModal from "./modals/ConfirmDeleteTaskModal";
+import EditTaskModal from "./modals/EditTaskModal";
 
 
 
@@ -51,9 +52,8 @@ const TaskComponent = () => {
                     <div className="task__singleTask--card" key={task?.id}>
 
                         <div className="task__singleTask--card-buttons">
-                            <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
-                                <i className="fas fa-edit"></i>
-                            </button>
+
+                            <EditTaskModal taskId={task?.id} projId={id} />
 
                             <ConfirmDeleteTaskModal taskId={task?.id} projId={id}/>
                         </div>
@@ -74,9 +74,8 @@ const TaskComponent = () => {
                     <div className="task__singleTask--card" key={task?.id}>
 
                         <div className="task__singleTask--card-buttons">
-                            <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
-                                <i className="fas fa-edit"></i>
-                            </button>
+
+                            <EditTaskModal taskId={task?.id} projId={id} />
 
                             <ConfirmDeleteTaskModal taskId={task?.id} projId={id}/>
                         </div>
@@ -97,9 +96,8 @@ const TaskComponent = () => {
                     <div className="task__singleTask--card" key={task?.id}>
 
                         <div className="task__singleTask--card-buttons">
-                            <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
-                                <i className="fas fa-edit"></i>
-                            </button>
+
+                            <EditTaskModal taskId={task?.id} projId={id} />
 
                             <ConfirmDeleteTaskModal taskId={task?.id} projId={id}/>
                         </div>
@@ -120,9 +118,8 @@ const TaskComponent = () => {
                     <div className="task__singleTask--card" key={task?.id}>
 
                         <div className="task__singleTask--card-buttons">
-                            <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
-                                <i className="fas fa-edit"></i>
-                            </button>
+
+                            <EditTaskModal taskId={task?.id} projId={id} />
 
                             <ConfirmDeleteTaskModal taskId={task?.id} projId={id}/>
                         </div>
@@ -143,9 +140,8 @@ const TaskComponent = () => {
                     <div className="task__singleTask--card" key={task?.id}>
 
                         <div className="task__singleTask--card-buttons">
-                            <button onClick={() => history.push(`/projects/${id}/tasks/${task.id}`)}>
-                                <i className="fas fa-edit"></i>
-                            </button>
+
+                            <EditTaskModal taskId={task?.id} projId={id} />
 
                             <ConfirmDeleteTaskModal taskId={task?.id} projId={id}/>
                         </div>
