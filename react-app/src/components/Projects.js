@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { fetchAllProj } from "../store/project";
-import { NavLink, useHistory } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { fetchAllUsers } from "../store/user";
 import EditProjectModal from "./modals/EditProjectModal";
 import ConfirmDeleteProjectModal from "./modals/ConfirmDeleteProjectModal";
@@ -11,7 +11,6 @@ import AddProjectModal from "./modals/AddProjectModal";
 
 const ProjectsPage = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
     const projects = useSelector(state => Object.values(state.projects))
     const sessionUser = useSelector(state => state.session.user) //can grab id from user.id to see if current user owns project
 

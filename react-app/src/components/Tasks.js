@@ -13,6 +13,7 @@ const TaskComponent = () => {
 
     const dispatch = useDispatch();
     const { id } = useParams();
+    const users = useSelector(state => state.users)
 
     const tasks = useSelector(state => Object.values(state.tasks).filter(task => task?.projId === Number(id)))
 
@@ -28,10 +29,6 @@ const TaskComponent = () => {
         dispatch(fetchAllUsers())
     }, [dispatch, id])
 
-//might be able to do a filter for the things in JSX name fo assigned to.
-
-//need to figure way to associate task.assignedTo and the name of the person itself.
-//may use useSelector and useEffect to bring in the users information.
     return (
         <div className="task__container">
 
@@ -51,7 +48,7 @@ const TaskComponent = () => {
 
                         <div className="task__singleTask--card-taskinfo">
                             <div>Description: {task?.taskBody}</div>
-                            <div>Assigned To: {task?.assignedTo}</div>
+                            <div>Assigned To: {users?.[task?.assignedTo]?.firstName} {users?.[task?.assignedTo]?.lastName}</div>
                             <div>Current Status: {task?.taskStatus}</div>
                             <div>Priority: {task?.taskPriority}</div>
                         </div>
@@ -73,7 +70,7 @@ const TaskComponent = () => {
 
                         <div className="task__singleTask--card-taskinfo">
                             <div>Description: {task?.taskBody}</div>
-                            <div>Assigned To: {task?.assignedTo}</div>
+                            <div>Assigned To: {users?.[task?.assignedTo]?.firstName} {users?.[task?.assignedTo]?.lastName}</div>
                             <div>Current Status: {task?.taskStatus}</div>
                             <div>Priority: {task?.taskPriority}</div>
                         </div>
@@ -95,7 +92,7 @@ const TaskComponent = () => {
 
                         <div className="task__singleTask--card-taskinfo">
                             <div>Description: {task?.taskBody}</div>
-                            <div>Assigned To: {task?.assignedTo}</div>
+                            <div>Assigned To: {users?.[task?.assignedTo]?.firstName} {users?.[task?.assignedTo]?.lastName}</div>
                             <div>Current Status: {task?.taskStatus}</div>
                             <div>Priority: {task?.taskPriority}</div>
                         </div>
@@ -117,7 +114,7 @@ const TaskComponent = () => {
 
                         <div className="task__singleTask--card-taskinfo">
                             <div>Description: {task?.taskBody}</div>
-                            <div>Assigned To: {task?.assignedTo}</div>
+                            <div>Assigned To: {users?.[task?.assignedTo]?.firstName} {users?.[task?.assignedTo]?.lastName}</div>
                             <div>Current Status: {task?.taskStatus}</div>
                             <div>Priority: {task?.taskPriority}</div>
                         </div>
@@ -139,7 +136,7 @@ const TaskComponent = () => {
 
                         <div className="task__singleTask--card-taskinfo">
                             <div>Description: {task?.taskBody}</div>
-                            <div>Assigned To: {task?.assignedTo}</div>
+                            <div>Assigned To: {users?.[task?.assignedTo]?.firstName} {users?.[task?.assignedTo]?.lastName}</div>
                             <div>Current Status: {task?.taskStatus}</div>
                             <div>Priority: {task?.taskPriority}</div>
                         </div>

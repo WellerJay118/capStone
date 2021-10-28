@@ -46,7 +46,6 @@ function App() {
           <IndivProject />
         </ProtectedRoute>
 
-
         <Route path='/' exact={true} >
           <SplashPage />
         </Route>
