@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { useHistory } from "react-router";
 import { updateTask, fetchAllTask } from "../store/task";
 
 
 
 const EditTask = ({ taskId, projId, setShowModal }) => {
     const dispatch = useDispatch();
-    const history = useHistory();
     const allUsers = useSelector(state => Object.values(state.users))
     const task = useSelector(state => state.tasks[taskId])
 

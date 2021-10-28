@@ -44,7 +44,7 @@ const MenuButton = () => {
 
     return (
         <div className="menu__wrapper">
-            <AddProjectModal user={user}/>
+            <AddProjectModal user={user} className="modal__menu-add"/>
             <button id="menu__button" onClick={openMenu}>
                 <i className="fas fa-bars fa-2x"></i>
             </button>

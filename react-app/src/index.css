@@ -710,6 +710,7 @@ form textarea {
     display: flex;
     justify-content: center;
     background-color: white;
+    border-radius: 5px;
 }
 
 .signupPage__container{
@@ -720,7 +721,7 @@ form textarea {
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    margin: .5em 0;
+    margin: .5em;
     padding: .75em 0;
 }
 
@@ -747,6 +748,12 @@ form textarea {
     border-bottom: 1px solid rgba(0,0,0,.3);
     margin: .5em;
     border-radius: 8px;
+}
+
+.signupPage__form--button:hover{
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    background-color: rgba(83,83,83,0.2);
 }
 
 .signupPage__form--button{

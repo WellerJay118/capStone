@@ -5,6 +5,7 @@ import { NavLink, useHistory } from "react-router-dom"
 import { fetchAllUsers } from "../store/user";
 import EditProjectModal from "./modals/EditProjectModal";
 import ConfirmDeleteProjectModal from "./modals/ConfirmDeleteProjectModal";
+import AddProjectModal from "./modals/AddProjectModal";
 
 
 
@@ -26,7 +27,7 @@ const ProjectsPage = () => {
             <div className="allprojects__container">
             {projects.length < 1 ?
                 <div className="allprojects__noproj">
-                    Looks like you have no projects, <button onClick={(e) => history.push('/projects/create')}>Create one here!</button>
+                    Looks like you have no projects, <AddProjectModal user={sessionUser} className="modal__noproject-add" />
                 </div>
                 : projects?.map((project) =>
 
@@ -42,7 +43,7 @@ const ProjectsPage = () => {
 
                         <div className="allprojects__projcard--buttons-div">
 
-                            <EditProjectModal id={project?.id}/>
+                            <EditProjectModal id={project?.id} className="modal__allprojects-edit"/>
                             <ConfirmDeleteProjectModal id={project?.id} className="modal__allProjects-delete"/>
 
                         </div>

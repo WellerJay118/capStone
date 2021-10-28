@@ -14,7 +14,7 @@ const IndivProject = () => {
 
     useEffect(() => {
         dispatch(fetchAllProj())
-    }, [dispatch])
+    }, [dispatch, id])
 
 
     return (
@@ -26,7 +26,7 @@ const IndivProject = () => {
                 <div className="indivproj__header--projtitle">{thisProject?.projName}</div>
                 <div className="indivproj__header--projtitle-desc"><strong>Project Description: </strong>{thisProject?.projDesc}</div>
 
-                <EditProjectModal id={id} />
+                <EditProjectModal id={id} className="modal__indivproject-edit" />
 
                 </div>
 

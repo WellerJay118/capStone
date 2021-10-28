@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { useHistory, useParams } from "react-router";
+import { useParams } from "react-router";
 import { fetchAllTask } from "../store/task";
-import { removeTask } from "../store/task";
 import { fetchAllUsers } from "../store/user"
 import AddTaskModal from "./modals/AddTaskModal"
 import ConfirmDeleteTaskModal from "./modals/ConfirmDeleteTaskModal";
@@ -13,7 +12,6 @@ import EditTaskModal from "./modals/EditTaskModal";
 const TaskComponent = () => {
 
     const dispatch = useDispatch();
-    const history = useHistory();
     const { id } = useParams();
 
     const tasks = useSelector(state => Object.values(state.tasks).filter(task => task?.projId === Number(id)))
@@ -30,13 +28,6 @@ const TaskComponent = () => {
         dispatch(fetchAllUsers())
     }, [dispatch, id])
 
-
-    const handleTaskDelete = async(e) => {
-        e.preventDefault();
-
-        await dispatch(removeTask(id, e.target.id))
-        history.push(`/projects/${id}`)
-    }
 //might be able to do a filter for the things in JSX name fo assigned to.
 
 //need to figure way to associate task.assignedTo and the name of the person itself.
