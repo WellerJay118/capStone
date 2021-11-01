@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { useParams } from "react-router";
-import { updateProj, removeProj, fetchAllProj } from "../store/project";
-import { useHistory } from "react-router-dom"
+import { updateProj, fetchAllProj } from "../store/project";
+import ConfirmDeleteProjectModal from "./modals/ConfirmDeleteProjectModal";
 
 
-const EditProject = () => {
+const EditProject = ({ id, setShowModal }) => {
     const dispatch = useDispatch();
-    const { id } = useParams();
-    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const toEdit = useSelector(state => state?.projects[id])
 
@@ -38,7 +35,7 @@ const EditProject = () => {
         } else {
             let editedProject = await dispatch(updateProj(projPayload, id))
             if (editedProject) {
-                history.push(`/projects/${editedProject.id}`)
+                setShowModal(false)
             }
 
         }
@@ -47,18 +44,11 @@ const EditProject = () => {
 
     const handleCancel = async(e) => {
         e.preventDefault();
-        history.push(`/projects/${id}`);
-    }
-
-    const handleDelete = async(e) => {
-        e.preventDefault();
-        await dispatch(removeProj(id))
-        history.push('/projects') //may need the trailing slash
+        setShowModal(false)
     }
 
     const updateName = (e) => setProjName(e.target.value)
     const updateDesc = (e) => setProjDesc(e.target.value)
-    // const updateStatus = (e) => setProjStatus(e.target.value)
 
     const selStatus = ["Planning", "In Progress", "Waiting Approval", "Approved", "Completed"]
 
@@ -76,14 +66,12 @@ const EditProject = () => {
                 <div className="editform__header">
                     <div className="editform__header-div"><p>You are editing the project: </p>{toEdit?.projName}</div>
                     {sessionUser.id === toEdit?.projOwner ?
-                            <button id="editform__button--delete" onClick={handleDelete}>
-                                Delete this project
-                            </button>
+                        <ConfirmDeleteProjectModal id={id} className="modal__indivProject-delete" />
                          :null}
                 </div>
 
                 <form className="editform__form">
-                    <label>New Name/Title:</label>
+                    <label>Name/Title:</label>
                     <input
                         placeholder="Project Name"
                         type="text"
@@ -105,15 +93,8 @@ const EditProject = () => {
                             </option>
                         ))}
                     </select>
-                    {/* <input
-                        placeholder="Project Status"
-                        type="text"
-                        value={projStatus}
-                        onChange={updateStatus}
-                    /> */}
                     <label>Description</label>
                     <textarea
-                        // className="editform__form--desc"
                         placeholder="Project Description"
                         required
                         value={projDesc}

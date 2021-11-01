@@ -1,14 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import MenuButton from './Menu';
-import logo from "../lnl-logo.png"
-// import { useSelector } from 'react-redux';
+import logo from "../components/images/lnl-logo.png"
 
 const NavBar = () => {
 
   const linkedIn = "https://www.linkedin.com/in/jacob-weller-592795161/"
-  const github = "https://github.com/WellerJay118"
-  // const sessionUser = useSelector(state => state.session.user)
+  const github = "https://github.com/WellerJay118/capStone"
 
   return (
     <div className="navbar__container">
@@ -31,15 +29,11 @@ const NavBar = () => {
 
         </div>
 
-        <NavLink className="navbar__logo" to="/projects">
+        <NavLink className="navbar__logo" to="/">
           <img alt="" className="navbar__logo" src={logo} />
         </NavLink>
 
-
-        {/* <div className="test"> */}
-          {/* {sessionUser ? <div>Welcome Back {sessionUser.firstName}</div> : null} */}
           <MenuButton />
-        {/* </div> */}
       </div>
    </div>
 

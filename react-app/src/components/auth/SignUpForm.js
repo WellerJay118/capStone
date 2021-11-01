@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
-const SignUpForm = () => {
+const SignUpForm = ({ setShowModal }) => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -25,9 +25,6 @@ const SignUpForm = () => {
         setErrors(data)
         setEmail('')
         setUsername('')
-        // setPassword('')
-        // setRepeatPassword('')
-
       }
     }
   };
@@ -60,10 +57,16 @@ const SignUpForm = () => {
     return <Redirect to='/' />;
   }
 
+  const handleCancel = async(e) => {
+    e.preventDefault();
+    setShowModal(false)
+}
+
   return (
     <div className="signup__wrapper">
 
       <div className="signupPage__container">
+        <h1> Sign up with LnL! </h1>
 
         <div className="signupPage__errors">
           {errors.map((error, ind) => (
@@ -72,8 +75,6 @@ const SignUpForm = () => {
         </div>
 
         <form onSubmit={onSignUp}>
-          {/* <div className="signupPage__form--username-input"> */}
-            {/* <label>Username</label> */}
             <input
             className="signupPage__form--input"
               placeholder="Username"
@@ -82,8 +83,6 @@ const SignUpForm = () => {
               onChange={updateUsername}
               value={username}
             />
-          {/* </div> */}
-            {/* <label>Email</label> */}
             <input
               className="signupPage__form--input"
               placeholder="Email address"
@@ -92,8 +91,6 @@ const SignUpForm = () => {
               onChange={updateEmail}
               value={email}
             />
-          {/* <div className="signupPage__form--firstname-input"> */}
-            {/* <label>First Name</label> */}
             <input
               className="signupPage__form--input"
               placeholder="First Name"
@@ -102,8 +99,6 @@ const SignUpForm = () => {
               onChange={updateFirstName}
               value={firstName}
             />
-          {/* </div> */}
-            {/* <label>Last Name</label> */}
             <input
               className="signupPage__form--input"
               placeholder="Last Name"
@@ -112,7 +107,6 @@ const SignUpForm = () => {
               onChange={updateLastName}
               value={lastName}
             />
-            {/* <label>Password</label> */}
             <input
               className="signupPage__form--input"
               placeholder="Password"
@@ -121,7 +115,6 @@ const SignUpForm = () => {
               onChange={updatePassword}
               value={password}
             />
-            {/* <label>Confirm Password</label> */}
             <input
               className="signupPage__form--input"
               placeholder="Confirm Password"
@@ -132,6 +125,7 @@ const SignUpForm = () => {
               required={true}
             />
           <button className="signupPage__form--button"type='submit'>Sign Up</button>
+          <button className="signupPage__form--button" onClick={handleCancel}>Cancel</button>
         </form>
 
       </div>
