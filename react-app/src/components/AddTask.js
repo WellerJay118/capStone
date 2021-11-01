@@ -48,7 +48,8 @@ const AddTask = ({ id, setShowModal }) => {
     }
 
     return(
-        <div className="task__createform">
+        // <div className="task__createform-wrapper">
+        <div className="task__createform-container">
             <div className="task__createform--errors">
                 {errors.map((error, ind) => (
                 <div key={ind}>{error}</div>
@@ -111,6 +112,7 @@ const AddTask = ({ id, setShowModal }) => {
                 <button onClick={handleCancel}>Cancel</button>
             </div>
          </div>
+        //  </div>
     )
 }
 

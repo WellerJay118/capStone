@@ -3,6 +3,11 @@ import {useSelector} from "react-redux"
 import { useHistory } from "react-router"
 import SignUpForm from "./auth/SignUpForm";
 import { Modal } from "./context/Modal";
+import firstPic from "../components/images/Login-ss.png"
+import secondPic from "../components/images/create-ss.png"
+import thirdPic from "../components/images/projects-ss.png"
+import fourthPic from "../components/images/tasks-ss.png"
+
 
 const SplashPage = () => {
     const history = useHistory();
@@ -29,10 +34,10 @@ const SplashPage = () => {
 
                 <div className="splash-gridrow">
                     <div className="splash-gridrow__image">
-                        <img alt="" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"></img>
+                        <img alt="" src={firstPic}></img>
                     </div>
                     <div className="splash-gridrow__text">
-                        <p>this is where alot of our text will go for the things and stuff we want to showcase from our first image</p>
+                        <p>Lists on Lists is the no-fluff, straight forward option for project tracking and soon to be project management.</p>
                     </div>
                 </div>
 
@@ -40,10 +45,10 @@ const SplashPage = () => {
 
                 <div className="splash-gridrow">
                     <div className="splash-gridrow__text">
-                        <p>this is where alot of our text will go for the things and stuff we want to showcase from our second image</p>
+                        <p>Straight forward creation of new "Projects".</p>
                     </div>
                     <div className="splash-gridrow__image">
-                        <img alt="" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"></img>
+                        <img alt="" src={secondPic}></img>
                     </div>
                 </div>
 
@@ -51,10 +56,10 @@ const SplashPage = () => {
 
                 <div className="splash-gridrow">
                     <div className="splash-gridrow__image">
-                        <img alt="" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"></img>
+                        <img alt="" src={thirdPic}></img>
                     </div>
                     <div className="splash-gridrow__text">
-                        <p>this is where alot of our text will go for the things and stuff we want to showcase from our third image</p>
+                        <p>Easy to track multiple projects at a time.</p>
                     </div>
                 </div>
 
@@ -62,10 +67,10 @@ const SplashPage = () => {
 
                 <div className="splash-gridrow">
                     <div className="splash-gridrow__text">
-                        <p>this is where alot of our text will go for the things and stuff we want to showcase from our fourth image</p>
+                        <p>Concise, simple and easy tracking of every task for every Project!</p>
                     </div>
                     <div className="splash-gridrow__image">
-                        <img alt="" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"></img>
+                        <img alt="" src={fourthPic}></img>
                     </div>
                 </div>
 
