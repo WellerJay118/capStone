@@ -1,6 +1,6 @@
 # LnL - Lists on Lists
 
-LnL is a full stack application built to assist with basic tracking of things that need to be completed for any given project. Logged in users can create multiple projects and many tasks for those projects while tracking their status. Currently LnL is only seeded with a few test "projects" to show feature use as most of the information will come from the user. Visit the live site on Heroku, [Here](https://lnl-live.herokuapp.com/).
+LnL is a full stack application built to assist with basic tracking of things that need to be completed for any given project. Logged in users can create multiple projects and many tasks for those projects while tracking their status. Currently LnL is only seeded with a few test "projects" to show feature use as most of the information will come from the user. Visit the live site on Heroku, [Here](https://lnl-live.herokuapp.com/)..
 
 ## Architecture
 LnL was built on a PostgreSQL database with a Python backend and React frontend.
